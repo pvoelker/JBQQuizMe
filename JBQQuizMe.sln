@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31611.283
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JBQQuizMeApp", "JBQQuizMeApp\JBQQuizMeApp.csproj", "{663EBBE5-E57A-4F44-A123-AE28A8189300}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JBQQuizMe.ViewModel", "JBQQuizMe.ViewModel\JBQQuizMe.ViewModel.csproj", "{FF5F29C5-620C-4E04-A58D-8FAAD6576B51}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuestionImporterApp", "QuestionImporterApp\QuestionImporterApp.csproj", "{E7787EB4-05C5-4723-AEC5-BF1B2DA48AC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{DAB8DE0C-4294-4896-B43A-B85DA1DCCFF9}"
+	ProjectSection(SolutionItems) = preProject
+		JQB_10Pt_Questions.csv = JQB_10Pt_Questions.csv
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JBQQuizMe.Repository", "JBQQuizMe.Repository\JBQQuizMe.Repository.csproj", "{3F7FA590-8468-4A3E-9FD0-1A4177D3842F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7449CFEB-A5B8-40A0-8D5E-819A7B88EB8D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{663EBBE5-E57A-4F44-A123-AE28A8189300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{663EBBE5-E57A-4F44-A123-AE28A8189300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{663EBBE5-E57A-4F44-A123-AE28A8189300}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{663EBBE5-E57A-4F44-A123-AE28A8189300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{663EBBE5-E57A-4F44-A123-AE28A8189300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{663EBBE5-E57A-4F44-A123-AE28A8189300}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FF5F29C5-620C-4E04-A58D-8FAAD6576B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF5F29C5-620C-4E04-A58D-8FAAD6576B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF5F29C5-620C-4E04-A58D-8FAAD6576B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF5F29C5-620C-4E04-A58D-8FAAD6576B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7787EB4-05C5-4723-AEC5-BF1B2DA48AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7787EB4-05C5-4723-AEC5-BF1B2DA48AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7787EB4-05C5-4723-AEC5-BF1B2DA48AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7787EB4-05C5-4723-AEC5-BF1B2DA48AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F7FA590-8468-4A3E-9FD0-1A4177D3842F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F7FA590-8468-4A3E-9FD0-1A4177D3842F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F7FA590-8468-4A3E-9FD0-1A4177D3842F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F7FA590-8468-4A3E-9FD0-1A4177D3842F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:JBQQuizMe.ViewModel;assembly=JBQQuizMe.ViewModel"
+             xmlns:b="clr-namespace:JBQQuizMeApp.Behaviors"
+             xmlns:c="clr-namespace:JBQQuizMeApp.Converters"
+             x:Class="JBQQuizMeApp.QuizPage">
+    <ContentPage.BindingContext>
+        <vm:QuizPage/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <c:CandleGlowGradientStop x:Key="CandleGlowRadius" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label
+                Text="Make the candle glow brighter by answering questions correctly!"
+                Margin="10,10,10,40"
+                FontFamily="MorningRainbow"
+                FontSize="Large"
+                TextColor="Gray"
+                LineBreakMode="WordWrap"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    Spacing="25" 
+                    VerticalOptions="Center">
+
+                    <Label
+                        Text="{Binding Path=CurrentQuestion.Question}"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        SemanticProperties.HeadingLevel="Level2" />
+
+                    <ListView ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
+                              VerticalScrollBarVisibility="Never">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Button Text="{Binding Path=Text}"
+                                                FontSize="Small"
+                                                LineBreakMode="WordWrap"
+                                                IsEnabled="{Binding Path=NotAttempted}"
+                                                Command="{Binding Path=Clicked}">
+                                            <Button.Behaviors>
+                                                <b:ButtonClickJitter/>
+                                            </Button.Behaviors>
+                                        </Button>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Label
+                        IsVisible="{Binding Path=CurrentQuestion.IsPassagePresent}"
+                        Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}'}"
+                        FontSize="Small"
+                        HorizontalOptions="Center"
+                        SemanticProperties.HeadingLevel="Level2" />
+
+                    <Label
+                        Text="{Binding Path=CurrentQuestion.Number, StringFormat='JBQ Question #{0}'}"
+                        FontSize="Micro"
+                        HorizontalOptions="Center"
+                        SemanticProperties.HeadingLevel="Level2" />
+                </VerticalStackLayout>
+
+                <Grid
+                    Grid.Column="1"
+                    Margin="10"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+                    <Frame BorderColor="Transparent">
+                        <Frame.Background>
+                            <RadialGradientBrush Center="0.47,0.29">
+                                <GradientStop Color="Yellow" Offset="{Binding Completion}" />
+                                <GradientStop Color="LightYellow" Offset="{Binding Completion, Converter={StaticResource CandleGlowRadius}}" />
+                                <GradientStop Color="White" Offset="0.0" />
+                            </RadialGradientBrush>
+                        </Frame.Background>
+                    </Frame>
+
+                    <Image
+                        Source="whitecandle.png"
+                        SemanticProperties.Description="White candle"
+                        HeightRequest="200"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Image.Shadow>
+                            <Shadow Brush="Black"
+                                Offset="10,10"
+                                Radius="20"
+                                Opacity="0.8" />
+                        </Image.Shadow>
+                        <Image.Behaviors>
+                            <b:ImageJiggle />
+                        </Image.Behaviors>
+                    </Image>
+
+                    <Image
+                        Source="stars.png"
+                        SemanticProperties.Description="Stars"
+                        HeightRequest="200"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Image.Behaviors>
+                            <b:ImageSpinOut />
+                        </Image.Behaviors>
+                    </Image>
+                </Grid>
+            </Grid>
+
+            <Label
+                FontSize="Large"
+                FontFamily="MorningRainbow"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="{Binding Message}"
+                Margin="20"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    Text="{Binding Path=CorrectAnswers, StringFormat='Correct Answers {0}'}"
+                    FontFamily="MorningRainbow"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    SemanticProperties.HeadingLevel="Level2" />
+
+                <Label
+                    Grid.Column="1"
+                    Text="{Binding Path=WrongAnswers, StringFormat='Wrong Answers {0}'}"
+                    FontFamily="MorningRainbow"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    SemanticProperties.HeadingLevel="Level2" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
