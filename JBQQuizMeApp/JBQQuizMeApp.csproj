@@ -15,7 +15,7 @@
 		<ApplicationTitle>JBQ Quiz Me</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.jbqquizmeapp</ApplicationId>
+		<ApplicationId>pauledwardvoelker.jbqquizmeapp</ApplicationId>
 		<ApplicationIdGuid>AF1980A5-F16C-4734-A101-78BC36B26AD1</ApplicationIdGuid>
 
 		<!-- Versions -->

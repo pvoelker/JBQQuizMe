@@ -138,7 +138,11 @@
                     FontFamily="MorningRainbow"
                     FontSize="Medium"
                     HorizontalOptions="Center"
-                    SemanticProperties.HeadingLevel="Level2" />
+                    SemanticProperties.HeadingLevel="Level2">
+                    <Label.Behaviors>
+                        <b:CorrectLabelThump />
+                    </Label.Behaviors>
+                </Label>
 
                 <Label
                     Grid.Column="1"
@@ -146,7 +150,11 @@
                     FontFamily="MorningRainbow"
                     FontSize="Medium"
                     HorizontalOptions="Center"
-                    SemanticProperties.HeadingLevel="Level2" />
+                    SemanticProperties.HeadingLevel="Level2">
+                    <Label.Behaviors>
+                        <b:WrongLabelThump />
+                    </Label.Behaviors>                    
+                </Label>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
