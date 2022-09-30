@@ -285,7 +285,7 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "Through the disobedience of Cain and Abel" },
                         new List<string> { "Through the obedience of Noah" },
-                        new List<string> { "Through the disobedience of the angles" },
+                        new List<string> { "Through the disobedience of the angels" },
                         new List<string> { "Through the Internet" },
                     },
                     Passage = "Genesis 3:1-19;Romans 5:14",
@@ -1672,7 +1672,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "That Belshazzar's kingdom was about to be conquered" },
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "That Belshazzar's kingdom would grow" },
-                        new List<string> { "That Belshazzar need more wine" },
+                        new List<string> { "That Belshazzar needed more wine" },
                         new List<string> { "That Belshazzar's gold would be lost" },
                     },
                     Passage = "Daniel 5:25-31",
@@ -2117,9 +2117,10 @@ namespace JBQQuizMe.Repository
                     Question = "How did Jesus answer those who asked if it was right for them to pay taxes to Caesar?",
                     Answer = new List<string> { "Give Caesar what belongs to Caesar, and give God what belongs to God." },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "Do not give Caesar anything" },
-                        new List<string> { "Give to God after what is given to Caesar" },
+                        new List<string> { "Do not give Caesar anything." },
+                        new List<string> { "Give to God after what is given to Caesar." },
                         new List<string> { "Give to God what belongs to Caesar" },
+                        new List<string> { "Give Caesar everything." },
                     },
                     Passage = "Matthew 22:15-22",
                     Type = null
@@ -2465,9 +2466,9 @@ namespace JBQQuizMe.Repository
                     Question = "What happened while Peter was preaching at Cornelius's house?",
                     Answer = new List<string> { "The Holy Spirit fell upon all who were listening to the message." },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "The Romans arrested everyone" },
-                        new List<string> { "An earthquake happened" },
-                        new List<string> { "A dove pearched at the window" },
+                        new List<string> { "The Romans arrested everyone." },
+                        new List<string> { "An earthquake happened." },
+                        new List<string> { "A dove pearched at the window." },
                     },
                     Passage = "Acts 10:44-48",
                     Type = null

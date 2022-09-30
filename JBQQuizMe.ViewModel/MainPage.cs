@@ -15,7 +15,18 @@ namespace JBQQuizMe.ViewModel
 
             MaxQuestionNumber = repository.GetMaxNumber();
 
-            Version = Assembly.GetEntryAssembly().GetName().Version;
+            var assembly = Assembly.GetEntryAssembly();
+
+            Version = assembly.GetName().Version;
+            object[] attribs = assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), true);
+            if (attribs.Length > 0)
+            {
+                Copyright = ((AssemblyCopyrightAttribute)attribs[0]).Copyright;
+            }
+            else
+            {
+                Copyright = "ERROR: Unable to get copyright";
+            }
         }
 
         #region Commands
@@ -27,6 +38,13 @@ namespace JBQQuizMe.ViewModel
         {
             get => _version;
             private set => SetProperty(ref _version, value);
+        }
+
+        private string _copyright;
+        public string Copyright
+        {
+            get => _copyright;
+            private set => SetProperty(ref _copyright, value);
         }
 
         private int _maxQuestionNumber;

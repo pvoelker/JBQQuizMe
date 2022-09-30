@@ -15,7 +15,7 @@
 		<ApplicationTitle>JBQ Quiz Me</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.jbqquizmeapp</ApplicationId>
+		<ApplicationId>pauledwardvoelker.jbqquizmeapp</ApplicationId>
 		<ApplicationIdGuid>AF1980A5-F16C-4734-A101-78BC36B26AD1</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -38,15 +38,23 @@
 	  <Title>Quiz Me!</Title>
 	  <Product>Quiz Me!</Product>
 	  <AssemblyVersion>0.1.0.0</AssemblyVersion>
-	  <FileVersion>0.1.0.0</FileVersion>
+	  <FileVersion>0.2.0.0</FileVersion>
 	  <Description>Game for practicing 10-point questions in Junior Bible Quizzing (JBQ)</Description>
+	  <Copyright>Copyright © 2022 Paul Voelker</Copyright>
+      <DefaultLanguage>en</DefaultLanguage>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(Configuration)' == 'Release'">
 		<AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
 		<PackageCertificateThumbprint>8fd9f7c803428d3d12ff9586e0a5dcf9f0f7424f</PackageCertificateThumbprint>
 	</PropertyGroup>
-	
+
+	<PropertyGroup>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -62,6 +70,16 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="LICENSE.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="LICENSE.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>

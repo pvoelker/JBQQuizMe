@@ -63,6 +63,10 @@ namespace JBQQuizMe.ViewModel
 
         public IRelayCommand Celebration { get; set; }
 
+        public IRelayCommand CorrectAnswerGiven { get; set; }
+
+        public IRelayCommand WrongAnswerGiven { get; set; }
+
         #endregion
 
         private AskedQuestion _currentQuestion = null;
@@ -230,6 +234,11 @@ namespace JBQQuizMe.ViewModel
                 CandleJiggle.Execute(null);
             }
 
+            if(CorrectAnswerGiven != null)
+            {
+                CorrectAnswerGiven.Execute(null);
+            }
+
             Completion += COMPLETION_DELTA;
 
             if (Completion == 1m)
@@ -251,7 +260,12 @@ namespace JBQQuizMe.ViewModel
             Message = "Try again!";
             WrongAnswers += 1;
 
-            if(Completion > 0)
+            if (WrongAnswerGiven != null)
+            {
+                WrongAnswerGiven.Execute(null);
+            }
+
+            if (Completion > 0)
             {
                 Completion -= COMPLETION_DELTA;
             }
