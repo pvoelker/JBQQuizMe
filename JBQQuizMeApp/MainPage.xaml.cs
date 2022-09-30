@@ -32,9 +32,10 @@ public partial class MainPage : ContentPage
 		var builder = new StringBuilder();
         builder.AppendLine("JBQ Quiz Me❗");
 		builder.AppendLine(context.Copyright);
+		builder.AppendLine("MIT License");
         builder.AppendLine($"Version: {context.Version}");
 		builder.AppendLine(string.Empty);
-		builder.AppendLine("• Questions are based on 10 point questions from the Bible Fact-Pak™");
+		builder.AppendLine("• Questions are based on 10 point questions from the Bible Fact-Pak™ (https://biblefactpak.com/)");
 		builder.AppendLine("• Designed and developed by Paul Voelker of Faith Chapel - Overland Park");
         builder.AppendLine("• Questions transcribed by Pastor Michelle Redmon of Faith Chapel - Overland Park");
         builder.AppendLine("• Given to the glory of God");
