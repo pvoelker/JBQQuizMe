@@ -37,13 +37,21 @@
       <PublisherName>Paul Voelker</PublisherName>
 	  <Title>Quiz Me!</Title>
 	  <Product>Quiz Me!</Product>
-	  <AssemblyVersion>0.1.0.0</AssemblyVersion>
-	  <FileVersion>0.2.0.0</FileVersion>
+	  <AssemblyVersion>0.3.0.0</AssemblyVersion>
+	  <FileVersion>0.3.0.0</FileVersion>
 	  <Description>Game for practicing 10-point questions in Junior Bible Quizzing (JBQ)</Description>
 	  <Copyright>Copyright © 2022 Paul Voelker</Copyright>
       <DefaultLanguage>en</DefaultLanguage>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>jbqquizme.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyAlias>key</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass></AndroidSigningKeyPass>
+		<AndroidSigningStorePass></AndroidSigningStorePass>
+	</PropertyGroup>
+	
 	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(Configuration)' == 'Release'">
 		<AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
 		<PackageCertificateThumbprint>8fd9f7c803428d3d12ff9586e0a5dcf9f0f7424f</PackageCertificateThumbprint>
