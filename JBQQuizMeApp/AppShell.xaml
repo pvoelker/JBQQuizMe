@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Quiz Me❗ (alpha version - do not distribute)"
+        Title="JBQ Quiz Me!"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

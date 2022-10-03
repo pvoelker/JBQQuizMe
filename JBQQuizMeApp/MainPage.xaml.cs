@@ -30,7 +30,7 @@ public partial class MainPage : ContentPage
         var context = BindingContext as JBQQuizMe.ViewModel.MainPage;
         
 		var builder = new StringBuilder();
-        builder.AppendLine("JBQ Quiz Me❗");
+        builder.AppendLine("JBQ Quiz Me!");
 		if (context.Copyright != null)
 		{
 			builder.AppendLine(context.Copyright);

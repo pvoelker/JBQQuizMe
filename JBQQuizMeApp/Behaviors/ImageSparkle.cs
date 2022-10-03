@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace JBQQuizMeApp.Behaviors
 {
-    public class ImageSpinOut : Behavior<Image>
+    public class ImageSparkle : Behavior<Image>
     {
+        private Random _rand = new Random();
+
         protected override void OnAttachedTo(Image control)
         {
             control.BindingContextChanged += Control_BindingContextChanged;
@@ -31,28 +33,16 @@ namespace JBQQuizMeApp.Behaviors
 
             if (context != null)
             {
-                context.Celebration = new AsyncRelayCommand(async () =>
+                context.CandleSparkle = new AsyncRelayCommand(async () =>
                 {
-                    await control.ScaleTo(.25, 0);
-                    await control.RotateTo(0, 0);
+                    control.Scale = .25;
+                    control.Rotation = _rand.Next(0, 360);
 
                     control.IsVisible = true;
 
-                    await Task.WhenAny
-                    (
-                        control.RelRotateTo(360, 1000),
-                        control.ScaleTo(1, 1000)
-                    );
-                    await Task.WhenAny
-                    (
-                        control.RelRotateTo(360, 1000),
-                        control.ScaleTo(4, 1000)
-                    );
+                    await control.ScaleTo(2, 250);
 
                     control.IsVisible = false;
-
-                    await control.ScaleTo(.25, 0);
-                    await control.RotateTo(0, 0);
                 });
             }
         }

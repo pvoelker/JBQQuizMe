@@ -41,7 +41,8 @@
                         SemanticProperties.HeadingLevel="Level2" />
 
                     <ListView ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
-                              VerticalScrollBarVisibility="Never">
+                              VerticalScrollBarVisibility="Never"
+                              HasUnevenRows="True">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -110,6 +111,7 @@
 
                     <Image
                         Source="stars.png"
+                        IsVisible="false"
                         SemanticProperties.Description="Stars"
                         HeightRequest="200"
                         HorizontalOptions="Center"
@@ -118,6 +120,25 @@
                             <b:ImageSpinOut />
                         </Image.Behaviors>
                     </Image>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image
+                            Grid.Row="0"
+                            Source="sparkle.png"
+                            IsVisible="false"
+                            SemanticProperties.Description="Sparkle"
+                            HeightRequest="100"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                            <Image.Behaviors>
+                                <b:ImageSparkle />
+                            </Image.Behaviors>
+                        </Image>
+                    </Grid>
                 </Grid>
             </Grid>
 
