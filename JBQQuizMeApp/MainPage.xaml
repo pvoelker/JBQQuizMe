@@ -38,11 +38,11 @@
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
+            <Label
+                HorizontalOptions="Center"
+                FontSize="Medium">Question Number Range (optional):</Label>
             <HorizontalStackLayout
                 HorizontalOptions="Center">
-                <Label
-                    VerticalOptions="Center"
-                    FontSize="Medium">Question Number Range (optional):</Label>
                 <Entry                   
                     Keyboard="Numeric"
                     Placeholder="Start"
@@ -59,7 +59,7 @@
                 </Entry>
                 <Label
                     VerticalOptions="Center"
-                    FontSize="Large">🡒</Label>
+                    FontSize="Medium">to</Label>
                 <Entry
                     Keyboard="Numeric"
                     Placeholder="End"

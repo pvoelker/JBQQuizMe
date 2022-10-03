@@ -30,6 +30,7 @@
                 </Grid.ColumnDefinitions>
                 <VerticalStackLayout
                     Grid.Column="0"
+                    Margin="5"
                     Spacing="25" 
                     VerticalOptions="Center">
 
@@ -49,7 +50,8 @@
                                                 FontSize="Small"
                                                 LineBreakMode="WordWrap"
                                                 IsEnabled="{Binding Path=NotAttempted}"
-                                                Command="{Binding Path=Clicked}">
+                                                Command="{Binding Path=Clicked}"
+                                                VerticalOptions="CenterAndExpand">
                                             <Button.Behaviors>
                                                 <b:ButtonClickJitter/>
                                             </Button.Behaviors>
@@ -76,7 +78,7 @@
 
                 <Grid
                     Grid.Column="1"
-                    Margin="10"
+                    Margin="5"
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand">
                     <Frame BorderColor="Transparent">
