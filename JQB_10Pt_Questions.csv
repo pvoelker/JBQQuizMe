@@ -1,7 +1,7 @@
 ﻿Number,Question,OriginalAnswer,Type,Answer,WrongAnswers,Passage,OTNT,Theme
 1,What is the Bible?,The Bible is the inspired Word of God and is His revelation to all people of himself and His plan of salvation.,,The inspired Word of God and is His revelation to all people of himself and His plan of salvation.,A collection of ancient songs.|The written word of the prophets of God.|A collection of ancient writing by church elders.,,,General
 2,How many books are there in the Bible?,Sixty-six,Number,66,,,,General
-3,What are the two divisions of the Bible?,Old Testament and New Testament,,,Front and Back Part|The Beatitudes and Psalms|The Gospel and the Law,,,General
+3,What are the two divisions of the Bible?,Old Testament and New Testament,,,The Front and Back Part|The Beatitudes and Psalms|The Gospel and the Law|The Old and New Sections,,,General
 4,"What does ""testament"" mean?",Covenant [contract or agreement],TermDefinition,,,,,General
 5,How many books are in the Old Testament?,Thirty-nine,Number,39,,,,General
 6,In what language was most of the Old Testament written?,Hebrew,,,Greek|Latin|Egyptian|Arabic|Chinese,,,General
@@ -10,9 +10,9 @@
 9,About how many people did God inspire to write the Bible?,[About] forty,Number,40,,,,General
 10,Approximately how many years did it take to write the Bible?,"[Approximately] 1,600 years",Timespan,,,,,General
 11,Which book of the Bible tells about the beginnings of the world?,Genesis,BookOfTheBible,,,,OT,Creation
-12,What are the four Gospels?,Matthew|Mark|Luke|John,,,Peter~Paul~Mary~Joe|Genesis~Exodus~Leviticus~Numbers|Psalms~Proverbs~Romans~Acts,,NT,General
+12,What are the four Gospels?,Matthew|Mark|Luke|John,,,Peter~Paul~Mary~Joe|Genesis~Exodus~Leviticus~Numbers|Psalms~Proverbs~Romans~Acts|1 John~2 John~3 John~Jude,,NT,General
 13,"What does the word ""gospel"" mean?",Good news,TermDefinition,,,,,General
-14,What is the theme of the four Gospels?,The life and teaching of Jesus,,,The life and teachings of Moses|The life of the apostels|The revalation of the end times,,NT,Ministry of Jesus
+14,What is the theme of the four Gospels?,The life and teaching of Jesus,,,"The life and teachings of Moses|The life of the apostels|The revalation of the end times|Eat, Sleep, Repeat",,NT,Ministry of Jesus
 15,Who wrote more books of the Bible than any other person?,Paul,Person,,,,NT,Ministry of Paul
 16,Which book of the Bible tells about the beginnings of the Church?,Acts,BookOfTheBible,,,,NT,General
 17,Which New Testament book is composed almost entirely of prophecies of the future?,Revelation,BookOfTheBible,,,,NT,End Times
@@ -20,8 +20,8 @@
 19,Who wrote many of the Psalms?,King David,Person,,,,OT,David
 20,What is an epistle?,A letter sent by an apostle.,TermDefinition,,,,NT,Apostles
 21,What is the longest book of the Bible?,Psalms,BookOfTheBible,,,,OT,General
-22,What is the shortest chapter in the Bible?,Psalm 117,,,Psalm 119|Job 25|Esther 10|Psalm 133,,OT,General
-23,What is the longest chapter in the Bible?,Psalm 119,,,Psalm 117|Matthew 26|Luke 1,,OT,General
+22,What is the shortest chapter in the Bible?,Psalm 117,,,Psalm 119|Job 25|Esther 10|Psalm 133|Genesis 1,,OT,General
+23,What is the longest chapter in the Bible?,Psalm 119,,,Psalm 117|Matthew 26|Luke 1|Revelation 22,,OT,General
 24,Where did the universe come from?,Genesis 1:1 In the beginning God created the heavens and the earth.,DirectBibleQuote,"Genesis 1:1 ""In the beginning God created the heavens and the earth.""",,Genesis 1:1,OT,Creation
 25,Who were the first man and first woman?,Adam and Eve,TwoPersons,,,Genesis 3:20,OT,Garden of Eden
 26,How are people different from animals?,God created people in His own image.,,,God gave people the ability to stand.|God gave people brains.|God gave people the ability to talk.|God create people in the image of the angels.,Genesis 1:27,OT,Creation
@@ -30,8 +30,8 @@
 29,How did sin enter the world?,Through the disobedience of Adam and Eve,,,Through the disobedience of Cain and Abel|Through the obedience of Noah|Through the disobedience of the angels|Through the Internet,Genesis 3:1-19;Romans 5:14,,Garden of Eden
 30,The account of man's first sin mentioned what two trees?,The tree of the knowledge of good and evil|The tree of life,,,The tree of widsom~The tree of wealth|The tree of peace~The tree of health|The tree of love~The bush of fire,Genesis 2:17; 3:24,OT,Garden of Eden
 31,What man walked with God until God took him to heaven without dying?,Enoch,Person,,,Genesis 5:23-24,OT,Noah
-32,"Who lived longer than any other person, and how long did he live?",Methuselah--969 years,,,Lamech--1001 years|Jared--962 years|Noah--950 years,Genesis 5:27,OT,Noah
-33,Why did God send a flood upon the earth?,Because people were so wicked and they thought about evil all the time,,,Because people were sometimes wicked|Because people did not pick up their trash|Because people did not read the Bible,Genesis 6:5,OT,Noah
+32,"Who lived longer than any other person, and how long did he live?",Methuselah--969 years,,,Lamech--1001 years|Jared--962 years|Noah--950 years|Mahalalel--895,Genesis 5:27,OT,Noah
+33,Why did God send a flood upon the earth?,Because people were so wicked and they thought about evil all the time,,,Because people were sometimes wicked|Because people did not pick up their trash|Because people did not read the Bible|Because too many people left their sinks on,Genesis 6:5,OT,Noah
 34,Whom did God spare from the Great Flood?,Noah and his family,,,Moses and his family|Noah and his town|Noah and his wife|Moses and his pet dog,Genesis 7:7,OT,Noah
 35,Who were the three sons of Noah?,Shem|Ham|Japheth,,,Peter~James~John|Noah Jr~Noah II~Noah IV|Peter~Paul~Mary,Genesis 7:13,OT,Noah
 36,"When the Flood came, how long did it rain?",Forty days and nights,Timespan,,,Genesis 7:12,OT,Noah
@@ -156,7 +156,7 @@
 155,"When the people returned to Jerusalem from captivity in Babylon, who oversaw the rebuilding of the temple?",Zerubbabel,Person,,,Ezra 3:8,OT,BabylonCaptivity
 156,"When the people returned to Jerusalem from captivity in Babylon, who oversaw the rebuilding of the walls of the city?",Nehemiah,Person,,,Nehemiah 2:4-8,OT,BabylonCaptivity
 157,Who was the Jewish girl who became the wife of the king of Persia?,Esther,Person,,,Esther 2:16-17,OT,Esther
-158,How did Esther save the lives of the Jewish people?,"By asking her husband, king of Persia, to spare their lives",,,By asking her cousin Mordecai to spare their lives|By moving the Jewish people to another land|By hiding the Jewish people,Esther 7:1-6,OT,Esther
+158,How did Esther save the lives of the Jewish people?,"By asking her husband, king of Persia, to spare their lives",,,By asking her cousin Mordecai to spare their lives|By moving the Jewish people to another land|By hiding the Jewish people|By putting them on a boat and sailing across the sea,Esther 7:1-6,OT,Esther
 159,What man lost all of his possessions and his health but remained true to God?,Job,Person,,,Job 1:7-22,OT,Job
 160,How did God reward Job for his faithfulness?,God gave him as many children and twice as many possessions as he had had before his trial.,,,God gave hime one child and a new home.|God gave him a kingdom.|God gave him the land of his enemies.,Job 42:10-13,OT,Job
 161,Who was called the weeping prophet?,Jeremiah,Person,,,Jeremiah 9:1,OT,Jeremiah
@@ -198,12 +198,12 @@
 197,Why did the rich young leader fail to follow Jesus?,He loved the things he owned more than he loved Jesus.,,,He loved his wife more than he loved Jesus.|He loved his sheep more than he loved Jesus.|He loved his father more than he loved Jesus.,Matthew 19:16-22; Luke 18:18-23,NT,Ministry of Jesus
 198,What did Jesus prophesy would happen to the stones of the temple?,Not one stone would be left on top of another,,,All of them would be wet|All of them would be burnt|Not one stone would be lost,Mark 13:1-2,NT,Ministry of Jesus
 199,What great statement did Peter make about Jesus?,"Matthew 16:16 ""You are the Messiah, the Son of the living God.""",DirectBibleQuote,,,Matthew 16:16,NT,Ministry of Jesus
-200,Which three of the disciples were Jesus' closest friends?,Peter|James|John,,,Peter~Paul~Mary|Shem~Ham~Japeth|Timothy~Andrew~Jude,Matthew 17:1 ,NT,Ministry of Jesus
+200,Which three of the disciples were Jesus' closest friends?,Peter|James|John,,,Peter~Paul~Mary|Shem~Ham~Japeth|Timothy~Andrew~Jude|John~John Jr.~John III,Matthew 17:1 ,NT,Ministry of Jesus
 201,Who did Jesus say was like the foolish man who built his house upon sand?,Those who hear His teachings but do not obey them,,,Those who hear His teachings and follow them|Those who do not listen|Those who talk too much,Matthew 7:26,NT,Ministry of Jesus
 202,Who did Jesus say was like the wise man who built his house upon the rock?,Those who hear His teachings and follow them,,,Those who hear His teachings but do not obey them|Those who do not listen|Those who talk too much,Matthew 7:24,NT,Ministry of Jesus
-203,"In Jesus' parable, who helped the man who had been beaten and robbed?",The Good Samaritan,,,The Bad Samaritan|The Good Persian|The Babylonian,Luke 10:30-37,NT,Ministry of Jesus
+203,"In Jesus' parable, who helped the man who had been beaten and robbed?",The Good Samaritan,,,The Bad Samaritan|The Good Persian|The Babylonian|The New Yorker,Luke 10:30-37,NT,Ministry of Jesus
 204,"In the Parable of the Sower, to what did Jesus compare the seed?",The Word of God,,,The Tree of Life|The Fruit of Salvation|The Faith of the Holy,Mark 4:14,NT,Ministry of Jesus
-205,What did Jesus teach about material possessions?,Don't be greedy.  A person's life is not measured by how much they own.,,Don't be greedy,Don't be wasteful|Don't convet your neighbors possessions|Do not steal,Luke 12:15,NT,Ministry of Jesus
+205,What did Jesus teach about material possessions?,Don't be greedy.  A person's life is not measured by how much they own.,,Don't be greedy,Don't be wasteful|Don't convet your neighbors possessions|Do not steal|Don't misplace them|Do not sell them,Luke 12:15,NT,Ministry of Jesus
 206,What did Jesus do in healing the man born blind?,He put mud on his eyes and told him to go and wash it off.,,,He put oil on his eyes and told him to go and wash it off.|He fed the man fish.|He told the man's family to pray.|He gave the man eye drops.,John 9:1-7,NT,Ministry of Jesus
 207,Which of Jesus' parables tells us that God is willing to forgive and restore the sinner who repents?,The Parable of the Prodigal Son,,,The Good Samaritan|The Mustard Seed|The Lost Sheep|The Two Sons,Luke 15:11-32,NT,Ministry of Jesus
 208,How did Jesus answer those who asked if it was right for them to pay taxes to Caesar?,"Give Caesar what belongs to Caesar, and give God what belongs to God.",,,Do not give Caesar anything.|Give to God after what is given to Caesar.|Give to God what belongs to Caesar.|Give Caesar everything.,Matthew 22:15-22,NT,Ministry of Jesus

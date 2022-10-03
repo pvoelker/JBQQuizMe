@@ -37,9 +37,10 @@ namespace JBQQuizMe.Repository
                     Question = "What are the two divisions of the Bible?",
                     Answer = new List<string> { "Old Testament and New Testament" },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "Front and Back Part" },
+                        new List<string> { "The Front and Back Part" },
                         new List<string> { "The Beatitudes and Psalms" },
                         new List<string> { "The Gospel and the Law" },
+                        new List<string> { "The Old and New Sections" },
                     },
                     Passage = null,
                     Type = null
@@ -128,6 +129,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Peter","Paul","Mary","Joe" },
                         new List<string> { "Genesis","Exodus","Leviticus","Numbers" },
                         new List<string> { "Psalms","Proverbs","Romans","Acts" },
+                        new List<string> { "1 John","2 John","3 John","Jude" },
                     },
                     Passage = null,
                     Type = null
@@ -148,6 +150,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "The life and teachings of Moses" },
                         new List<string> { "The life of the apostels" },
                         new List<string> { "The revalation of the end times" },
+                        new List<string> { "Eat, Sleep, Repeat" },
                     },
                     Passage = null,
                     Type = null
@@ -217,6 +220,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Job 25" },
                         new List<string> { "Esther 10" },
                         new List<string> { "Psalm 133" },
+                        new List<string> { "Genesis 1" },
                     },
                     Passage = null,
                     Type = null
@@ -229,6 +233,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Psalm 117" },
                         new List<string> { "Matthew 26" },
                         new List<string> { "Luke 1" },
+                        new List<string> { "Revelation 22" },
                     },
                     Passage = null,
                     Type = null
@@ -319,6 +324,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Lamech--1001 years" },
                         new List<string> { "Jared--962 years" },
                         new List<string> { "Noah--950 years" },
+                        new List<string> { "Mahalalel--895" },
                     },
                     Passage = "Genesis 5:27",
                     Type = null
@@ -331,6 +337,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Because people were sometimes wicked" },
                         new List<string> { "Because people did not pick up their trash" },
                         new List<string> { "Because people did not read the Bible" },
+                        new List<string> { "Because too many people left their sinks on" },
                     },
                     Passage = "Genesis 6:5",
                     Type = null
@@ -1592,6 +1599,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "By asking her cousin Mordecai to spare their lives" },
                         new List<string> { "By moving the Jewish people to another land" },
                         new List<string> { "By hiding the Jewish people" },
+                        new List<string> { "By putting them on a boat and sailing across the sea" },
                     },
                     Passage = "Esther 7:1-6",
                     Type = null
@@ -2024,6 +2032,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Peter","Paul","Mary" },
                         new List<string> { "Shem","Ham","Japeth" },
                         new List<string> { "Timothy","Andrew","Jude" },
+                        new List<string> { "John","John Jr.","John III" },
                     },
                     Passage = "Matthew 17:1 ",
                     Type = null
@@ -2060,6 +2069,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "The Bad Samaritan" },
                         new List<string> { "The Good Persian" },
                         new List<string> { "The Babylonian" },
+                        new List<string> { "The New Yorker" },
                     },
                     Passage = "Luke 10:30-37",
                     Type = null
@@ -2084,6 +2094,8 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Don't be wasteful" },
                         new List<string> { "Don't convet your neighbors possessions" },
                         new List<string> { "Do not steal" },
+                        new List<string> { "Don't misplace them" },
+                        new List<string> { "Do not sell them" },
                     },
                     Passage = "Luke 12:15",
                     Type = null
