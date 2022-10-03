@@ -1472,10 +1472,10 @@ namespace JBQQuizMe.Repository
                     Question = "What happened to the kingdom of Israel upon the death of Solomon?",
                     Answer = new List<string> { "It was divided into the kingdoms of Israel and Judah." },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "It joined with a neighboring country" },
-                        new List<string> { "It was conquered" },
-                        new List<string> { "It was divided into twelve kingdoms" },
-                        new List<string> { "It was dissolved" },
+                        new List<string> { "It joined with a neighboring country." },
+                        new List<string> { "It was conquered." },
+                        new List<string> { "It was divided into twelve kingdoms." },
+                        new List<string> { "It was dissolved." },
                     },
                     Passage = "1 Kings 4:20-21; 11:28-43; 12:16-20",
                     Type = null
@@ -1663,7 +1663,7 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "He was made a prophet to the king." },
                         new List<string> { "He was thrown into a field of sheep." },
-                        new List<string> { "He was banished from the kingdom" },
+                        new List<string> { "He was banished from the kingdom." },
                     },
                     Passage = "Daniel 6:4-16",
                     Type = null
@@ -1908,9 +1908,9 @@ namespace JBQQuizMe.Repository
                     Question = "How did God show His approval of Jesus at His baptism?",
                     Answer = new List<string> { "The Holy Spirit descended on Him and the Father said, \"This is my dearly loved Son, who brings me great joy.\"" },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "\"This is my Son of the line of David\"" },
-                        new List<string> { "\"This is my Son, who shall bring peace\"" },
-                        new List<string> { "\"This is my dearly loved Son, who brings me great sorrow\"" },
+                        new List<string> { "\"This is my Son of the line of David.\"" },
+                        new List<string> { "\"This is my Son, who shall bring peace to the world.\"" },
+                        new List<string> { "\"This is my dearly loved Son, who brings me great sorrow.\"" },
                     },
                     Passage = "Matthew 3:16-17; Luke 3:21-22",
                     Type = null
@@ -1979,7 +1979,7 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "Jesus' appearance looked the same." },
                         new List<string> { "Jesus talked with Noah." },
-                        new List<string> { "Jesus' cloths were made of gold" },
+                        new List<string> { "Jesus' cloths were made of gold." },
                     },
                     Passage = "Matthew 17:1-8",
                     Type = null
@@ -2121,7 +2121,7 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "Do not give Caesar anything." },
                         new List<string> { "Give to God after what is given to Caesar." },
-                        new List<string> { "Give to God what belongs to Caesar" },
+                        new List<string> { "Give to God what belongs to Caesar." },
                         new List<string> { "Give Caesar everything." },
                     },
                     Passage = "Matthew 22:15-22",
@@ -2132,9 +2132,9 @@ namespace JBQQuizMe.Repository
                     Question = "How did Jesus feed five thousand men, plus women and children?",
                     Answer = new List<string> { "He multiplied five loaves and two fish from a boy's lunch." },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "He and the disciples fished all night" },
-                        new List<string> { "He order food from another town" },
-                        new List<string> { "Mana fell from the sky" },
+                        new List<string> { "He and the disciples fished all night." },
+                        new List<string> { "He ordered food from another town." },
+                        new List<string> { "Mana fell from the sky." },
                     },
                     Passage = "Matthew 14:13-21; Mark 6:32-44; Luke 9:10-17; John 6:1-13",
                     Type = null
@@ -2205,10 +2205,10 @@ namespace JBQQuizMe.Repository
                     Question = "What did Jesus prophesy Peter would do on the night of His betrayal?",
                     Answer = new List<string> { "Peter would deny knowing Jesus three times." },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "Peter would pray" },
-                        new List<string> { "Peter would stop Judas" },
-                        new List<string> { "Peter would leave the country" },
-                        new List<string> { "Peter would battle the Romans" },
+                        new List<string> { "Peter would pray." },
+                        new List<string> { "Peter would stop Judas." },
+                        new List<string> { "Peter would leave the country." },
+                        new List<string> { "Peter would battle the Romans." },
                     },
                     Passage = "Matthew 26:34",
                     Type = null
@@ -2441,9 +2441,9 @@ namespace JBQQuizMe.Repository
                     Question = "What happened to Saul of Tarsus near Damascus?",
                     Answer = new List<string> { "Jesus appeared to him in a light from heaven, and Saul accepted Him as Lord." },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "A donkey spoke to him" },
-                        new List<string> { "He was robbed and beaten by theives" },
-                        new List<string> { "He found a silver coin" },
+                        new List<string> { "A donkey spoke to him." },
+                        new List<string> { "He was robbed and beaten by theives." },
+                        new List<string> { "He found a silver coin." },
                     },
                     Passage = "Acts 9:3-9",
                     Type = null
