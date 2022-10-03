@@ -10,7 +10,11 @@ Simple quizzing game for kids based on Junior Bible Quizzing (JBQ) 10-point ques
 - The certificate thumbnail needs to be known
 - In the JBQQuizMeApp project file, 'PackageCertificateThumbprint' may need to be updated to the current thumbnail
 
-dotnet publish -f net6.0-windows10.0.19041.0 -c Release /p:RuntimeIdentifierOverride=win10-x86
+#### 32-bit (not working yet)
+dotnet publish -f net6.0-windows10.0.19041.0 -c Release -r win10-x86
+
+#### 64-bit Windows
+dotnet publish -f net6.0-windows10.0.19041.0 -c Release /p:RuntimeIdentifierOverride=win10-x64
 
 ### Android
 
