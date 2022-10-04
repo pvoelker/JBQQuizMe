@@ -15,17 +15,32 @@ namespace JBQQuizMe.ViewModel
 
             MaxQuestionNumber = repository.GetMaxNumber();
 
-            var assembly = Assembly.GetEntryAssembly();
+            try
+            {
+                var assembly = Assembly.GetEntryAssembly();
 
-            Version = assembly.GetName().Version;
-            object[] attribs = assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), true);
-            if (attribs.Length > 0)
-            {
-                Copyright = ((AssemblyCopyrightAttribute)attribs[0]).Copyright;
+                if (assembly != null)
+                {
+                    Version = assembly.GetName().Version;
+                    object[] attribs = assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), true);
+                    if (attribs.Length > 0)
+                    {
+                        Copyright = ((AssemblyCopyrightAttribute)attribs[0]).Copyright;
+                    }
+                    else
+                    {
+                        Copyright = "ERROR: Unable to get copyright";
+                    }
+                }
+                else
+                {
+                    Version = null;
+                    Copyright = null;
+                }
             }
-            else
+            catch
             {
-                Copyright = "ERROR: Unable to get copyright";
+                throw; // Ignore exception and move on, we will hit this on Android
             }
         }
 
@@ -33,11 +48,20 @@ namespace JBQQuizMe.ViewModel
 
         #endregion
 
+        public bool IsVersionInfoPresent
+        {
+            get => Version != null;
+        }
+
         private Version _version;
         public Version Version
         {
             get => _version;
-            private set => SetProperty(ref _version, value);
+            private set
+            {
+                SetProperty(ref _version, value);
+                OnPropertyChanged(nameof(IsVersionInfoPresent));
+            }
         }
 
         private string _copyright;

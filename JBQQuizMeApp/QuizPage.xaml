@@ -30,6 +30,7 @@
                 </Grid.ColumnDefinitions>
                 <VerticalStackLayout
                     Grid.Column="0"
+                    Margin="5"
                     Spacing="25" 
                     VerticalOptions="Center">
 
@@ -40,7 +41,8 @@
                         SemanticProperties.HeadingLevel="Level2" />
 
                     <ListView ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
-                              VerticalScrollBarVisibility="Never">
+                              VerticalScrollBarVisibility="Never"
+                              HasUnevenRows="True">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -49,7 +51,8 @@
                                                 FontSize="Small"
                                                 LineBreakMode="WordWrap"
                                                 IsEnabled="{Binding Path=NotAttempted}"
-                                                Command="{Binding Path=Clicked}">
+                                                Command="{Binding Path=Clicked}"
+                                                VerticalOptions="CenterAndExpand">
                                             <Button.Behaviors>
                                                 <b:ButtonClickJitter/>
                                             </Button.Behaviors>
@@ -76,7 +79,7 @@
 
                 <Grid
                     Grid.Column="1"
-                    Margin="10"
+                    Margin="5"
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand">
                     <Frame BorderColor="Transparent">
@@ -108,6 +111,7 @@
 
                     <Image
                         Source="stars.png"
+                        IsVisible="false"
                         SemanticProperties.Description="Stars"
                         HeightRequest="200"
                         HorizontalOptions="Center"
@@ -116,6 +120,25 @@
                             <b:ImageSpinOut />
                         </Image.Behaviors>
                     </Image>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image
+                            Grid.Row="0"
+                            Source="sparkle.png"
+                            IsVisible="false"
+                            SemanticProperties.Description="Sparkle"
+                            HeightRequest="100"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                            <Image.Behaviors>
+                                <b:ImageSparkle />
+                            </Image.Behaviors>
+                        </Image>
+                    </Grid>
                 </Grid>
             </Grid>
 

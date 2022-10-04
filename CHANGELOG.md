@@ -13,3 +13,11 @@ Track changes made to the game application.
 - Add information button on main screen
 - Enhance quizzing user interface
 - Apply MIT license
+
+## Verion 0.3.0.0
+
+- First beta version
+- Fix issue with accidental clicks when new question is brought up
+- Fix layout on Android phones
+- Enhance quizzing user interface based on user input
+- Clean up product name

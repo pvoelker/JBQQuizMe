@@ -11,8 +11,8 @@ namespace JBQQuizMe.Repository
         public int Number { get; set; }
         public string Question { get; set; }
         public List<string> Answer { get; set; }
-        public List<List<string>> WrongAnswers { get; set; }
-        public string Passage { get; set; }
-        public string Type { get; set; }
+        public List<List<string>>? WrongAnswers { get; set; }
+        public string? Passage { get; set; }
+        public string? Type { get; set; }
     }
 }

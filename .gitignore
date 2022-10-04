@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Android secure files (not to be added to source control)
+*.keystore
+
 # User-specific files
 *.rsuser
 *.suo

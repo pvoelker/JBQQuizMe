@@ -30,12 +30,19 @@ public partial class MainPage : ContentPage
         var context = BindingContext as JBQQuizMe.ViewModel.MainPage;
         
 		var builder = new StringBuilder();
-        builder.AppendLine("JBQ Quiz Me❗");
-		builder.AppendLine(context.Copyright);
+        builder.AppendLine("JBQ Quiz Me!");
+		if (context.Copyright != null)
+		{
+			builder.AppendLine(context.Copyright);
+		}
 		builder.AppendLine("MIT License");
-        builder.AppendLine($"Version: {context.Version}");
+		if (context.Version != null)
+		{
+			builder.AppendLine($"Version: {context.Version}");
+		}
 		builder.AppendLine(string.Empty);
 		builder.AppendLine("• Questions are based on 10 point questions from the Bible Fact-Pak™ (https://biblefactpak.com/)");
+		builder.AppendLine("• Questions are sourced from the New Living Translation (NLT) version of the Bible");
 		builder.AppendLine("• Designed and developed by Paul Voelker of Faith Chapel - Overland Park");
         builder.AppendLine("• Questions transcribed by Pastor Michelle Redmon of Faith Chapel - Overland Park");
         builder.AppendLine("• Given to the glory of God");

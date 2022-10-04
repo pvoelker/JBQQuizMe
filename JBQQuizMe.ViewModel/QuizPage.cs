@@ -59,6 +59,8 @@ namespace JBQQuizMe.ViewModel
 
         #region Commands
 
+        public IRelayCommand CandleSparkle { get; set; }
+
         public IRelayCommand CandleJiggle { get; set; }
 
         public IRelayCommand Celebration { get; set; }
@@ -164,7 +166,7 @@ namespace JBQQuizMe.ViewModel
                 }
             };
 
-            retVal.CorrectAnswer.Clicked = new RelayCommand(() => CorrectAnswer());
+            retVal.CorrectAnswer.Clicked = new AsyncRelayCommand(async () => CorrectAnswer());
 
             retVal.PossibleAnswers = new List<Answer>();
             if (question.Type != null)
@@ -223,11 +225,21 @@ namespace JBQQuizMe.ViewModel
             }
         }
 
-        private void CorrectAnswer()
+        private async void CorrectAnswer()
         {
-            CurrentQuestion = GetNextQuestion();
+            // Prevent answer from being re-clicked
+            foreach(var item in CurrentQuestion.PossibleAnswers)
+            {
+                item.Attempted = true;
+            }
+
             Message = null;
             CorrectAnswers += 1;
+
+            if (CandleSparkle != null)
+            {
+                CandleSparkle.Execute(null);
+            }
 
             if (CandleJiggle != null)
             {
@@ -252,6 +264,11 @@ namespace JBQQuizMe.ViewModel
 
                 Completion = 0m;
             }
+
+            // Pause before putting up the new quetion to help prevent mis-clicks
+            await Task.Delay(250);
+
+            CurrentQuestion = GetNextQuestion();
         }
 
         private void WrongAnswer(Answer answer)
