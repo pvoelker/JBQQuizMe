@@ -116,11 +116,11 @@ namespace JBQQuizMe.ViewModel
             }
             else if (instance.StartQuestionNumber.HasValue && (instance.StartQuestionNumber > instance.MaxQuestionNumber))
             {
-                return new($"Start question number must be equal to or less than {instance.MaxQuestionNumber}");
+                return new($"Start question number must be equal to or less than {instance.MaxQuestionNumber}. This game only uses 10 point questions from the Bible Fact-Pak™.");
             }
             else if (instance.EndQuestionNumber.HasValue && (instance.EndQuestionNumber > instance.MaxQuestionNumber))
             {
-                return new($"End question number must be equal to or less than {instance.MaxQuestionNumber}");
+                return new($"End question number must be equal to or less than {instance.MaxQuestionNumber}. This game only uses 10 point questions from the Bible Fact-Pak™.");
             }
             else if ((instance.StartQuestionNumber.HasValue) ^ (instance.EndQuestionNumber.HasValue))
             {

@@ -53,7 +53,8 @@
                                                 LineBreakMode="WordWrap"
                                                 IsEnabled="{Binding Path=NotAttempted}"
                                                 Command="{Binding Path=Clicked}"
-                                                VerticalOptions="CenterAndExpand">
+                                                VerticalOptions="CenterAndExpand"
+                                                MinimumHeightRequest="60">
                                             <Button.Behaviors>
                                                 <b:ButtonClickJitter/>
                                             </Button.Behaviors>
@@ -72,7 +73,7 @@
                         SemanticProperties.HeadingLevel="Level2" />
 
                     <Label
-                        Text="{Binding Path=CurrentQuestion.Number, StringFormat='JBQ Question #{0}'}"
+                        Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"
                         FontSize="Micro"
                         HorizontalOptions="Center"
                         SemanticProperties.HeadingLevel="Level2" />

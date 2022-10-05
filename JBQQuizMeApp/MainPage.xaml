@@ -40,7 +40,7 @@
 
             <Label
                 HorizontalOptions="Center"
-                FontSize="Medium">Question Number Range (optional):</Label>
+                FontSize="Medium">Bible Fact-Pak™ Question Number Range (optional):</Label>
             <HorizontalStackLayout
                 HorizontalOptions="Center">
                 <Entry                   
@@ -78,12 +78,13 @@
 
             <Button 
                 Text="Quiz Me!"
-                Padding="40,0"
+                Padding="80,0"
                 FontSize="Large"
                 Clicked="QuizMe_Clicked"
                 HorizontalOptions="Center" />
 
             <HorizontalStackLayout
+                Margin="10"
                 HorizontalOptions="Center">
                 <Label 
                     IsVisible="{Binding Path=IsVersionInfoPresent}"
@@ -91,9 +92,10 @@
                     FontSize="Micro"
                     VerticalOptions="Center"
                     Margin="0,0,10,0"/>
-                <ImageButton
-                    Source="information.png"
-                    HeightRequest="20"
+                <Button
+                    Text="About..."
+                    Padding="5,0"
+                    FontSize="Micro"
                     VerticalOptions="Center"
                     Clicked="InfoButton_Clicked" />
             </HorizontalStackLayout>
