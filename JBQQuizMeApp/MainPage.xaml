@@ -48,7 +48,7 @@
                     FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="Start"
-                    Text="{Binding Path=StartQuestionNumber}"
+                    Text="{Binding Path=StartQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>
                         <toolkit:NumericValidationBehavior 
@@ -66,7 +66,7 @@
                     FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="End"
-                    Text="{Binding Path=EndQuestionNumber}"
+                    Text="{Binding Path=EndQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>
                         <toolkit:NumericValidationBehavior 
@@ -106,5 +106,4 @@
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

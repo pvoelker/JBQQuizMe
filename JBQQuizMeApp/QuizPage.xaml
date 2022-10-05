@@ -178,10 +178,9 @@
                     SemanticProperties.HeadingLevel="Level2">
                     <Label.Behaviors>
                         <b:WrongLabelThump />
-                    </Label.Behaviors>                    
+                    </Label.Behaviors>
                 </Label>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
