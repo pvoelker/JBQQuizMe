@@ -1174,7 +1174,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Rahab" },
                     WrongAnswers = null,
                     Passage = "Joshua 2:1-6",
-                    Type = "Man"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 115,
@@ -1380,6 +1380,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Because he was too well guarded" },
                         new List<string> { "Because of his friend Jonathan (Saul's son)" },
                         new List<string> { "Because he did not have a sword" },
+                        new List<string> { "Because David was injured" },
                     },
                     Passage = "1 Samuel 24:5-7",
                     Type = null
@@ -1462,6 +1463,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "The tallest tower" },
                         new List<string> { "A great storehouse" },
                         new List<string> { "A great palace" },
+                        new List<string> { "The world's largest mall" },
                     },
                     Passage = "1 Kings 6:1-2",
                     Type = null
@@ -1617,7 +1619,7 @@ namespace JBQQuizMe.Repository
                     Question = "How did God reward Job for his faithfulness?",
                     Answer = new List<string> { "God gave him as many children and twice as many possessions as he had had before his trial." },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "God gave hime one child and a new home." },
+                        new List<string> { "God gave him one child and a new home." },
                         new List<string> { "God gave him a kingdom." },
                         new List<string> { "God gave him the land of his enemies." },
                     },
@@ -1672,6 +1674,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "He was made a prophet to the king." },
                         new List<string> { "He was thrown into a field of sheep." },
                         new List<string> { "He was banished from the kingdom." },
+                        new List<string> { "He was given riches." },
                     },
                     Passage = "Daniel 6:4-16",
                     Type = null
@@ -1760,6 +1763,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Wise Men and Prophets" },
                         new List<string> { "Shepherds and Holy Men" },
                         new List<string> { "Prophets and Tax Collectors" },
+                        new List<string> { "Kings and Queens" },
                     },
                     Passage = "Matthew 2:1-2;Luke 2:8-17",
                     Type = null
@@ -1801,6 +1805,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Gold","Silver","Bronze" },
                         new List<string> { "Rubies","Diamonds","Emeralds" },
                         new List<string> { "Gift cards" },
+                        new List<string> { "Toys" },
                     },
                     Passage = "Matthew 2:11",
                     Type = null
@@ -2082,6 +2087,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "The Tree of Life" },
                         new List<string> { "The Fruit of Salvation" },
                         new List<string> { "The Faith of the Holy" },
+                        new List<string> { "The Ark of the Covenant" },
                     },
                     Passage = "Mark 4:14",
                     Type = null
@@ -2167,6 +2173,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Jesus walked through the back gate." },
                         new List<string> { "Jesus flew in." },
                         new List<string> { "Jesus was snuck in by the disciples." },
+                        new List<string> { "Jesus rode in on a motorcycle." },
                     },
                     Passage = "Matthew 21:2-5; Luke 19:29-35; John 12:14-15",
                     Type = null
@@ -2177,7 +2184,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "He washed the disciples' feet." },
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "He washed the disciples' hands." },
-                        new List<string> { "He served the disciples' food." },
+                        new List<string> { "He served the disciples food." },
                         new List<string> { "He gave the disciples money." },
                         new List<string> { "He took food from the disciples." },
                     },
@@ -2208,6 +2215,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "He hugged Jesus" },
                         new List<string> { "He gave the soldiers a note" },
                         new List<string> { "He pointed to Jesus" },
+                        new List<string> { "He served Jesus a warrant" },
                     },
                     Passage = "Matthew 26:49",
                     Type = null
@@ -2241,6 +2249,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "The Burial Place of Goliath" },
                         new List<string> { "The Place of Flowers" },
                         new List<string> { "The Place of the Sword" },
+                        new List<string> { "The World's Best Pizza" },
                     },
                     Passage = "Matthew 27:33",
                     Type = null
@@ -2291,6 +2300,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "\"He was not a criminal!\"" },
                         new List<string> { "\"The false prophet is dead!\"" },
                         new List<string> { "\"We should not have done this!\"" },
+                        new List<string> { "\"What time is lunch?\"" },
                     },
                     Passage = "Mark 15:39",
                     Type = null
@@ -2336,7 +2346,7 @@ namespace JBQQuizMe.Repository
                     Question = "After Jesus walked and talked with His apostles following His resurrection, what happened to Him?",
                     Answer = new List<string> { "He was taken up into a cloud until they could no longer see Him." },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "He appeared to masses to give a sermon." },
+                        new List<string> { "He appeared to the masses to give a sermon." },
                         new List<string> { "He walked into the ocean until they could not longer see Him." },
                         new List<string> { "A dove came down and he dissappeared." },
                     },
@@ -2534,8 +2544,9 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "God showed him a vision of a man from Macedonia calling for help." },
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "God showed him a map in a dream." },
-                        new List<string> { "A man from Macedonia spoke to Paul." },
+                        new List<string> { "A man from Macedonia spoke to Paul on the road." },
                         new List<string> { "Paul followed a star to Macedonia." },
+                        new List<string> { "A man from Macedonia emailed Paul." },
                     },
                     Passage = "Acts 16:9-10",
                     Type = null
@@ -2592,7 +2603,7 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "They buried them." },
                         new List<string> { "They sent them away." },
-                        new List<string> { "They recyled them." },
+                        new List<string> { "They recycled them." },
                         new List<string> { "They read them." },
                     },
                     Passage = "Acts 19:18-19",
@@ -2628,9 +2639,10 @@ namespace JBQQuizMe.Repository
                     Question = "Why did God give the Law?",
                     Answer = new List<string> { "To show us how sinful we are" },
                     WrongAnswers = new List<List<string>> {
-                        new List<string> { "To show how good we are" },
+                        new List<string> { "To show us how good we are" },
                         new List<string> { "Because he can" },
                         new List<string> { "Because people needed rules" },
+                        new List<string> { "Because people asked for them" },
                     },
                     Passage = "Romans 3:20",
                     Type = null
@@ -2651,6 +2663,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "He died to conquer the Romans." },
                         new List<string> { "He died for the Jews." },
                         new List<string> { "He died for nothing." },
+                        new List<string> { "He died for the angels." },
                     },
                     Passage = "1 Corinthians 15:3",
                     Type = null
@@ -2715,6 +2728,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "The shield of truth" },
                         new List<string> { "The helmet of salvation" },
                         new List<string> { "The gauntlets of justice" },
+                        new List<string> { "The socks of understanding" },
                     },
                     Passage = "Ephesians 6:16",
                     Type = null
@@ -2926,7 +2940,7 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = null,
                     Passage = "Romans 12:1-2; 1 Thessalonians 5:23; Hebrews 12:14",
                     Type = "TermDefinition"
-                },
+                }
             };
         }
 
