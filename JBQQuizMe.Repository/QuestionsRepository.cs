@@ -108,7 +108,7 @@ namespace JBQQuizMe.Repository
                 new QuestionInfo {
                     Number = 10,
                     Question = "Approximately how many years did it take to write the Bible?",
-                    Answer = new List<string> { "[Approximately] 1,600 years" },
+                    Answer = new List<string> { "1,600 years" },
                     WrongAnswers = null,
                     Passage = null,
                     Type = "Timespan"
@@ -161,7 +161,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Paul" },
                     WrongAnswers = null,
                     Passage = null,
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 16,
@@ -193,7 +193,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "King David" },
                     WrongAnswers = null,
                     Passage = null,
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 20,
@@ -281,7 +281,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Cain" },
                     WrongAnswers = null,
                     Passage = "Genesis 4:8",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 29,
@@ -314,7 +314,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Enoch" },
                     WrongAnswers = null,
                     Passage = "Genesis 5:23-24",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 32,
@@ -430,7 +430,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Lot" },
                     WrongAnswers = null,
                     Passage = "Genesis 12:4-5",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 42,
@@ -446,7 +446,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Sarah" },
                     WrongAnswers = null,
                     Passage = "Genesis 17:15",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 44,
@@ -486,7 +486,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Ishmael" },
                     WrongAnswers = null,
                     Passage = "Genesis 16:15-16",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 48,
@@ -506,7 +506,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Isaac" },
                     WrongAnswers = null,
                     Passage = "Genesis 21:1-3",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 50,
@@ -526,7 +526,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Rebekah" },
                     WrongAnswers = null,
                     Passage = "Genesis 24:67",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 52,
@@ -575,7 +575,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Rachel" },
                     WrongAnswers = null,
                     Passage = "Genesis 30:22-24; 35:16-18",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 57,
@@ -583,7 +583,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Israel" },
                     WrongAnswers = null,
                     Passage = "Genesis 32:24-28",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 58,
@@ -623,7 +623,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Potiphar" },
                     WrongAnswers = null,
                     Passage = "Genesis 39:1",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 62,
@@ -663,7 +663,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Joseph" },
                     WrongAnswers = null,
                     Passage = "Genesis 41:33-46",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 66,
@@ -700,7 +700,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Moses" },
                     WrongAnswers = null,
                     Passage = "Exodus 2:1-10",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 70,
@@ -830,7 +830,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Miriam" },
                     WrongAnswers = null,
                     Passage = "Numbers 26:59",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 81,
@@ -1130,7 +1130,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Joshua" },
                     WrongAnswers = null,
                     Passage = "Numbers 27:18-23",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 110,
@@ -1174,7 +1174,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Rahab" },
                     WrongAnswers = null,
                     Passage = "Joshua 2:1-6",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 115,
@@ -1254,7 +1254,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Gideon" },
                     WrongAnswers = null,
                     Passage = "Judges 7:7",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 122,
@@ -1262,7 +1262,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Samson" },
                     WrongAnswers = null,
                     Passage = "Judges 14:5-6",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 123,
@@ -1270,7 +1270,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Delilah" },
                     WrongAnswers = null,
                     Passage = "Judges 16:4-21",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 124,
@@ -1278,7 +1278,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Ruth" },
                     WrongAnswers = null,
                     Passage = "Ruth 1:14-19",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 125,
@@ -1286,7 +1286,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "David" },
                     WrongAnswers = null,
                     Passage = "Ruth 4:13-22",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 126,
@@ -1294,7 +1294,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Samuel" },
                     WrongAnswers = null,
                     Passage = "1 Samuel 3:2-10",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 127,
@@ -1302,7 +1302,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Eli" },
                     WrongAnswers = null,
                     Passage = "1 Samuel 3:11-14",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 128,
@@ -1334,7 +1334,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Saul" },
                     WrongAnswers = null,
                     Passage = "1 Samuel 10:17-25",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 131,
@@ -1354,7 +1354,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "David" },
                     WrongAnswers = null,
                     Passage = "1 Samuel 16:1-13",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 133,
@@ -1362,7 +1362,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Goliath" },
                     WrongAnswers = null,
                     Passage = "1 Samuel 17:23-25, 48-51",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 134,
@@ -1370,7 +1370,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Joab" },
                     WrongAnswers = null,
                     Passage = "1 Kings 1:19",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 135,
@@ -1398,7 +1398,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Jonathan" },
                     WrongAnswers = null,
                     Passage = "1 Samuel 18:1",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 138,
@@ -1418,7 +1418,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Absalom" },
                     WrongAnswers = null,
                     Passage = "2 Samuel 15:1-12",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 140,
@@ -1438,7 +1438,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Solomon" },
                     WrongAnswers = null,
                     Passage = "1 Kings 1:32-35; 1 Chronicles 22:9",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 142,
@@ -1472,7 +1472,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Sheba" },
                     WrongAnswers = null,
                     Passage = "1 Kings 10:1",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 145,
@@ -1525,7 +1525,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Elijah" },
                     WrongAnswers = null,
                     Passage = "2 Kings 2:11",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 150,
@@ -1533,7 +1533,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Elisha" },
                     WrongAnswers = null,
                     Passage = "2 Kings 2:15",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 151,
@@ -1541,7 +1541,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Naaman" },
                     WrongAnswers = null,
                     Passage = "2 Kings 5:10-14",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 152,
@@ -1549,7 +1549,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Hezekiah" },
                     WrongAnswers = null,
                     Passage = "2 Kings 20:8-11",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 153,
@@ -1565,7 +1565,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Nebuchadnezzar" },
                     WrongAnswers = null,
                     Passage = "2 Kings 24:10-16",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 155,
@@ -1573,7 +1573,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Zerubbabel" },
                     WrongAnswers = null,
                     Passage = "Ezra 3:8",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 156,
@@ -1581,7 +1581,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Nehemiah" },
                     WrongAnswers = null,
                     Passage = "Nehemiah 2:4-8",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 157,
@@ -1589,7 +1589,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Esther" },
                     WrongAnswers = null,
                     Passage = "Esther 2:16-17",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 158,
@@ -1610,7 +1610,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Job" },
                     WrongAnswers = null,
                     Passage = "Job 1:7-22",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 160,
@@ -1630,7 +1630,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Jeremiah" },
                     WrongAnswers = null,
                     Passage = "Jeremiah 9:1",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 162,
@@ -1638,7 +1638,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Daniel" },
                     WrongAnswers = null,
                     Passage = "Daniel 2:27-29",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 163,
@@ -1694,7 +1694,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Jonah" },
                     WrongAnswers = null,
                     Passage = "Jonah 1:17",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 168,
@@ -1730,7 +1730,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "The angel Gabriel" },
                     WrongAnswers = null,
                     Passage = "Luke 1:26-33",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 172,
@@ -1738,7 +1738,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Joseph" },
                     WrongAnswers = null,
                     Passage = "Matthew 1:18",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 173,
@@ -1778,7 +1778,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Herod" },
                     WrongAnswers = null,
                     Passage = "Matthew 2:3",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 177,
@@ -1819,7 +1819,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "John the Baptist" },
                     WrongAnswers = null,
                     Passage = "John 3:26-28",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 181,
@@ -1863,7 +1863,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Matthew" },
                     WrongAnswers = null,
                     Passage = "Matthew 10:3",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 186,
@@ -1896,7 +1896,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Nicodemus" },
                     WrongAnswers = null,
                     Passage = "John 3:1-2",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 189,
@@ -2157,7 +2157,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Zacchaeus" },
                     WrongAnswers = null,
                     Passage = "Luke 19:1-6",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 211,
@@ -2198,7 +2198,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Judas Iscariot" },
                     WrongAnswers = null,
                     Passage = "Matthew 26:17-25, 45-49",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 215,
@@ -2231,7 +2231,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Barabbas" },
                     WrongAnswers = null,
                     Passage = "Matthew 27:15-21",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 218,
@@ -2309,7 +2309,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Mary Magdalene" },
                     WrongAnswers = null,
                     Passage = "John 20:1-18",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 225,
@@ -2329,7 +2329,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Thomas" },
                     WrongAnswers = null,
                     Passage = "John 20:24-29",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 227,
@@ -2349,7 +2349,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Matthias" },
                     WrongAnswers = null,
                     Passage = "Acts 1:23-26",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 229,
@@ -2378,7 +2378,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Joel" },
                     WrongAnswers = null,
                     Passage = "Acts 2:16",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 232,
@@ -2426,7 +2426,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Stephen" },
                     WrongAnswers = null,
                     Passage = "Acts 7:59",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 237,
@@ -2434,7 +2434,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "John" },
                     WrongAnswers = null,
                     Passage = null,
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 238,
@@ -2466,7 +2466,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Tabitha [Dorcas]" },
                     WrongAnswers = null,
                     Passage = "Acts 9:36-41",
-                    Type = "Person"
+                    Type = "Woman"
                 },
                 new QuestionInfo {
                     Number = 241,
@@ -2474,7 +2474,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Cornelius" },
                     WrongAnswers = null,
                     Passage = "Acts 10:1",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 242,
@@ -2514,7 +2514,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Barnabas" },
                     WrongAnswers = null,
                     Passage = "Acts 13:1-4",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 246,
@@ -2554,7 +2554,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Luke" },
                     WrongAnswers = null,
                     Passage = "Luke 1:3; Acts 1:1",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 250,
@@ -2746,7 +2746,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Timothy" },
                     WrongAnswers = null,
                     Passage = null,
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 269,
@@ -2754,7 +2754,7 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Onesimus" },
                     WrongAnswers = null,
                     Passage = "Philemon 10-13",
-                    Type = "Person"
+                    Type = "Man"
                 },
                 new QuestionInfo {
                     Number = 270,
@@ -2926,7 +2926,7 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = null,
                     Passage = "Romans 12:1-2; 1 Thessalonians 5:23; Hebrews 12:14",
                     Type = "TermDefinition"
-                }
+                },
             };
         }
 
