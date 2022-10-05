@@ -26,3 +26,4 @@ dotnet publish -f:net6.0-android -c:Release /p:AndroidSigningKeyPass=[kspassword
 ## Credits
 
 - Pastor Michelle Redmon from Faith Chapel of Overland Park for transcribing the questions
+- My son Matthew for helping with beta testing

@@ -21,3 +21,5 @@ Track changes made to the game application.
 - Fix layout on Android phones
 - Enhance quizzing user interface based on user input
 - Clean up product name
+- Fix and clean up questions
+- Fix a number of build warnings
