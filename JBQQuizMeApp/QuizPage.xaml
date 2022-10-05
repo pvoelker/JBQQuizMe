@@ -10,6 +10,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <c:CandleGlowGradientStop x:Key="CandleGlowRadius" />
+        <c:TextLengthToFontSize x:Key="TextLengthToFontSize" />
     </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout>
@@ -48,7 +49,7 @@
                                 <ViewCell>
                                     <Grid>
                                         <Button Text="{Binding Path=Text}"
-                                                FontSize="Small"
+                                                FontSize="{Binding Path=Text, Converter={StaticResource TextLengthToFontSize}}"
                                                 LineBreakMode="WordWrap"
                                                 IsEnabled="{Binding Path=NotAttempted}"
                                                 Command="{Binding Path=Clicked}"
@@ -63,9 +64,9 @@
                         </ListView.ItemTemplate>
                     </ListView>
 
+                    <!-- TargetNullValue being a single space is on purpose so the space the label occupies does not automatically collapse when the value is NULL -->
                     <Label
-                        IsVisible="{Binding Path=CurrentQuestion.IsPassagePresent}"
-                        Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}'}"
+                        Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"
                         FontSize="Small"
                         HorizontalOptions="Center"
                         SemanticProperties.HeadingLevel="Level2" />
