@@ -16,7 +16,7 @@
         <VerticalStackLayout>
             <Label
                 Text="Make the candle glow brighter by answering questions correctly!"
-                Margin="10,10,10,40"
+                Margin="10,10,10,20"
                 FontFamily="MorningRainbow"
                 FontSize="Large"
                 TextColor="Gray"
@@ -32,7 +32,7 @@
                 <VerticalStackLayout
                     Grid.Column="0"
                     Margin="5"
-                    Spacing="25" 
+                    Spacing="20" 
                     VerticalOptions="Center">
 
                     <Label

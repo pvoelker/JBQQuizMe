@@ -32,5 +32,6 @@ Track changes made to the game application.
 - Set minimum height on answer buttons to make layout more consistent
 - Improve documentation around usage of 10 point questions from Bible Fact-Pak™
 - Clean up 'About' window
-- Split 'person' catagory question type
+- Split 'person' category question type
 - Further question clean up and add some more wrong answers
+- Fix start and end question range on main page
