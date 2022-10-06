@@ -60,6 +60,8 @@ namespace JBQQuizMe.ViewModel
 
         #region Commands
 
+        public IRelayCommand MessageThump { get; set; }
+
         public IRelayCommand CandleSparkle { get; set; }
 
         public IRelayCommand CandleJiggle { get; set; }
@@ -273,7 +275,12 @@ namespace JBQQuizMe.ViewModel
             {
                 Message = GetCongratMessage();
 
-                if(Celebration != null)
+                if (MessageThump != null)
+                {
+                    MessageThump.Execute(null);
+                }
+
+                if (Celebration != null)
                 {
                     Celebration.Execute(null);
                 }

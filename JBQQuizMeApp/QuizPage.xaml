@@ -169,7 +169,10 @@
                         Offset="5,5"
                         Radius="10"
                         Opacity="0.6" />
-                </Label.Shadow>                
+                </Label.Shadow>
+                <Label.Behaviors>
+                    <b:MessageThump />
+                </Label.Behaviors>
             </Label>
 
             <Grid>
