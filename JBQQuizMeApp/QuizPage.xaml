@@ -10,12 +10,13 @@
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <c:CandleGlowGradientStop x:Key="CandleGlowRadius" />
+        <c:TextLengthToFontSize x:Key="TextLengthToFontSize" />
     </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout>
             <Label
                 Text="Make the candle glow brighter by answering questions correctly!"
-                Margin="10,10,10,40"
+                Margin="10,10,10,20"
                 FontFamily="MorningRainbow"
                 FontSize="Large"
                 TextColor="Gray"
@@ -31,7 +32,7 @@
                 <VerticalStackLayout
                     Grid.Column="0"
                     Margin="5"
-                    Spacing="25" 
+                    Spacing="20" 
                     VerticalOptions="Center">
 
                     <Label
@@ -48,11 +49,12 @@
                                 <ViewCell>
                                     <Grid>
                                         <Button Text="{Binding Path=Text}"
-                                                FontSize="Small"
+                                                FontSize="{Binding Path=Text, Converter={StaticResource TextLengthToFontSize}}"
                                                 LineBreakMode="WordWrap"
                                                 IsEnabled="{Binding Path=NotAttempted}"
                                                 Command="{Binding Path=Clicked}"
-                                                VerticalOptions="CenterAndExpand">
+                                                VerticalOptions="CenterAndExpand"
+                                                MinimumHeightRequest="60">
                                             <Button.Behaviors>
                                                 <b:ButtonClickJitter/>
                                             </Button.Behaviors>
@@ -63,15 +65,15 @@
                         </ListView.ItemTemplate>
                     </ListView>
 
+                    <!-- TargetNullValue being a single space is on purpose so the space the label occupies does not automatically collapse when the value is NULL -->
                     <Label
-                        IsVisible="{Binding Path=CurrentQuestion.IsPassagePresent}"
-                        Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}'}"
+                        Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"
                         FontSize="Small"
                         HorizontalOptions="Center"
                         SemanticProperties.HeadingLevel="Level2" />
 
                     <Label
-                        Text="{Binding Path=CurrentQuestion.Number, StringFormat='JBQ Question #{0}'}"
+                        Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"
                         FontSize="Micro"
                         HorizontalOptions="Center"
                         SemanticProperties.HeadingLevel="Level2" />
@@ -176,10 +178,9 @@
                     SemanticProperties.HeadingLevel="Level2">
                     <Label.Behaviors>
                         <b:WrongLabelThump />
-                    </Label.Behaviors>                    
+                    </Label.Behaviors>
                 </Label>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

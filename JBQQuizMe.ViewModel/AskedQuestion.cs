@@ -14,7 +14,7 @@ namespace JBQQuizMe.ViewModel
     {
         private int _number;
         /// <summary>
-        /// JBQ Question Number
+        /// Bible Fact-Pak™ Question Number
         /// </summary>
         public int Number
         {

@@ -166,7 +166,7 @@ namespace JBQQuizMe.ViewModel
                 }
             };
 
-            retVal.CorrectAnswer.Clicked = new AsyncRelayCommand(async () => CorrectAnswer());
+            retVal.CorrectAnswer.Clicked = new AsyncRelayCommand(async () => await CorrectAnswer());
 
             retVal.PossibleAnswers = new List<Answer>();
             if (question.Type != null)
@@ -181,7 +181,7 @@ namespace JBQQuizMe.ViewModel
                         IsCorrect = false
                     };
 
-                    newAnswer.Clicked = new RelayCommand(() => WrongAnswer(newAnswer));
+                    newAnswer.Clicked = new RelayCommand(async () => await WrongAnswer(newAnswer));
 
                     retVal.PossibleAnswers.Add(newAnswer);
                 }
@@ -196,7 +196,7 @@ namespace JBQQuizMe.ViewModel
                         IsCorrect = false
                     };
 
-                    newAnswer.Clicked = new RelayCommand(() => WrongAnswer(newAnswer));
+                    newAnswer.Clicked = new RelayCommand(async () => await WrongAnswer(newAnswer));
 
                     retVal.PossibleAnswers.Add(newAnswer);
                 }
@@ -225,7 +225,7 @@ namespace JBQQuizMe.ViewModel
             }
         }
 
-        private async void CorrectAnswer()
+        private async Task CorrectAnswer()
         {
             // Prevent answer from being re-clicked
             foreach(var item in CurrentQuestion.PossibleAnswers)
@@ -271,7 +271,9 @@ namespace JBQQuizMe.ViewModel
             CurrentQuestion = GetNextQuestion();
         }
 
-        private void WrongAnswer(Answer answer)
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+        private async Task WrongAnswer(Answer answer)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             answer.Attempted = true;
             Message = "Try again!";

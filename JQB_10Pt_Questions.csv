@@ -8,16 +8,16 @@
 7,How many books are in the New Testament?,Twenty-seven,Number,27,,,,General
 8,In what language was most of the New Testament written?,Greek,,,Hebrew|Latin|German|Japanese|Sanskrit,,,General
 9,About how many people did God inspire to write the Bible?,[About] forty,Number,40,,,,General
-10,Approximately how many years did it take to write the Bible?,"[Approximately] 1,600 years",Timespan,,,,,General
+10,Approximately how many years did it take to write the Bible?,"1,600 years",Timespan,,,,,General
 11,Which book of the Bible tells about the beginnings of the world?,Genesis,BookOfTheBible,,,,OT,Creation
 12,What are the four Gospels?,Matthew|Mark|Luke|John,,,Peter~Paul~Mary~Joe|Genesis~Exodus~Leviticus~Numbers|Psalms~Proverbs~Romans~Acts|1 John~2 John~3 John~Jude,,NT,General
 13,"What does the word ""gospel"" mean?",Good news,TermDefinition,,,,,General
 14,What is the theme of the four Gospels?,The life and teaching of Jesus,,,"The life and teachings of Moses|The life of the apostels|The revalation of the end times|Eat, Sleep, Repeat",,NT,Ministry of Jesus
-15,Who wrote more books of the Bible than any other person?,Paul,Person,,,,NT,Ministry of Paul
+15,Who wrote more books of the Bible than any other person?,Paul,Man,,,,NT,Ministry of Paul
 16,Which book of the Bible tells about the beginnings of the Church?,Acts,BookOfTheBible,,,,NT,General
 17,Which New Testament book is composed almost entirely of prophecies of the future?,Revelation,BookOfTheBible,,,,NT,End Times
 18,Which of the Old Testament books is a collection of hymns and songs?,Psalms,BookOfTheBible,,,,OT,General
-19,Who wrote many of the Psalms?,King David,Person,,,,OT,David
+19,Who wrote many of the Psalms?,King David,Man,,,,OT,David
 20,What is an epistle?,A letter sent by an apostle.,TermDefinition,,,,NT,Apostles
 21,What is the longest book of the Bible?,Psalms,BookOfTheBible,,,,OT,General
 22,What is the shortest chapter in the Bible?,Psalm 117,,,Psalm 119|Job 25|Esther 10|Psalm 133|Genesis 1,,OT,General
@@ -26,10 +26,10 @@
 25,Who were the first man and first woman?,Adam and Eve,TwoPersons,,,Genesis 3:20,OT,Garden of Eden
 26,How are people different from animals?,God created people in His own image.,,,God gave people the ability to stand.|God gave people brains.|God gave people the ability to talk.|God create people in the image of the angels.,Genesis 1:27,OT,Creation
 27,Who were the first two brothers?,Cain and Abel,TwoPersons,,,Genesis 4:1-2,OT,Garden of Eden
-28,Who was the first murderer?,Cain,Person,,,Genesis 4:8,OT,Garden of Eden
+28,Who was the first murderer?,Cain,Man,,,Genesis 4:8,OT,Garden of Eden
 29,How did sin enter the world?,Through the disobedience of Adam and Eve,,,Through the disobedience of Cain and Abel|Through the obedience of Noah|Through the disobedience of the angels|Through the Internet,Genesis 3:1-19;Romans 5:14,,Garden of Eden
 30,The account of man's first sin mentioned what two trees?,The tree of the knowledge of good and evil|The tree of life,,,The tree of widsom~The tree of wealth|The tree of peace~The tree of health|The tree of love~The bush of fire,Genesis 2:17; 3:24,OT,Garden of Eden
-31,What man walked with God until God took him to heaven without dying?,Enoch,Person,,,Genesis 5:23-24,OT,Noah
+31,What man walked with God until God took him to heaven without dying?,Enoch,Man,,,Genesis 5:23-24,OT,Noah
 32,"Who lived longer than any other person, and how long did he live?",Methuselah--969 years,,,Lamech--1001 years|Jared--962 years|Noah--950 years|Mahalalel--895,Genesis 5:27,OT,Noah
 33,Why did God send a flood upon the earth?,Because people were so wicked and they thought about evil all the time,,,Because people were sometimes wicked|Because people did not pick up their trash|Because people did not read the Bible|Because too many people left their sinks on,Genesis 6:5,OT,Noah
 34,Whom did God spare from the Great Flood?,Noah and his family,,,Moses and his family|Noah and his town|Noah and his wife|Moses and his pet dog,Genesis 7:7,OT,Noah
@@ -39,35 +39,35 @@
 38,"After the Flood, how did the people rebel against God?",By building a tower that reached into the sky to make themselves famous,,,By building a ladder that reached into the sky|By digging the deepest hole to make themselves famous|By launching a rocket to talk to God,Genesis 11:4,OT,Post Flood
 39,How did God judge the people who built the tower of Babel?,God confused the people with different languages so they couldn't understand one another.,,,God confused the people with different foods so they would not eat with each other.|God took all their building tools away.|God destroyed the tower of Babel.|God did not judge them.,Genesis 11:7,OT,Post Flood
 40,How did God test Abraham's faith when He asked him to leave his home?,By asking Abraham to follow Him without telling him where He would lead him,,,By asking Abraham to give all his money away|By asking Abraham to burn his home|By asking Abraham to walk without shoes,Genesis 12:1-6; Hebrews 11:8,OT,Abraham
-41,Who was Abraham's nephew?,Lot,Person,,,Genesis 12:4-5,OT,Abraham
+41,Who was Abraham's nephew?,Lot,Man,,,Genesis 12:4-5,OT,Abraham
 42,What was the original name of the country God promised to Abraham?,Canaan,Place,,,Genesis 12:5,OT,Abraham
-43,Who was Abraham's wife?,Sarah,Person,,,Genesis 17:15,OT,Abraham
+43,Who was Abraham's wife?,Sarah,Woman,,,Genesis 17:15,OT,Abraham
 44,To what country did Abraham go in time of famine?,Egypt,Place,,,Genesis 12:10,OT,Abraham
 45,Why was it wrong for Lot to live in Sodom?,Because the people of Sodom were very wicked and constantly sinned against the Lord.,,,Because Lot was not born in Sodom.|Because Sodom did not have salt.|Because Lot was a prophet of God.,Genesis 13:12-13; 14:12,OT,Abraham
 46,Who was Melchizedek?,Priest of God and King of Salem,,,Priest of God and King of Dan|Prophet of Judea|King of Bath,Genesis 14:18,OT,Abraham
-47,What was the name of the son born to Abraham and Hagar?,Ishmael,Person,,,Genesis 16:15-16,OT,Abraham
+47,What was the name of the son born to Abraham and Hagar?,Ishmael,Man,,,Genesis 16:15-16,OT,Abraham
 48,What two cities did God destroy with fire because of their great wickedness?,Sodom and Gomorrah,,,Ephesus and Corinth|Hebron and Debir|Minneapolis and St. Paul,Genesis 19:24-25,OT,Abraham
-49,What was the name of the son born to Abraham and Sarah?,Isaac,Person,,,Genesis 21:1-3,OT,Abraham
+49,What was the name of the son born to Abraham and Sarah?,Isaac,Man,,,Genesis 21:1-3,OT,Abraham
 50,How old were Abraham and Sarah when Isaac was born?,Abraham was one hundred and Sarah was ninety years old.,,,Abraham was sixty and Sarah was fourty-five years old.|Abraham was twenty-three and Sarah was twenty years old.|Abraham and Sarah were both ninety years old.,Genesis 17:17; 21:1-5,OT,Abraham
-51,Who was Isaac's wife?,Rebekah,Person,,,Genesis 24:67,OT,Abraham
+51,Who was Isaac's wife?,Rebekah,Woman,,,Genesis 24:67,OT,Abraham
 52,Who were the twin sons of Isaac and Rebekah?,Esau and Jacob,TwoPersons,,,Genesis 25:20-26,OT,Jacob
 53,What did Esau sell to Jacob?,His birthright [his rights as the firstborn son],,His birthright,His donkey|His house|His robe|His sheep,Genesis 25:29-34,OT,Jacob
 54,How did Jacob obtain the blessing of the firstborn son instead of Esau?,"By making his father, Isaac, think he was Esau",,,"By making his mother, Rebekah, think he was Esau|By faking his birth certificate|By feeding his father, Isaac, his favorite food",Genesis 27:1-29,OT,Jacob
 55,Where did Jacob have a dream of a stairway reaching to heaven?,Bethel,Place,,,Genesis 28:10-19,OT,Jacob
-56,Who was the mother of Joseph and Benjamin?,Rachel,Person,,,Genesis 30:22-24; 35:16-18,OT,Jacob
-57,What new name did God give to Jacob after he wrestled with God?,Israel,Person,,,Genesis 32:24-28,OT,Jacob
+56,Who was the mother of Joseph and Benjamin?,Rachel,Woman,,,Genesis 30:22-24; 35:16-18,OT,Jacob
+57,What new name did God give to Jacob after he wrestled with God?,Israel,Man,,,Genesis 32:24-28,OT,Jacob
 58,What special meaning did Joseph's dreams have?,"He would be a great ruler someday, and his family would bow down to him.",,,He would be thrown into prison.|He would become very wealthy and support his family.|He would leave his family forever.,Genesis 37:5-11,OT,Joseph
 59,How did Jacob show his special love for Joseph?,By giving him a beautiful robe [coat of many colors],,,By giving him a white robe|By giving him a gold trimmed coat|By giving him a coat of invisibility,"Genesis 37:3, 23",OT,Joseph
 60,Into what country was Joseph sold as a slave?,Egypt,Place,,,Genesis 37:36,OT,Joseph
-61,Who was Joseph's first master in Egypt?,Potiphar,Person,,,Genesis 39:1,OT,Joseph
+61,Who was Joseph's first master in Egypt?,Potiphar,Man,,,Genesis 39:1,OT,Joseph
 62,What happened to Joseph when he refused to commit sin with his master's wife?,He was put into prison.,,,He was praised by the master.|He fled his master.|He became the chief cup bearer.,Genesis 39:20,OT,Joseph
 63,Whose dreams did Joseph interpret while in prison?,Pharaoh's baker and cupbearer,TwoPersons,,,Genesis 40:1-22,OT,Joseph
 64,What did Joseph say was the meaning of the king's dream?,Seven good years would be followed by seven years of famine.,,,Fourteen years of famine.|Six good months would be followed by six months of famine.|The king would gain more wealth.,Genesis 41:25-27,OT,Joseph
-65,Whom did Pharaoh appoint to prepare for the famine?,Joseph,Person,,,Genesis 41:33-46,OT,Joseph
+65,Whom did Pharaoh appoint to prepare for the famine?,Joseph,Man,,,Genesis 41:33-46,OT,Joseph
 66,What are the names of the two sons of Joseph?,Ephraim and Manasseh,TwoPersons,,,Genesis 41:50-52,OT,Joseph
 67,Why did Joseph's brothers go to Egypt?,To buy food,,,To sell food|To sell a donkey|To find Joseph|To steal a golden cup,Genesis 42:3-5,OT,Joseph
 68,Where did Jacob and his family settle in Egypt?,Goshen,Place,,,Genesis 46:33-34,OT,Joseph
-69,Who was the baby that Pharaoh's daughter found floating in the river?,Moses,Person,,,Exodus 2:1-10,OT,Moses
+69,Who was the baby that Pharaoh's daughter found floating in the river?,Moses,Man,,,Exodus 2:1-10,OT,Moses
 70,Why did Moses flee from Egypt?,Because it was known that he had killed an Egyptian who mistreated an Israelite,,,Because it was known that he had killed an Israelite who beat an Egyptian|Because he freed the slaves|Because he disobeyed pharoh ,Exodus 2:11-15,OT,Moses
 71,Who was Moses' father-in-law and what was his position?,Jethro; priest of Midian,,,Job; prophet of Midian|Matthew; tax collector|Benjamin; cupbearer|Samson; lion tamer,Exodus 3:1,OT,Moses
 72,Where did God appear to Moses out of the burning bush?,Mount Sinai,Place,,,Exodus 3:1-2,OT,Moses
@@ -78,7 +78,7 @@
 77,What feast did God establish to remember the Israelites' deliverance from Egypt?,Passover,,,Overpass|Christmas|Deliverance Day|Purim,Exodus 12:3-11,OT,Moses
 78,By what miracle did the Israelites leave the land of Egypt?,The parting of the sea [Red Sea],,The parting of the Red Sea,The parting of the Sea of Galilee|By stopping a sandstorm|By God providing a herd of oxen,Exodus 14:13-22,OT,Moses
 79,What happened to the Egyptians who tried to follow the Israelites through the Red Sea?,They all drowned.,,,They crossed the sea.|They were trapped on the other side of the sea.|They were stuck on an island.|They were rescued by boats.,Exodus 14:23-28,OT,Moses
-80,Who was the sister of Moses?,Miriam,Person,,,Numbers 26:59,OT,Moses
+80,Who was the sister of Moses?,Miriam,Woman,,,Numbers 26:59,OT,Moses
 81,How did God change the bitter water of Marah into good water?,By showing Moses a piece of wood to throw into the water,,,By Moses pouring oil into the water|By Moses dipping his staff into the water|By Moses putting burnt fig leaves into the water,Exodus 15:23-25,OT,Moses
 82,How did God provide bread for the Israelites in the wilderness?,By sending manna,,,By causing wheat to grow|By getting it from other countries|Sending loaves by birds,Exodus 16:31,OT,Moses
 83,What miracle did God perform for Moses at Rephidim?,God brought water from a rock.,,,God healed a blind man.|God sent mana from heaven.|God stopped the sun and moon.,Exodus 17:1-6,OT,Moses
@@ -107,86 +107,86 @@
 106,How did God prove to the Israelites that Moses and Aaron were His chosen leaders?,"He caused Aaron's staff to sprout, bud, and blossom.",,,"By casting lots.|By way of a prophet.|By sending down a dove from heaven.|Eeny, meeny, miny, moe.",Numbers 17:1-10,OT,Moses
 107,How did Moses disobey God when the water came from the rock at Meribah?,He struck the rock instead of speaking to it.,,,He poured oil on the rock instead of speaking to it.|He spoke to the rock instead of striking it.|He had Aaron speak to the rock instead.,Numbers 20:7-13,OT,Moses
 108,How did God provide healing for the Israelites when they were bitten by the snakes?,God told Moses to make a bronze snake that the people could look at and be healed.,,,God told Moses to make a gold calf that the people could look at and be healed.|God provided mana.|God had Moses tell the people to drink from the river.,Numbers 21:5-9,OT,Moses
-109,Whom did God appoint to be the leader of Israel after Moses?,Joshua,Person,,,Numbers 27:18-23,OT,Moses
+109,Whom did God appoint to be the leader of Israel after Moses?,Joshua,Man,,,Numbers 27:18-23,OT,Moses
 110,Why was Moses not allowed to go into the land of Canaan?,Because he failed to trust God and demonstrate God's holiness to the Israelites at Meribah,,,Because he failed to worship God and demonstrate God's holiness to the Babylonians|Because he failed to pray to God|Because he didn't pay his taxes,Numbers 20:1-13; Deuteronomy 32:48-52,OT,Moses
 111,From what mountain did Moses see the Promised Land?,Nebo,Place,,,Deuteronomy 34:1-4,OT,Moses
 112,How old was Moses when he died?,120 years,Timespan,,,Deuteronomy 34:7,OT,Moses
 113,Who were the only two men who left Egypt and entered Canaan?,Joshua and Caleb,TwoPersons,,,Numbers 26:65,OT,Moses
-114,Who protected the spies Joshua sent to Jericho?,Rahab,Person,,,Joshua 2:1-6,OT,Joshua
+114,Who protected the spies Joshua sent to Jericho?,Rahab,Woman,,,Joshua 2:1-6,OT,Joshua
 115,How did Rahab mark her house so she would be protected when Jericho was captured?,By placing a scarlet rope in the window of her house,,,By placing a lamp in the window of her house|By marking the doorway of her house|By singing a particular song in her house,Joshua 2:18-21,OT,Joshua
 116,By what miracle did the Israelites enter the Promised Land?,God stopped the flow of the Jordan River during its flood stage.,,,God parted the Red Sea.|God sent a boat to cross the Jordan River.|God sent a whale to take the Israelites across the Jordan River.,Joshua 3:14-17,OT,Joshua
 117,How many times did the Israelites march around the walls of Jericho?,Thirteen--once each day for six days and seven times on the seventh day,,,Seven--once each day for seven days|Seven--seven times in one day|Just one time,Joshua 6:3-4,OT,Joshua
 118,What happened at Jericho when the Israelites shouted at Joshua's command?,The walls of Jericho collapsed.,,,The gates of Jericho opened.|The people of Jericho fled.|Fire came down upon Jericho.,Joshua 6:20,OT,Joshua
 119,Whose sin caused the defeat at Ai?,Achan's,,,Joshua's|Karmi's|Mose's,Joshua 7:1-4; 11-12,OT,Joshua
 120,What miracle occurred when Joshua fought at Gibeon?,The sun and the moon stood still.,,,The sea parted.|Fire came down from the sky.|The Amorites were frozen.,Joshua 10:12-13,OT,Joshua
-121,Who defeated the Midianites with only three hundred men?,Gideon,Person,,,Judges 7:7,OT,Judges
-122,Which of the judges was very strong?,Samson,Person,,,Judges 14:5-6,OT,Judges
-123,What woman tricked Samson into telling her the secret of his strength?,Delilah,Person,,,Judges 16:4-21,OT,Judges
-124,"What Gentile girl decided to serve God because she loved her mother-in-law, Naomi?",Ruth,Person,,,Ruth 1:14-19,OT,Judges
-125,What descendant of Ruth became king of Israel?,David,Person,,,Ruth 4:13-22,OT,David
-126,What child heard the voice of God speak to him during the night?,Samuel,Person,,,1 Samuel 3:2-10,OT,Samuel
-127,Upon what priest did God tell Samuel to pronounce judgment?,Eli,Person,,,1 Samuel 3:11-14,OT,Samuel
+121,Who defeated the Midianites with only three hundred men?,Gideon,Man,,,Judges 7:7,OT,Judges
+122,Which of the judges was very strong?,Samson,Man,,,Judges 14:5-6,OT,Judges
+123,What woman tricked Samson into telling her the secret of his strength?,Delilah,Woman,,,Judges 16:4-21,OT,Judges
+124,"What Gentile girl decided to serve God because she loved her mother-in-law, Naomi?",Ruth,Woman,,,Ruth 1:14-19,OT,Judges
+125,What descendant of Ruth became king of Israel?,David,Man,,,Ruth 4:13-22,OT,David
+126,What child heard the voice of God speak to him during the night?,Samuel,Man,,,1 Samuel 3:2-10,OT,Samuel
+127,Upon what priest did God tell Samuel to pronounce judgment?,Eli,Man,,,1 Samuel 3:11-14,OT,Samuel
 128,"As described in Hebrews, what was the ark of the covenant?","The sacred box which contained the stone tablets of the Ten Commandments, the gold jar of manna, and Aaron's staff that had sprouted leaves",,,The original copy of the Bible|The robe of Moses and Aaron's shepherd staff|The spoils of Egypt from the exodus,Hebrews 9:4,NT,General
 129,Why did the Israelites want a king instead of a judge?,Because they wanted to be like other nations,,,Because they ran out of judges|Because God instructed them to do so|Because only kings wear a crown,1 Samuel 8:4-5,OT,Samuel
-130,Who was the first king of Israel?,Saul,Person,,,1 Samuel 10:17-25,OT,Samuel
+130,Who was the first king of Israel?,Saul,Man,,,1 Samuel 10:17-25,OT,Samuel
 131,Why did God reject Saul as king of Israel?,He rejected God's command.,,Saul rejected God's command.,Someone else was better.|Israel no longer needed a king.|Saul moved away from Israel.,1 Samuel 15:22-23,OT,Samuel
-132,Whom did God choose to replace Saul as king of Israel?,David,Person,,,1 Samuel 16:1-13,OT,Samuel
-133,What giant did David kill?,Goliath,Person,,,"1 Samuel 17:23-25, 48-51",OT,Samuel
-134,Who was the commander of David's army?,Joab,Person,,,1 Kings 1:19,OT,David
-135,Why did David refuse to kill King Saul?,Because God had chosen Saul to be king,,,Because he was too well guarded|Because of his friend Jonathan (Saul's son)|Because he did not have a sword,1 Samuel 24:5-7,OT,Samuel
+132,Whom did God choose to replace Saul as king of Israel?,David,Man,,,1 Samuel 16:1-13,OT,Samuel
+133,What giant did David kill?,Goliath,Man,,,"1 Samuel 17:23-25, 48-51",OT,Samuel
+134,Who was the commander of David's army?,Joab,Man,,,1 Kings 1:19,OT,David
+135,Why did David refuse to kill King Saul?,Because God had chosen Saul to be king,,,Because he was too well guarded|Because of his friend Jonathan (Saul's son)|Because he did not have a sword|Because David was injured,1 Samuel 24:5-7,OT,Samuel
 136,How long did David rule as king?,Forty years,Timespan,,,2 Samuel 5-4-5,OT,David
-137,Which son of Saul was David's best friend?,Jonathan,Person,,,1 Samuel 18:1,OT,David
+137,Which son of Saul was David's best friend?,Jonathan,Man,,,1 Samuel 18:1,OT,David
 138,Why did David show kindness to Mephibosheth?,Because Mephibosheth was Jonathan's son,,,Because Mephibosheth is a cool name|Because God instructed David to do so|Because David was now king,2 Samuel 9:1-7,OT,David
-139,Which of David's sons tried to take the kingdom from him?,Absalom,Person,,,2 Samuel 15:1-12,OT,David
+139,Which of David's sons tried to take the kingdom from him?,Absalom,Man,,,2 Samuel 15:1-12,OT,David
 140,When did David say life begins?,In the womb,,,In the crib|At one year of age|At age 50,Psalm 139:13-16,OT,David
-141,Whom did God tell David to choose to be king after his death?,Solomon,Person,,,1 Kings 1:32-35; 1 Chronicles 22:9,OT,David
+141,Whom did God tell David to choose to be king after his death?,Solomon,Man,,,1 Kings 1:32-35; 1 Chronicles 22:9,OT,David
 142,What did Solomon ask God to give him when he became king?,Wisdom,,,Strength|Power|Agility|Kindness|Money,1 Kings 3:5-14,OT,Solomon
-143,What building did Solomon erect for God?,The temple of the Lord,,,The tallest tower|A great storehouse|A great palace,1 Kings 6:1-2,OT,Solomon
-144,What queen came from a long distance to visit Solomon?,The queen of Sheba,Person,Sheba,,1 Kings 10:1,OT,Solomon
+143,What building did Solomon erect for God?,The temple of the Lord,,,The tallest tower|A great storehouse|A great palace|The world's largest mall,1 Kings 6:1-2,OT,Solomon
+144,What queen came from a long distance to visit Solomon?,The queen of Sheba,Woman,Sheba,,1 Kings 10:1,OT,Solomon
 145,What happened to the kingdom of Israel upon the death of Solomon?,It was divided into the kingdoms of Israel and Judah.,,,It joined with a neighboring country.|It was conquered.|It was divided into twelve kingdoms.|It was dissolved.,1 Kings 4:20-21; 11:28-43; 12:16-20,OT,Solomon
 146,Why did Jeroboam establish idol worship in the northern kingdom of Israel?,So the people wouldn't go to Jerusalem to offer sacrifices,,,So the people wouldn't leave the country|So the people would not revolt|So Jeroboam would be able to worship idols,1 Kings 12:26-30,OT,Kings
 147,"On Mount Carmel, why did Elijah ask God to consume the sacrifice with fire?",So that all of Israel would know that God was really God,,,To impress the other kingdoms|So that all of Israel would follow Elijah|Because Elijah did not have a way to start a fire,1 Kings 18:30-39,OT,Kings
 148,Who were the evil king and queen of Israel during the time of Elijah?,Ahab and Jezebel,TwoPersons,,,1 Kings 21:4-5,OT,Kings
-149,Whom did God take directly to heaven in a whirlwind?,Elijah,Person,,,2 Kings 2:11,OT,Kings
-150,What prophet succeeded Elijah?,Elisha,Person,,,2 Kings 2:15,OT,Kings
-151,What Syrian officer was healed of leprosy by bathing in the Jordan River at Elisha's command?,Naaman,Person,,,2 Kings 5:10-14,OT,Kings
-152,To whom did God give a sign of the sun moving backwards to show him that he was healed?,Hezekiah,Person,,,2 Kings 20:8-11,OT,Kings
+149,Whom did God take directly to heaven in a whirlwind?,Elijah,Man,,,2 Kings 2:11,OT,Kings
+150,What prophet succeeded Elijah?,Elisha,Man,,,2 Kings 2:15,OT,Kings
+151,What Syrian officer was healed of leprosy by bathing in the Jordan River at Elisha's command?,Naaman,Man,,,2 Kings 5:10-14,OT,Kings
+152,To whom did God give a sign of the sun moving backwards to show him that he was healed?,Hezekiah,Man,,,2 Kings 20:8-11,OT,Kings
 153,To what city were many of the people of Judah taken as captives?,Babylon,Place,,,2 Kings 24:10-16,OT,Kings
-154,What king of Babylon conquered Jerusalem and the Kingdom of Judah?,Nebuchadnezzar,Person,,,2 Kings 24:10-16,OT,Kings
-155,"When the people returned to Jerusalem from captivity in Babylon, who oversaw the rebuilding of the temple?",Zerubbabel,Person,,,Ezra 3:8,OT,BabylonCaptivity
-156,"When the people returned to Jerusalem from captivity in Babylon, who oversaw the rebuilding of the walls of the city?",Nehemiah,Person,,,Nehemiah 2:4-8,OT,BabylonCaptivity
-157,Who was the Jewish girl who became the wife of the king of Persia?,Esther,Person,,,Esther 2:16-17,OT,Esther
+154,What king of Babylon conquered Jerusalem and the Kingdom of Judah?,Nebuchadnezzar,Man,,,2 Kings 24:10-16,OT,Kings
+155,"When the people returned to Jerusalem from captivity in Babylon, who oversaw the rebuilding of the temple?",Zerubbabel,Man,,,Ezra 3:8,OT,BabylonCaptivity
+156,"When the people returned to Jerusalem from captivity in Babylon, who oversaw the rebuilding of the walls of the city?",Nehemiah,Man,,,Nehemiah 2:4-8,OT,BabylonCaptivity
+157,Who was the Jewish girl who became the wife of the king of Persia?,Esther,Woman,,,Esther 2:16-17,OT,Esther
 158,How did Esther save the lives of the Jewish people?,"By asking her husband, king of Persia, to spare their lives",,,By asking her cousin Mordecai to spare their lives|By moving the Jewish people to another land|By hiding the Jewish people|By putting them on a boat and sailing across the sea,Esther 7:1-6,OT,Esther
-159,What man lost all of his possessions and his health but remained true to God?,Job,Person,,,Job 1:7-22,OT,Job
-160,How did God reward Job for his faithfulness?,God gave him as many children and twice as many possessions as he had had before his trial.,,,God gave hime one child and a new home.|God gave him a kingdom.|God gave him the land of his enemies.,Job 42:10-13,OT,Job
-161,Who was called the weeping prophet?,Jeremiah,Person,,,Jeremiah 9:1,OT,Jeremiah
-162,Who interpreted a famous dream for King Nebuchadnezzar?,Daniel,Person,,,Daniel 2:27-29,OT,Daniel
+159,What man lost all of his possessions and his health but remained true to God?,Job,Man,,,Job 1:7-22,OT,Job
+160,How did God reward Job for his faithfulness?,God gave him as many children and twice as many possessions as he had had before his trial.,,,God gave him one child and a new home.|God gave him a kingdom.|God gave him the land of his enemies.,Job 42:10-13,OT,Job
+161,Who was called the weeping prophet?,Jeremiah,Man,,,Jeremiah 9:1,OT,Jeremiah
+162,Who interpreted a famous dream for King Nebuchadnezzar?,Daniel,Man,,,Daniel 2:27-29,OT,Daniel
 163,"Why were Shadrach, Meshach, and Abednego thrown into a blazing furnace?",They refused to worship the gold statue set up by the king.,,,They refused to give their money to the king.|They refused to make a gold statue for the king.|They stole from the king.,Daniel 3:14-23,OT,Daniel
 164,What did Daniel do when the king decreed he could no longer pray to his God?,He continued to pray just as he always did.,,,He stopped praying.|He spoke out against the king.|He left the city.,Daniel 6:10,OT,Daniel
-165,What happened to Daniel when he continued to pray to God instead of to the king?,He was thrown into the lions' den.,,,He was made a prophet to the king.|He was thrown into a field of sheep.|He was banished from the kingdom.,Daniel 6:4-16,OT,Daniel
+165,What happened to Daniel when he continued to pray to God instead of to the king?,He was thrown into the lions' den.,,,He was made a prophet to the king.|He was thrown into a field of sheep.|He was banished from the kingdom.|He was given riches.,Daniel 6:4-16,OT,Daniel
 166,What was the meaning of the handwriting on the wall at Belshazzar's drunken party?,That Belshazzar's kingdom was about to be conquered,,,That Belshazzar's kingdom would grow|That Belshazzar needed more wine|That Belshazzar's gold would be lost,Daniel 5:25-31,OT,Daniel
-167,Who was swallowed by a great fish when he ran away from doing God's will?,Jonah,Person,,,Jonah 1:17,OT,Jonah
+167,Who was swallowed by a great fish when he ran away from doing God's will?,Jonah,Man,,,Jonah 1:17,OT,Jonah
 168,What happened when Jonah preached to the people of Ninevah?,The people repented and God forgave them.,,,The people went back to their wicked ways.|The people left the city.|The people killed Jonah.,Jonah 3:5-10,OT,Jonah
 169,Where did Micah say the Messiah would be born?,Bethlehem,Place,,,Micah 5:2,OT,MinorProphets
 170,"According to the prophet Zechariah, where will Jesus' feet stand when He returns to the earth?",The Mount of Olives,Place,,,Zechariah 14:4,OT,MinorProphets
-171,Who told Mary she would be the mother of the Messiah?,The angel Gabriel,Person,,,Luke 1:26-33,NT,Birth of Jesus
-172,To whom was the virgin Mary engaged to be married?,Joseph,Person,,,Matthew 1:18,NT,Birth of Jesus
+171,Who told Mary she would be the mother of the Messiah?,The angel Gabriel,Man,,,Luke 1:26-33,NT,Birth of Jesus
+172,To whom was the virgin Mary engaged to be married?,Joseph,Man,,,Matthew 1:18,NT,Birth of Jesus
 173,"Who were the first persons, other than Joseph and Mary, to hear that Jesus had been born?",Shepherds,,,Wise Men|King Herod and his court|The Apostles,Luke 2:8-16,NT,Birth of Jesus
-174,What two groups of men worshipped the Christ child?,Shepherds and Wise Men,,,Wise Men and Prophets|Shepherds and Holy Men|Prophets and Tax Collectors,Matthew 2:1-2;Luke 2:8-17,NT,Birth of Jesus
+174,What two groups of men worshipped the Christ child?,Shepherds and Wise Men,,,Wise Men and Prophets|Shepherds and Holy Men|Prophets and Tax Collectors|Kings and Queens,Matthew 2:1-2;Luke 2:8-17,NT,Birth of Jesus
 175,"When the Wise Men came seeking Jesus, what question did they ask?","Matthew 2:2 ""Where is the newborn king of the Jews?""",DirectBibleQuote,,,Matthew 2:2,NT,Birth of Jesus
-176,Who was king over Judea when Jesus was born?,Herod,Person,,,Matthew 2:3,NT,Birth of Jesus
+176,Who was king over Judea when Jesus was born?,Herod,Man,,,Matthew 2:3,NT,Birth of Jesus
 177,How did the Wise Men find Jesus?,They followed His star to where He was.,,,They were given a map.|They followed the moon to where He was.|They followed a pillar of fire.|They were given a GPS.,Matthew 2:2-9,NT,Birth of Jesus
-178,What gifts were given to Jesus by the Wise Men?,Gold|Frankincense|Myrrh,,,Gold~Silver~Bronze|Rubies~Diamonds~Emeralds|Gift cards,Matthew 2:11,NT,Birth of Jesus
+178,What gifts were given to Jesus by the Wise Men?,Gold|Frankincense|Myrrh,,,Gold~Silver~Bronze|Rubies~Diamonds~Emeralds|Gift cards|Toys,Matthew 2:11,NT,Birth of Jesus
 179,Where did Jesus live as He was growing up?,Nazareth,Place,,,Matthew 2:23,NT,LifeofJesus
-180,Whom did God send to prepare the way for Jesus?,John the Baptist,Person,,,John 3:26-28,NT,LifeofJesus
+180,Whom did God send to prepare the way for Jesus?,John the Baptist,Man,,,John 3:26-28,NT,LifeofJesus
 181,About how old was Jesus when He began His public ministry?,[About]thirty years old,Timespan,30 years,,Luke 3:23,NT,Ministry of Jesus
 182,About how long did Jesus preach and teach before His crucifixion?,[About] three and a half years,Timespan,3 1/2 years,,,,Ministry of Jesus
 183,With what words did John the Baptist introduce Jesus?,"John 1:29 ""Look! The Lamb of God who takes away the sin of the world!""",DirectBibleQuote,,,John 1:29,NT,Ministry of Jesus
 184,How did John the Baptist describe the way Jesus would baptize?,With the Holy Spirit and with fire,,,With a dove|With holy oil|With water of the Jordan River,Matthew 3:11,NT,Ministry of Jesus
-185,Which of the disciples was a tax collector?,Matthew,Person,,,Matthew 10:3,NT,Ministry of Jesus
+185,Which of the disciples was a tax collector?,Matthew,Man,,,Matthew 10:3,NT,Ministry of Jesus
 186,"After Andrew met Jesus, what did he tell his brother Simon Peter?","""We have found the Messiah.""",,,"""We have found the Son of God.""|""We have found the great healer.""|""We have found the fisher of men.""",John 1:40-41,NT,Ministry of Jesus
 187,What was Jesus' first miracle?,Turning water into wine at the wedding in Cana,,,Turning wine into water|Pulling a rabbit out of hat|Healing the blind man|Calming a storm on the sea,John 2:1-11,NT,Ministry of Jesus
-188,What ruler of the Jews came to Jesus by night seeking the way to eternal life?,Nicodemus,Person,,,John 3:1-2,NT,Ministry of Jesus
+188,What ruler of the Jews came to Jesus by night seeking the way to eternal life?,Nicodemus,Man,,,John 3:1-2,NT,Ministry of Jesus
 189,Where did John the Baptist baptize Jesus?,In the Jordan River,,,In the Red Sea|In a small creek|In the Tigris River|In a puddle of water,Matthew 3:13,NT,Ministry of Jesus
 190,How did God show His approval of Jesus at His baptism?,"The Holy Spirit descended on Him and the Father said, ""This is my dearly loved Son, who brings me great joy.""",,,"""This is my Son of the line of David.""|""This is my Son, who shall bring peace to the world.""|""This is my dearly loved Son, who brings me great sorrow.""",Matthew 3:16-17; Luke 3:21-22,NT,Ministry of Jesus
 191,"During Jesus' temptation, how long did He go without eating?",Forty days and nights,Timespan,,,Matthew 4:2; Luke 4:2,NT,Ministry of Jesus
@@ -202,72 +202,72 @@
 201,Who did Jesus say was like the foolish man who built his house upon sand?,Those who hear His teachings but do not obey them,,,Those who hear His teachings and follow them|Those who do not listen|Those who talk too much,Matthew 7:26,NT,Ministry of Jesus
 202,Who did Jesus say was like the wise man who built his house upon the rock?,Those who hear His teachings and follow them,,,Those who hear His teachings but do not obey them|Those who do not listen|Those who talk too much,Matthew 7:24,NT,Ministry of Jesus
 203,"In Jesus' parable, who helped the man who had been beaten and robbed?",The Good Samaritan,,,The Bad Samaritan|The Good Persian|The Babylonian|The New Yorker,Luke 10:30-37,NT,Ministry of Jesus
-204,"In the Parable of the Sower, to what did Jesus compare the seed?",The Word of God,,,The Tree of Life|The Fruit of Salvation|The Faith of the Holy,Mark 4:14,NT,Ministry of Jesus
+204,"In the Parable of the Sower, to what did Jesus compare the seed?",The Word of God,,,The Tree of Life|The Fruit of Salvation|The Faith of the Holy|The Ark of the Covenant,Mark 4:14,NT,Ministry of Jesus
 205,What did Jesus teach about material possessions?,Don't be greedy.  A person's life is not measured by how much they own.,,Don't be greedy,Don't be wasteful|Don't convet your neighbors possessions|Do not steal|Don't misplace them|Do not sell them,Luke 12:15,NT,Ministry of Jesus
 206,What did Jesus do in healing the man born blind?,He put mud on his eyes and told him to go and wash it off.,,,He put oil on his eyes and told him to go and wash it off.|He fed the man fish.|He told the man's family to pray.|He gave the man eye drops.,John 9:1-7,NT,Ministry of Jesus
 207,Which of Jesus' parables tells us that God is willing to forgive and restore the sinner who repents?,The Parable of the Prodigal Son,,,The Good Samaritan|The Mustard Seed|The Lost Sheep|The Two Sons,Luke 15:11-32,NT,Ministry of Jesus
 208,How did Jesus answer those who asked if it was right for them to pay taxes to Caesar?,"Give Caesar what belongs to Caesar, and give God what belongs to God.",,,Do not give Caesar anything.|Give to God after what is given to Caesar.|Give to God what belongs to Caesar.|Give Caesar everything.,Matthew 22:15-22,NT,Ministry of Jesus
 209,"How did Jesus feed five thousand men, plus women and children?",He multiplied five loaves and two fish from a boy's lunch.,,,He and the disciples fished all night.|He ordered food from another town.|Mana fell from the sky.,Matthew 14:13-21; Mark 6:32-44; Luke 9:10-17; John 6:1-13,NT,Ministry of Jesus
-210,Who climbed a tree in order to see Jesus?,Zacchaeus,Person,,,Luke 19:1-6,NT,Ministry of Jesus
-211,How did Jesus come into Jerusalem at the Triumphal Entry?,Jesus came riding on the colt of a donkey.,,,Jesus walked through the back gate.|Jesus flew in.|Jesus was snuck in by the disciples.,Matthew 21:2-5; Luke 19:29-35; John 12:14-15,NT,Ministry of Jesus
-212,How did Jesus teach His disciples humility at the Last Supper?,He washed the disciples' feet.,,,He washed the disciples' hands.|He served the disciples' food.|He gave the disciples money.|He took food from the disciples.,John 13:1-17,NT,Ministry of Jesus
+210,Who climbed a tree in order to see Jesus?,Zacchaeus,Man,,,Luke 19:1-6,NT,Ministry of Jesus
+211,How did Jesus come into Jerusalem at the Triumphal Entry?,Jesus came riding on the colt of a donkey.,,,Jesus walked through the back gate.|Jesus flew in.|Jesus was snuck in by the disciples.|Jesus rode in on a motorcycle.,Matthew 21:2-5; Luke 19:29-35; John 12:14-15,NT,Ministry of Jesus
+212,How did Jesus teach His disciples humility at the Last Supper?,He washed the disciples' feet.,,,He washed the disciples' hands.|He served the disciples food.|He gave the disciples money.|He took food from the disciples.,John 13:1-17,NT,Ministry of Jesus
 213,Where did Jesus pray the night before His crucifixion?,Gethsemane,Place,,,Matthew 26:36,NT,Ministry of Jesus
-214,Which apostle betrayed Jesus?,Judas Iscariot,Person,,,"Matthew 26:17-25, 45-49",NT,Ministry of Jesus
-215,"In betraying Jesus, how did Judas show the soldiers who Jesus was?",He kissed Jesus,,,He hugged Jesus|He gave the soldiers a note|He pointed to Jesus,Matthew 26:49,NT,Jesus' Crucifixion
+214,Which apostle betrayed Jesus?,Judas Iscariot,Man,,,"Matthew 26:17-25, 45-49",NT,Ministry of Jesus
+215,"In betraying Jesus, how did Judas show the soldiers who Jesus was?",He kissed Jesus,,,He hugged Jesus|He gave the soldiers a note|He pointed to Jesus|He served Jesus a warrant,Matthew 26:49,NT,Jesus' Crucifixion
 216,What did Jesus prophesy Peter would do on the night of His betrayal?,Peter would deny knowing Jesus three times.,,,Peter would pray.|Peter would stop Judas.|Peter would leave the country.|Peter would battle the Romans.,Matthew 26:34,NT,Jesus' Crucifixion
-217,What person did the people ask Pilate to release instead of Jesus?,Barabbas,Person,,,Matthew 27:15-21,NT,Jesus' Crucifixion
-218,"What does the word ""Golgotha"" mean?",The Place of the Skull,,,The Burial Place of Goliath|The Place of Flowers|The Place of the Sword,Matthew 27:33,NT,Jesus' Crucifixion
+217,What person did the people ask Pilate to release instead of Jesus?,Barabbas,Man,,,Matthew 27:15-21,NT,Jesus' Crucifixion
+218,"What does the word ""Golgotha"" mean?",The Place of the Skull,,,The Burial Place of Goliath|The Place of Flowers|The Place of the Sword|The World's Best Pizza,Matthew 27:33,NT,Jesus' Crucifixion
 219,What title did Pilate have placed on Jesus' cross?,"[Jesus of Nazareth], the King of the Jews",,,"[Jesus of Nazareth], a Criminal|King of the Crown of Thorns|[Jesus of Bethlehem], the King of the Jews",Matthew 27:37; Mark 15:26; John 19:19,NT,Jesus' Crucifixion
 220,How did Jesus die?,"He was crucified, or nailed to a cross.",,,He was killed by the sword.|He was killed by a mob.|He was killed by a wild animal.|He died from food poisoning.,Matthew 27:35,NT,Jesus' Crucifixion
 221,What happened in the realm of nature when Jesus was crucified?,The sun became dark for three hours and there was an earthquake.,,,The seas turned red and boiled.|The birds stopped singing for three hours and there was a storm.|All flowers withered and died.|The sky turned pink.,"Matthew 27:45, 51",NT,Jesus' Crucifixion
-222,What did the Roman officer who had been in charge of Jesus' execution say about Jesus?,"""This man truly was the Son of God!""",,,"""He was not a criminal!""|""The false prophet is dead!""|""We should not have done this!""",Mark 15:39,NT,Jesus' Crucifixion
+222,What did the Roman officer who had been in charge of Jesus' execution say about Jesus?,"""This man truly was the Son of God!""",,,"""He was not a criminal!""|""The false prophet is dead!""|""We should not have done this!""|""What time is lunch?""",Mark 15:39,NT,Jesus' Crucifixion
 223,Who buried Jesus?,Joseph of Arimathea and Nicodemus,TwoPersons,,,John 19:38-39,NT,Jesus' Crucifixion
-224,Who was the first person to see Jesus after He was resurrected?,Mary Magdalene,Person,,,John 20:1-18,NT,Resurrection of Jesus
+224,Who was the first person to see Jesus after He was resurrected?,Mary Magdalene,Woman,,,John 20:1-18,NT,Resurrection of Jesus
 225,How was the way made for the women to get inside the tomb of Jesus?,An angel had rolled away the stone.,,,A group of men rolled away the stone.|An angel blew up the stone.|The stone disappeared.,Matthew 28:2,NT,Resurrection of Jesus
-226,Who was the disciple who at first doubted Jesus' resurrection?,Thomas,Person,,,John 20:24-29,NT,Resurrection of Jesus
-227,"After Jesus walked and talked with His apostles following His resurrection, what happened to Him?",He was taken up into a cloud until they could no longer see Him.,,,He appeared to masses to give a sermon.|He walked into the ocean until they could not longer see Him.|A dove came down and he dissappeared.,Acts 1:1-9,NT,Resurrection of Jesus
-228,Who was chosen to replace Judas as an apostle?,Matthias,Person,,,Acts 1:23-26,NT,Early Church
+226,Who was the disciple who at first doubted Jesus' resurrection?,Thomas,Man,,,John 20:24-29,NT,Resurrection of Jesus
+227,"After Jesus walked and talked with His apostles following His resurrection, what happened to Him?",He was taken up into a cloud until they could no longer see Him.,,,He appeared to the masses to give a sermon.|He walked into the ocean until they could not longer see Him.|A dove came down and he dissappeared.,Acts 1:1-9,NT,Resurrection of Jesus
+228,Who was chosen to replace Judas as an apostle?,Matthias,Man,,,Acts 1:23-26,NT,Early Church
 229,About how many people waited in Jerusalem for the coming of the Holy Spirit?,[About] 120,Number,120,,Acts 1:12-15,NT,Early Church
 230,What gift of God was given to the Church on the Day of Pentecost?,The gift of the Holy Spirit,,,The gift of the Bible|The gift of dance|The gift of healing|The gift of knowledge,Acts 2:1-4,NT,Early Church
-231,What Old Testament prophet foretold the outpouring of the Holy Spirit?,Joel,Person,,,Acts 2:16,OT/NT,Early Church
+231,What Old Testament prophet foretold the outpouring of the Holy Spirit?,Joel,Man,,,Acts 2:16,OT/NT,Early Church
 232,About how many people were saved as a result of Peter's sermon on the Day of Pentecost?,[About] three thousand,Number,"3,000",,Acts 2:41,NT,Early Church
 233,What did Peter say to the lame man at the temple gate?,"Acts 3:6 ""I don't have any silver or gold for you. But I'll give you what I have. In the name of Jesus Christ the Nazarene, get up and walk!""",DirectBibleQuote,,,Acts 3:6,NT,Early Church
 234,What was the sin of Ananias and Sapphira?,They lied to the Holy Spirit.,,,They lied to Saul.|They did not give up all their possessions.|They did not leave their home.,Acts 5:3,NT,Early Church
 235,Why did the apostles rejoice after being beaten for preaching the gospel?,Because they were counted worthy to suffer disgrace for the name of Jesus,,,Because the beatings would stop|Because Jesus would return to Earth someday|Because the people would see their suffering and lament,Acts 5:40-42,NT,Early Church
-236,Who was the first person to be martyred for being a Christian?,Stephen,Person,,,Acts 7:59,NT,Early Church
-237,"According to church history, who was the only one of the twelve apostles not martyred for his faith in the risen Christ?",John,Person,,,,,General
+236,Who was the first person to be martyred for being a Christian?,Stephen,Man,,,Acts 7:59,NT,Early Church
+237,"According to church history, who was the only one of the twelve apostles not martyred for his faith in the risen Christ?",John,Man,,,,,General
 238,Why did Saul of Tarsus go to Damascus?,To arrest Christians,,,To collect taxes|To get a name change|To free Christians,Acts 9:1-2,NT,Early Church
 239,What happened to Saul of Tarsus near Damascus?,"Jesus appeared to him in a light from heaven, and Saul accepted Him as Lord.",,,A donkey spoke to him.|He was robbed and beaten by theives.|He found a silver coin.,Acts 9:3-9,NT,Early Church
-240,Who was raised from the dead in answer to Peter's prayer?,Tabitha [Dorcas],Person,,,Acts 9:36-41,NT,Early Church
-241,Who was the Roman officer who sent for Peter to come and preach to him?,Cornelius,Person,,,Acts 10:1,NT,Early Church
+240,Who was raised from the dead in answer to Peter's prayer?,Tabitha [Dorcas],Woman,,,Acts 9:36-41,NT,Early Church
+241,Who was the Roman officer who sent for Peter to come and preach to him?,Cornelius,Man,,,Acts 10:1,NT,Early Church
 242,What happened while Peter was preaching at Cornelius's house?,The Holy Spirit fell upon all who were listening to the message.,,,The Romans arrested everyone.|An earthquake happened.|A dove pearched at the window.,Acts 10:44-48,NT,Early Church
 243,"In what city were Jesus' followers first called ""Christians""?",Antioch,Place,,,Acts 11:26,NT,Early Church
 244,How did Peter escape from prison the night before Herod planned to kill him?,An angel opened the prison for him.,,,The door was left unlocked.|Peter got the key from the guard.|Peter bribed the guard.,Acts 12:6-11,NT,Early Church
-245,Who helped Paul on his first missionary journey?,Barnabas,Person,,,Acts 13:1-4,NT,Ministry of Paul
+245,Who helped Paul on his first missionary journey?,Barnabas,Man,,,Acts 13:1-4,NT,Ministry of Paul
 246,What happened to Paul at Lystra after the people had thought he was a god?,"He was stoned and left for dead, but God healed him.",,,He was made ruler of the kinddom.|The people made a temple to him.|Paul healed the sick.,Acts 14:11-20,NT,Ministry of Paul
-247,How did Paul know he was supposed to preach in Macedonia?,God showed him a vision of a man from Macedonia calling for help.,,,God showed him a map in a dream.|A man from Macedonia spoke to Paul.|Paul followed a star to Macedonia.,Acts 16:9-10,NT,Ministry of Paul
+247,How did Paul know he was supposed to preach in Macedonia?,God showed him a vision of a man from Macedonia calling for help.,,,God showed him a map in a dream.|A man from Macedonia spoke to Paul on the road.|Paul followed a star to Macedonia.|A man from Macedonia emailed Paul.,Acts 16:9-10,NT,Ministry of Paul
 248,Who were Paul's chief helpers on his second missionary journey?,Silas and Timothy,TwoPersons,,,Acts 15:40; 16:1-4,NT,Ministry of Paul
-249,Who wrote the Book of Acts?,Luke,Person,,,Luke 1:3; Acts 1:1,NT,Early Church
+249,Who wrote the Book of Acts?,Luke,Man,,,Luke 1:3; Acts 1:1,NT,Early Church
 250,What was the occupation of Luke?,Doctor,,,Priest|Tax Collector|Carpenter|YouTuber,Colossians 4:14,NT,Early Church
 251,What did Paul tell the Philippian jailer to do in order to be saved?,"Acts 16:31 ""Believe in the Lord Jesus and you will be saved, along with everyone in your household.""",DirectBibleQuote,,,Acts 16:31,NT,Ministry of Paul
 252,Who were the tentmakers who assisted Paul at Corinth?,Aquila and Priscilla,TwoPersons,,,Acts 18:1-3,NT,Ministry of Paul
-253,What did the people of Ephesus do with their books of witchcraft to show they had turned to God?,They burned them.,,,They buried them.|They sent them away.|They recyled them.|They read them.,Acts 19:18-19,NT,Early Church
+253,What did the people of Ephesus do with their books of witchcraft to show they had turned to God?,They burned them.,,,They buried them.|They sent them away.|They recycled them.|They read them.,Acts 19:18-19,NT,Early Church
 254,"In Ephesians, what command does Paul give to the children?","Children, obey your parents.",,,"Parents, obey your children.|Children, obey your older siblings.|Children, obey your elders.|Children, do whatever you want.",Ephesians 6:1,NT,Ministry of Paul
 255,Does God treat all people alike?,"Yes, all people are equal before God",,,"No, people are not equal before God|No, only Christians are equal before God|No",2 Chronicles 19:7; Romans 2:11,OT/NT,General
-256,Why did God give the Law?,To show us how sinful we are,,,To show how good we are|Because he can|Because people needed rules,Romans 3:20,NT,General
+256,Why did God give the Law?,To show us how sinful we are,,,To show us how good we are|Because he can|Because people needed rules|Because people asked for them,Romans 3:20,NT,General
 257,What is the penalty of sin?,"Romans 6:23 For the wages of sin is death, but the free gift of God is eternal life through Christ Jesus our Lord.",DirectBibleQuote,"Romans 6:23 ""For the wages of sin is death, but the free gift of God is eternal life through Christ Jesus our Lord.""",,Romans 6:23,NT,General
-258,Why did Jesus die on the Cross?,He died for our sins.,,,He died to conquer the Romans.|He died for the Jews.|He died for nothing.,1 Corinthians 15:3,NT,General
+258,Why did Jesus die on the Cross?,He died for our sins.,,,He died to conquer the Romans.|He died for the Jews.|He died for nothing.|He died for the angels.,1 Corinthians 15:3,NT,General
 259,Why should we wear all of the armor of God?,So that we can resist the attacks of the devil,,,So we can protect ourselved from non-Christians|So we can attack our enemies|So we can lead others to Jesus,Ephesians 6:11-13,NT,General
 260,"In the Christian's armor, what is the belt?",Truth,ChristiansArmor,,,Ephesians 6:14,NT,General
 261,"In the Christian's armor, what is the body armor?",God's righteousness,ChristiansArmor,,,Ephesians 6:14,NT,General
 262,"In the Christian's armor, what is worn on the feet?",The peace that comes from the good news so that you will be fully prepared,ChristiansArmor,,,Ephesians 6:15,NT,General
 263,"In the Christian's armor, what is the shield?",Faith,ChristiansArmor,,,Ephesians 6:16,NT,General
 264,"In the Christian's armor, what is the helmet?",Salvation,ChristiansArmor,,,Ephesians 6:17,NT,General
-265,What should Christians use to protect themselves from the devil's fiery arrows?,The shield of faith,,,The shield of truth|The helmet of salvation|The gauntlets of justice,Ephesians 6:16,NT,General
+265,What should Christians use to protect themselves from the devil's fiery arrows?,The shield of faith,,,The shield of truth|The helmet of salvation|The gauntlets of justice|The socks of understanding,Ephesians 6:16,NT,General
 266,What is the Spirit's sword?,The Word of God,ChristiansArmor,,,Ephesians 6:17,NT,General
 267,When should Christians rejoice?,Always,,,Sometimes|Never|Only when good things happen|Only when bad things happen,Philippians 4:4,NT,General
-268,To what young pastor did Paul write two letters which are books of the Bible?,Timothy,Person,,,,NT,Ministry of Paul
-269,Who was the slave Paul won to the Lord while in prison?,Onesimus,Person,,,Philemon 10-13,NT,Ministry of Paul
+268,To what young pastor did Paul write two letters which are books of the Bible?,Timothy,Man,,,,NT,Ministry of Paul
+269,Who was the slave Paul won to the Lord while in prison?,Onesimus,Man,,,Philemon 10-13,NT,Ministry of Paul
 270,Why do we love God?,We love Him because He first loved us.,,Because He first loved us,Because we loved God first|Because of Adam and Eve|Because God gave us rainbows|Because God created us,1 John 4:8-19,NT,General
 271,What happened to John on the isle of Patmos?,God showed him what was going to happen in the last days.,,,God showed him his future.|God rescued him from the island.|God gave him food.|God told him the secret of life.,Revelation 4:1,NT,End Times
 272,What is an apostle?,A special messenger sent by God.,TermDefinition,,,,,General

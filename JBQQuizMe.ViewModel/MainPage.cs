@@ -78,27 +78,57 @@ namespace JBQQuizMe.ViewModel
             private set => SetProperty(ref _maxQuestionNumber, value);
         }
 
-        private int? _startQuestionNumber = null;
+        private string _startQuestionNumber = null;
         [CustomValidation(typeof(MainPage), nameof(ValidateQuestionRange))]
-        public int? StartQuestionNumber
+        public string StartQuestionNumberStr
         {
             get => _startQuestionNumber;
             set
             {
                 SetProperty(ref _startQuestionNumber, value, true);
-                ValidateProperty(EndQuestionNumber, nameof(EndQuestionNumber));
+                ValidateProperty(EndQuestionNumberStr, nameof(EndQuestionNumberStr));
+                OnPropertyChanged(nameof(StartQuestionNumber));
+            }
+        }
+        public int? StartQuestionNumber
+        {
+            get
+            {
+                if (int.TryParse(_startQuestionNumber, out int intVal))
+                {
+                    return intVal;
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 
-        private int? _endQuestionNumber = null;
+        private string _endQuestionNumber = null;
         [CustomValidation(typeof(MainPage), nameof(ValidateQuestionRange))]
-        public int? EndQuestionNumber
+        public string EndQuestionNumberStr
         {
             get => _endQuestionNumber;
             set
             {
                 SetProperty(ref _endQuestionNumber, value, true);
-                ValidateProperty(StartQuestionNumber, nameof(StartQuestionNumber));
+                ValidateProperty(StartQuestionNumberStr, nameof(StartQuestionNumberStr));
+                OnPropertyChanged(nameof(EndQuestionNumber));
+            }
+        }
+        public int? EndQuestionNumber
+        {
+            get
+            {
+                if (int.TryParse(_endQuestionNumber, out int intVal))
+                {
+                    return intVal;
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 
@@ -116,15 +146,16 @@ namespace JBQQuizMe.ViewModel
             }
             else if (instance.StartQuestionNumber.HasValue && (instance.StartQuestionNumber > instance.MaxQuestionNumber))
             {
-                return new($"Start question number must be equal to or less than {instance.MaxQuestionNumber}");
+                return new($"Start question number must be equal to or less than {instance.MaxQuestionNumber}. This game only uses 10 point questions from the Bible Fact-Pak™.");
             }
             else if (instance.EndQuestionNumber.HasValue && (instance.EndQuestionNumber > instance.MaxQuestionNumber))
             {
-                return new($"End question number must be equal to or less than {instance.MaxQuestionNumber}");
+                return new($"End question number must be equal to or less than {instance.MaxQuestionNumber}. This game only uses 10 point questions from the Bible Fact-Pak™.");
             }
-            else if ((instance.StartQuestionNumber.HasValue) ^ (instance.EndQuestionNumber.HasValue))
+            else if ((instance.StartQuestionNumber.HasValue && instance.StartQuestionNumber.Value != 0)
+                ^ (instance.EndQuestionNumber.HasValue && instance.EndQuestionNumber.Value != 0))
             {
-                return new("If specifying a question range, both 'start' and 'end' must be provided");
+                return new($"If specifying a question range, both 'start' and 'end' must be provided");
             }
             else if(instance.StartQuestionNumber >= instance.EndQuestionNumber)
             {

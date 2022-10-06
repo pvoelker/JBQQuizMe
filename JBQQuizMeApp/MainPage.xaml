@@ -14,7 +14,6 @@
     </ContentPage.Resources>    
     <ScrollView>
         <VerticalStackLayout 
-            Spacing="25" 
             Padding="30,0" 
             VerticalOptions="Center">
 
@@ -33,6 +32,7 @@
             </Label>
 
             <Image
+                Margin="20"
                 Source="redbiblewithcross.png"
                 SemanticProperties.Description="Red Bible with a cross"
                 HeightRequest="200"
@@ -40,13 +40,15 @@
 
             <Label
                 HorizontalOptions="Center"
-                FontSize="Medium">Question Number Range (optional):</Label>
+                HorizontalTextAlignment="Center"
+                FontSize="Small">Bible Fact-Pak™ Question Number Range (optional):</Label>
             <HorizontalStackLayout
                 HorizontalOptions="Center">
-                <Entry                   
+                <Entry
+                    FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="Start"
-                    Text="{Binding Path=StartQuestionNumber}"
+                    Text="{Binding Path=StartQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>
                         <toolkit:NumericValidationBehavior 
@@ -61,9 +63,10 @@
                     VerticalOptions="Center"
                     FontSize="Medium">to</Label>
                 <Entry
+                    FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="End"
-                    Text="{Binding Path=EndQuestionNumber}"
+                    Text="{Binding Path=EndQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>
                         <toolkit:NumericValidationBehavior 
@@ -78,12 +81,14 @@
 
             <Button 
                 Text="Quiz Me!"
-                Padding="40,0"
+                Margin="25"
+                Padding="80,0"
                 FontSize="Large"
                 Clicked="QuizMe_Clicked"
                 HorizontalOptions="Center" />
 
             <HorizontalStackLayout
+                Margin="10"
                 HorizontalOptions="Center">
                 <Label 
                     IsVisible="{Binding Path=IsVersionInfoPresent}"
@@ -91,13 +96,14 @@
                     FontSize="Micro"
                     VerticalOptions="Center"
                     Margin="0,0,10,0"/>
-                <ImageButton
-                    Source="information.png"
-                    HeightRequest="20"
+                <Button
+                    Text="About..."
+                    BackgroundColor="Orange"
+                    Padding="5,0"
+                    FontSize="Micro"
                     VerticalOptions="Center"
                     Clicked="InfoButton_Clicked" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

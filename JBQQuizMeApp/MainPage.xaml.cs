@@ -47,7 +47,7 @@ public partial class MainPage : ContentPage
         builder.AppendLine("• Questions transcribed by Pastor Michelle Redmon of Faith Chapel - Overland Park");
         builder.AppendLine("• Given to the glory of God");
 
-        await DisplayAlert("Information", builder.ToString(), "OK");
+        await DisplayAlert("About Game", builder.ToString(), "OK");
 	}
 }
 
