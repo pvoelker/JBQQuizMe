@@ -147,10 +147,18 @@
             <Label
                 FontSize="Large"
                 FontFamily="MorningRainbow"
+                TextColor="DarkViolet"
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
                 Text="{Binding Message}"
-                Margin="20"/>
+                Margin="20">
+                <Label.Shadow>
+                    <Shadow Brush="Gray"
+                        Offset="5,5"
+                        Radius="10"
+                        Opacity="0.6" />
+                </Label.Shadow>                
+            </Label>
 
             <Grid>
                 <Grid.ColumnDefinitions>
