@@ -141,6 +141,18 @@
                             </Image.Behaviors>
                         </Image>
                     </Grid>
+
+                    <Label
+                        Grid.Column="0"
+                        IsVisible="{Binding Path=AreCandlesLit}"
+                        Text="{Binding Path=CandlesLit, StringFormat='Candles Lit: {0}'}"
+                        FontFamily="MorningRainbow"
+                        FontSize="Medium"
+                        TextColor="Orange"
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"
+                        SemanticProperties.HeadingLevel="Level2">
+                    </Label>
                 </Grid>
             </Grid>
 

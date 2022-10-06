@@ -18,10 +18,11 @@ namespace JBQQuizMe.ViewModel
             "Way to go!",
             "Excellent!",
             "Congratulations!",
-            "You are awesome!"
+            "You are awesome!",
+            "Keep going!"
         };
 
-        private const decimal COMPLETION_DELTA = 0.05m;
+        private const decimal COMPLETION_DELTA = 0.1m;
 
         private const int MAX_QUESTIONS = 4;
 
@@ -104,6 +105,21 @@ namespace JBQQuizMe.ViewModel
         {
             get => _wrongAnswers;
             private set => SetProperty(ref _wrongAnswers, value);
+        }
+
+        private int _candlesLit = 0;
+        public int CandlesLit
+        {
+            get => _candlesLit;
+            set
+            {
+                SetProperty(ref _candlesLit, value);
+                OnPropertyChanged(nameof(AreCandlesLit));
+            }
+        }
+        public bool AreCandlesLit
+        {
+            get => CandlesLit > 0;
         }
 
         private int? _startQuestionNumber = null;
@@ -262,6 +278,7 @@ namespace JBQQuizMe.ViewModel
                     Celebration.Execute(null);
                 }
 
+                CandlesLit = CandlesLit + 1;
                 Completion = 0m;
             }
 
