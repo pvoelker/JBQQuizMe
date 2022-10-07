@@ -71,6 +71,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Egyptian" },
                         new List<string> { "Arabic" },
                         new List<string> { "Chinese" },
+                        new List<string> { "Armenian" },
                     },
                     Passage = null,
                     Type = null
@@ -93,6 +94,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "German" },
                         new List<string> { "Japanese" },
                         new List<string> { "Sanskrit" },
+                        new List<string> { "Aramaic" },
                     },
                     Passage = null,
                     Type = null
@@ -262,7 +264,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "God gave people the ability to stand." },
                         new List<string> { "God gave people brains." },
                         new List<string> { "God gave people the ability to talk." },
-                        new List<string> { "God create people in the image of the angels." },
+                        new List<string> { "God created people in the image of the angels." },
                     },
                     Passage = "Genesis 1:27",
                     Type = null
@@ -304,6 +306,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "The tree of widsom","The tree of wealth" },
                         new List<string> { "The tree of peace","The tree of health" },
                         new List<string> { "The tree of love","The bush of fire" },
+                        new List<string> { "The tree on the left","The tree on the right" },
                     },
                     Passage = "Genesis 2:17; 3:24",
                     Type = null
@@ -361,8 +364,9 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "Shem","Ham","Japheth" },
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "Peter","James","John" },
-                        new List<string> { "Noah Jr","Noah II","Noah IV" },
+                        new List<string> { "Noah Jr","Noah II","Noah III" },
                         new List<string> { "Peter","Paul","Mary" },
+                        new List<string> { "David","Saul","Solomon" },
                     },
                     Passage = "Genesis 7:13",
                     Type = null
@@ -383,6 +387,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "It was God's promise that the world would never be destroyed by fire." },
                         new List<string> { "It was God's promise that the world would be destroyed every 1000 years." },
                         new List<string> { "It was God's promise that world would NEVER be destroyed." },
+                        new List<string> { "It was God's promise of a pot of gold." },
                     },
                     Passage = "Genesis 9:14-15",
                     Type = null
@@ -395,6 +400,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "By building a ladder that reached into the sky" },
                         new List<string> { "By digging the deepest hole to make themselves famous" },
                         new List<string> { "By launching a rocket to talk to God" },
+                        new List<string> { "By building a golden calf" },
                     },
                     Passage = "Genesis 11:4",
                     Type = null
@@ -420,6 +426,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "By asking Abraham to give all his money away" },
                         new List<string> { "By asking Abraham to burn his home" },
                         new List<string> { "By asking Abraham to walk without shoes" },
+                        new List<string> { "By asking Abraham to sacrifice his son" },
                     },
                     Passage = "Genesis 12:1-6; Hebrews 11:8",
                     Type = null
@@ -464,6 +471,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Because Lot was not born in Sodom." },
                         new List<string> { "Because Sodom did not have salt." },
                         new List<string> { "Because Lot was a prophet of God." },
+                        new List<string> { "Because the people of Sodom were good and did not need help." },
                     },
                     Passage = "Genesis 13:12-13; 14:12",
                     Type = null
@@ -476,6 +484,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Priest of God and King of Dan" },
                         new List<string> { "Prophet of Judea" },
                         new List<string> { "King of Bath" },
+                        new List<string> { "Champion Olive Eater" },
                     },
                     Passage = "Genesis 14:18",
                     Type = null
@@ -496,6 +505,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Ephesus and Corinth" },
                         new List<string> { "Hebron and Debir" },
                         new List<string> { "Minneapolis and St. Paul" },
+                        new List<string> { "Cairo and Giza" },
                     },
                     Passage = "Genesis 19:24-25",
                     Type = null
@@ -516,6 +526,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Abraham was sixty and Sarah was fourty-five years old." },
                         new List<string> { "Abraham was twenty-three and Sarah was twenty years old." },
                         new List<string> { "Abraham and Sarah were both ninety years old." },
+                        new List<string> { "We do not know how old they were." },
                     },
                     Passage = "Genesis 17:17; 21:1-5",
                     Type = null
@@ -557,6 +568,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "By making his mother, Rebekah, think he was Esau" },
                         new List<string> { "By faking his birth certificate" },
                         new List<string> { "By feeding his father, Isaac, his favorite food" },
+                        new List<string> { "By stealing it from the high priest" },
                     },
                     Passage = "Genesis 27:1-29",
                     Type = null
@@ -593,6 +605,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "He would be thrown into prison." },
                         new List<string> { "He would become very wealthy and support his family." },
                         new List<string> { "He would leave his family forever." },
+                        new List<string> { "He would travel the world." },
                     },
                     Passage = "Genesis 37:5-11",
                     Type = null
@@ -605,6 +618,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "By giving him a white robe" },
                         new List<string> { "By giving him a gold trimmed coat" },
                         new List<string> { "By giving him a coat of invisibility" },
+                        new List<string> { "By giving him a special ring" },
                     },
                     Passage = "Genesis 37:3, 23",
                     Type = null
@@ -633,6 +647,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "He was praised by the master." },
                         new List<string> { "He fled his master." },
                         new List<string> { "He became the chief cup bearer." },
+                        new List<string> { "Pharaoh gave him a reward." },
                     },
                     Passage = "Genesis 39:20",
                     Type = null
@@ -652,7 +667,8 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "Fourteen years of famine." },
                         new List<string> { "Six good months would be followed by six months of famine." },
-                        new List<string> { "The king would gain more wealth." },
+                        new List<string> { "The pharaoh would gain more wealth." },
+                        new List<string> { "Ten plagues would fall upon the land." },
                     },
                     Passage = "Genesis 41:25-27",
                     Type = null
@@ -709,7 +725,8 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "Because it was known that he had killed an Israelite who beat an Egyptian" },
                         new List<string> { "Because he freed the slaves" },
-                        new List<string> { "Because he disobeyed pharoh " },
+                        new List<string> { "Because he disobeyed pharoh" },
+                        new List<string> { "Because he forgot to pay his taxes" },
                     },
                     Passage = "Exodus 2:11-15",
                     Type = null
@@ -805,8 +822,9 @@ namespace JBQQuizMe.Repository
                     Answer = new List<string> { "The parting of the Red Sea" },
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "The parting of the Sea of Galilee" },
-                        new List<string> { "By stopping a sandstorm" },
+                        new List<string> { "By God stopping a sandstorm" },
                         new List<string> { "By God providing a herd of oxen" },
+                        new List<string> { "The building of the ark" },
                     },
                     Passage = "Exodus 14:13-22",
                     Type = null
@@ -840,6 +858,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "By Moses pouring oil into the water" },
                         new List<string> { "By Moses dipping his staff into the water" },
                         new List<string> { "By Moses putting burnt fig leaves into the water" },
+                        new List<string> { "By Noah pouring oil into the water" },
                     },
                     Passage = "Exodus 15:23-25",
                     Type = null
@@ -851,7 +870,8 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "By causing wheat to grow" },
                         new List<string> { "By getting it from other countries" },
-                        new List<string> { "Sending loaves by birds" },
+                        new List<string> { "By sending bread with birds" },
+                        new List<string> { "By calling for delivery" },
                     },
                     Passage = "Exodus 16:31",
                     Type = null
@@ -864,6 +884,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "God healed a blind man." },
                         new List<string> { "God sent mana from heaven." },
                         new List<string> { "God stopped the sun and moon." },
+                        new List<string> { "God parted the sea." },
                     },
                     Passage = "Exodus 17:1-6",
                     Type = null
@@ -875,7 +896,8 @@ namespace JBQQuizMe.Repository
                     WrongAnswers = new List<List<string>> {
                         new List<string> { "By defending Moses against the Amalekites" },
                         new List<string> { "By making sure Moses did not fall over in the wind" },
-                        new List<string> { "By bringing Moses water to drink" },
+                        new List<string> { "By bringing Moses some water to drink" },
+                        new List<string> { "By bringing Moses a sword" },
                     },
                     Passage = "Exodus 17:8-13",
                     Type = null
@@ -1002,6 +1024,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "Making and worshipping the idol of the silver goat" },
                         new List<string> { "The breaking of the ten commandments" },
                         new List<string> { "Leading the people away from Mount Sinai" },
+                        new List<string> { "Eating on the sabbath" },
                     },
                     Passage = "Exodus 32:2-6",
                     Type = null
@@ -1028,6 +1051,7 @@ namespace JBQQuizMe.Repository
                         new List<string> { "To heal the sick" },
                         new List<string> { "To provide for a good harvest" },
                         new List<string> { "To purify the air" },
+                        new List<string> { "To impress other kingdoms" },
                     },
                     Passage = "Leviticus 5:1-6",
                     Type = null
