@@ -72,6 +72,8 @@ namespace JBQQuizMe.ViewModel
 
         public IRelayCommand WrongAnswerGiven { get; set; }
 
+        public IRelayCommand ShowFrog { get; set; }
+
         #endregion
 
         private AskedQuestion _currentQuestion = null;
@@ -312,6 +314,11 @@ namespace JBQQuizMe.ViewModel
             {
                 Completion -= COMPLETION_DELTA;
             }
+
+            if (ShowFrog != null)
+            {
+                ShowFrog.Execute(null);
+            }    
         }
 
         private static string FormatList(IEnumerable<string> list)
