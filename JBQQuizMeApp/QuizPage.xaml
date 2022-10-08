@@ -214,7 +214,6 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 BorderWidth="0"
-                Background=""
                 BackgroundColor="Transparent"
                 IsVisible="false">
                 <ImageButton.Behaviors>
