@@ -42,3 +42,4 @@ Track changes made to the game application.
 - Lower lighting of candle from 20 to 10 correct answers
 - Display how many candles have been lit
 - Show annoying frog on wrong answers
+- Animate congratulation message when candle is fully lit
