@@ -36,7 +36,7 @@ namespace JBQQuizMeApp.Behaviors
 
             control.Scale = 1;
 
-            await control.ScaleTo(1.1, 100);
+            await control.ScaleTo(1.1, 200);
             await control.ScaleTo(0, 500);
 
             control.IsVisible = false;

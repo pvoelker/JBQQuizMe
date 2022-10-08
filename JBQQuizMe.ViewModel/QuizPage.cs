@@ -302,7 +302,7 @@ namespace JBQQuizMe.ViewModel
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             answer.Attempted = true;
-            Message = "Try again!";
+            Message = "Try again! Poke the frog...";
             WrongAnswers += 1;
 
             if (WrongAnswerGiven != null)
