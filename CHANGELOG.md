@@ -14,7 +14,7 @@ Track changes made to the game application.
 - Enhance quizzing user interface
 - Apply MIT license
 
-## Verion 0.3.0.0
+## Version 0.3.0.0
 
 - First beta version
 - Fix issue with accidental clicks when new question is brought up
@@ -24,7 +24,7 @@ Track changes made to the game application.
 - Fix and clean up questions
 - Fix a number of build warnings
 
-## Verion 0.4.0.0
+## Version 0.4.0.0
 
 - Second beta version
 - First Android build
@@ -35,3 +35,11 @@ Track changes made to the game application.
 - Split 'person' category question type
 - Further question clean up and add some more wrong answers
 - Fix start and end question range on main page
+
+## Version 0.5.0.0
+
+- Third beta version
+- Lower lighting of candle from 20 to 10 correct answers
+- Display how many candles have been lit
+- Show annoying frog on wrong answers
+- Animate congratulation message when candle is fully lit

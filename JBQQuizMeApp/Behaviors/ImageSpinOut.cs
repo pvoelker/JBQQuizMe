@@ -48,6 +48,16 @@ namespace JBQQuizMeApp.Behaviors
                         control.RelRotateTo(360, 1000),
                         control.ScaleTo(4, 1000)
                     );
+                    await Task.WhenAny
+                    (
+                        control.RelRotateTo(360, 1000),
+                        control.ScaleTo(1, 1000)
+                    );
+                    await Task.WhenAny
+                    (
+                        control.RelRotateTo(360, 1000),
+                        control.ScaleTo(.25, 1000)
+                    );
 
                     control.IsVisible = false;
 

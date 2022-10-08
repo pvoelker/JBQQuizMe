@@ -18,10 +18,11 @@ namespace JBQQuizMe.ViewModel
             "Way to go!",
             "Excellent!",
             "Congratulations!",
-            "You are awesome!"
+            "You are awesome!",
+            "Keep going!"
         };
 
-        private const decimal COMPLETION_DELTA = 0.05m;
+        private const decimal COMPLETION_DELTA = 0.1m;
 
         private const int MAX_QUESTIONS = 4;
 
@@ -59,6 +60,8 @@ namespace JBQQuizMe.ViewModel
 
         #region Commands
 
+        public IRelayCommand MessageThump { get; set; }
+
         public IRelayCommand CandleSparkle { get; set; }
 
         public IRelayCommand CandleJiggle { get; set; }
@@ -68,6 +71,8 @@ namespace JBQQuizMe.ViewModel
         public IRelayCommand CorrectAnswerGiven { get; set; }
 
         public IRelayCommand WrongAnswerGiven { get; set; }
+
+        public IRelayCommand ShowFrog { get; set; }
 
         #endregion
 
@@ -104,6 +109,21 @@ namespace JBQQuizMe.ViewModel
         {
             get => _wrongAnswers;
             private set => SetProperty(ref _wrongAnswers, value);
+        }
+
+        private int _candlesLit = 0;
+        public int CandlesLit
+        {
+            get => _candlesLit;
+            set
+            {
+                SetProperty(ref _candlesLit, value);
+                OnPropertyChanged(nameof(AreCandlesLit));
+            }
+        }
+        public bool AreCandlesLit
+        {
+            get => CandlesLit > 0;
         }
 
         private int? _startQuestionNumber = null;
@@ -257,11 +277,17 @@ namespace JBQQuizMe.ViewModel
             {
                 Message = GetCongratMessage();
 
-                if(Celebration != null)
+                if (MessageThump != null)
+                {
+                    MessageThump.Execute(null);
+                }
+
+                if (Celebration != null)
                 {
                     Celebration.Execute(null);
                 }
 
+                CandlesLit = CandlesLit + 1;
                 Completion = 0m;
             }
 
@@ -276,7 +302,7 @@ namespace JBQQuizMe.ViewModel
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             answer.Attempted = true;
-            Message = "Try again!";
+            Message = "Try again! Poke the frog...";
             WrongAnswers += 1;
 
             if (WrongAnswerGiven != null)
@@ -288,6 +314,11 @@ namespace JBQQuizMe.ViewModel
             {
                 Completion -= COMPLETION_DELTA;
             }
+
+            if (ShowFrog != null)
+            {
+                ShowFrog.Execute(null);
+            }    
         }
 
         private static string FormatList(IEnumerable<string> list)
