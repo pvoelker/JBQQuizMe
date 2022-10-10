@@ -249,9 +249,12 @@ namespace JBQQuizMe.ViewModel
 
                     foreach (var item in CurrentQuestion.PossibleAnswers)
                     {
-                        item.IsReading = true;
-                        await TextToSpeech.Default.SpeakAsync(item.Text);
-                        item.IsReading = false;
+                        if (item.NotAttempted)
+                        {
+                            item.IsReading = true;
+                            await TextToSpeech.Default.SpeakAsync(item.Text);
+                            item.IsReading = false;
+                        }
                     }
                 }
             }
