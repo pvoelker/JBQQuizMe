@@ -132,6 +132,13 @@ namespace JBQQuizMe.ViewModel
             }
         }
 
+        private bool _readQuestions = true;
+        public bool ReadQuestions
+        {
+            get => _readQuestions;
+            set => SetProperty(ref _readQuestions, value);
+        }
+
         public static ValidationResult ValidateQuestionRange(string name, ValidationContext context)
         {
             var instance = (MainPage)context.ObjectInstance;

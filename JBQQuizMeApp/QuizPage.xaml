@@ -59,6 +59,15 @@
                                                 <Button.Behaviors>
                                                     <b:ButtonClickJitter/>
                                                 </Button.Behaviors>
+                                                <Button.Style>
+                                                    <Style TargetType="Button">
+                                                        <Style.Triggers>
+                                                            <DataTrigger TargetType="Button" Binding="{Binding Path=IsReading}" Value="True">
+                                                                <Setter Property="BackgroundColor" Value= "Orange" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
                                             </Button>
                                         </Grid>
                                     </ViewCell>

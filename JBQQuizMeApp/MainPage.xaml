@@ -32,7 +32,7 @@
             </Label>
 
             <Image
-                Margin="20"
+                Margin="10"
                 Source="redbiblewithcross.png"
                 SemanticProperties.Description="Red Bible with a cross"
                 HeightRequest="200"
@@ -81,11 +81,16 @@
 
             <Button 
                 Text="Quiz Me!"
-                Margin="25"
+                Margin="20"
                 Padding="80,0"
                 FontSize="Large"
                 Clicked="QuizMe_Clicked"
                 HorizontalOptions="Center" />
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Read Questions/Answers:" Margin="20,0,0,0" VerticalOptions="Center" FontSize="Medium" />
+                <CheckBox IsChecked="{Binding Path=ReadQuestions}" VerticalOptions="Center" />
+            </HorizontalStackLayout>
 
             <HorizontalStackLayout
                 Margin="10"
@@ -93,14 +98,14 @@
                 <Label 
                     IsVisible="{Binding Path=IsVersionInfoPresent}"
                     Text="{Binding Path=Version, StringFormat='Version {0}'}"
-                    FontSize="Micro"
+                    FontSize="Small"
                     VerticalOptions="Center"
                     Margin="0,0,10,0"/>
                 <Button
                     Text="About..."
                     BackgroundColor="Orange"
                     Padding="5,0"
-                    FontSize="Micro"
+                    FontSize="Small"
                     VerticalOptions="Center"
                     Clicked="InfoButton_Clicked" />
             </HorizontalStackLayout>

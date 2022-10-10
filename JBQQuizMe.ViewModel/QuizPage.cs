@@ -36,7 +36,7 @@ namespace JBQQuizMe.ViewModel
         {
         }
 
-        public void Initialize()
+        public async Task Initialize()
         {
             if (StartQuestionNumber.HasValue && EndQuestionNumber.HasValue)
             {
@@ -56,6 +56,7 @@ namespace JBQQuizMe.ViewModel
             }
 
             CurrentQuestion = GetNextQuestion();
+            await ReadCurrentQuestion();
         }
 
         #region Commands
@@ -138,6 +139,13 @@ namespace JBQQuizMe.ViewModel
         {
             get => _endQuestionNumber;
             set => SetProperty(ref _endQuestionNumber, value);
+        }
+
+        private bool _readQuestions = false;
+        public bool ReadQuestions
+        {
+            get => _readQuestions;
+            set => SetProperty(ref _readQuestions, value);
         }
 
         private AskedQuestion GetNextQuestion()
@@ -231,6 +239,28 @@ namespace JBQQuizMe.ViewModel
             return retVal;
         }
 
+        private async Task ReadCurrentQuestion()
+        {
+            if (ReadQuestions == true)
+            {
+                if (CurrentQuestion != null)
+                {
+                    await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question);
+
+                    foreach (var item in CurrentQuestion.PossibleAnswers)
+                    {
+                        item.IsReading = true;
+                        await TextToSpeech.Default.SpeakAsync(item.Text);
+                        item.IsReading = false;
+                    }
+                }
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine($"Question {CurrentQuestion.Number} not read due to user setting");
+            }
+        }
+
         private int GetNextQuestionNumber()
         {
             if (StartQuestionNumber.HasValue && EndQuestionNumber.HasValue)
@@ -295,6 +325,7 @@ namespace JBQQuizMe.ViewModel
             await Task.Delay(250);
 
             CurrentQuestion = GetNextQuestion();
+            await ReadCurrentQuestion();
         }
 
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
