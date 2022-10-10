@@ -15,6 +15,8 @@ namespace JBQQuizMe.ViewModel
 
             MaxQuestionNumber = repository.GetMaxNumber();
 
+            ReadQuestions = Preferences.Default.Get(PreferenceKeys.ReadQuestions, true);
+
             try
             {
                 var assembly = Assembly.GetEntryAssembly();
@@ -136,7 +138,11 @@ namespace JBQQuizMe.ViewModel
         public bool ReadQuestions
         {
             get => _readQuestions;
-            set => SetProperty(ref _readQuestions, value);
+            set
+            {
+                Preferences.Default.Set(PreferenceKeys.ReadQuestions, value);
+                SetProperty(ref _readQuestions, value);
+            }
         }
 
         public static ValidationResult ValidateQuestionRange(string name, ValidationContext context)
