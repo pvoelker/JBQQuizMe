@@ -32,6 +32,8 @@ namespace JBQQuizMe.ViewModel
 
         private Dictionary<int, int> _timesAsked = new Dictionary<int, int>();
 
+        private CancellationTokenSource _speechCancellationToken = default;
+
         public QuizPage()
         {
         }
@@ -239,20 +241,34 @@ namespace JBQQuizMe.ViewModel
             return retVal;
         }
 
+        private void CancelQuestionRead()
+        {
+            if (_speechCancellationToken != default)
+            {
+                _speechCancellationToken.Cancel();
+            }
+        }
+
         private async Task ReadCurrentQuestion()
         {
             if (ReadQuestions == true)
             {
                 if (CurrentQuestion != null)
                 {
-                    await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question);
+                    CancelQuestionRead();
+
+                    _speechCancellationToken = new CancellationTokenSource();
+                    await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question.ReplaceWithPhoneticSpellings(),
+                        cancelToken: _speechCancellationToken.Token);
 
                     foreach (var item in CurrentQuestion.PossibleAnswers)
                     {
                         if (item.NotAttempted)
                         {
                             item.IsReading = true;
-                            await TextToSpeech.Default.SpeakAsync(item.Text);
+                            _speechCancellationToken = new CancellationTokenSource();
+                            await TextToSpeech.Default.SpeakAsync(item.Text.ReplaceWithPhoneticSpellings(),
+                                cancelToken: _speechCancellationToken.Token);
                             item.IsReading = false;
                         }
                     }
@@ -285,6 +301,8 @@ namespace JBQQuizMe.ViewModel
             {
                 item.Attempted = true;
             }
+
+            CancelQuestionRead();
 
             Message = null;
             CorrectAnswers += 1;
