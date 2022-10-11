@@ -55,6 +55,16 @@ namespace JBQQuizMe.ViewModel
             get => !_attempted;
         }
 
+        private bool _isReading = false;
+        /// <summary>
+        /// True if the answer is being read, otherwise false
+        /// </summary>
+        public bool IsReading
+        {
+            get => _isReading;
+            set => SetProperty(ref _isReading, value);
+        }
+
         #region Commands
 
         /// <summary>

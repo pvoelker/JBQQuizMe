@@ -21,7 +21,7 @@ public partial class MainPage : ContentPage
 		}
 		else
 		{
-			await Navigation.PushAsync(new QuizPage(context.StartQuestionNumber, context.EndQuestionNumber));
+			await Navigation.PushAsync(new QuizPage(context.StartQuestionNumber, context.EndQuestionNumber, context.ReadQuestions));
 		}
 	}
 

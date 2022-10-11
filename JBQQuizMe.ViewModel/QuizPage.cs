@@ -32,11 +32,13 @@ namespace JBQQuizMe.ViewModel
 
         private Dictionary<int, int> _timesAsked = new Dictionary<int, int>();
 
+        private CancellationTokenSource _speechCancellationToken = default;
+
         public QuizPage()
         {
         }
 
-        public void Initialize()
+        public async Task Initialize()
         {
             if (StartQuestionNumber.HasValue && EndQuestionNumber.HasValue)
             {
@@ -56,6 +58,7 @@ namespace JBQQuizMe.ViewModel
             }
 
             CurrentQuestion = GetNextQuestion();
+            await ReadCurrentQuestion();
         }
 
         #region Commands
@@ -138,6 +141,13 @@ namespace JBQQuizMe.ViewModel
         {
             get => _endQuestionNumber;
             set => SetProperty(ref _endQuestionNumber, value);
+        }
+
+        private bool _readQuestions = false;
+        public bool ReadQuestions
+        {
+            get => _readQuestions;
+            set => SetProperty(ref _readQuestions, value);
         }
 
         private AskedQuestion GetNextQuestion()
@@ -231,6 +241,45 @@ namespace JBQQuizMe.ViewModel
             return retVal;
         }
 
+        private void CancelQuestionRead()
+        {
+            if (_speechCancellationToken != default)
+            {
+                _speechCancellationToken.Cancel();
+            }
+        }
+
+        private async Task ReadCurrentQuestion()
+        {
+            if (ReadQuestions == true)
+            {
+                if (CurrentQuestion != null)
+                {
+                    CancelQuestionRead();
+
+                    _speechCancellationToken = new CancellationTokenSource();
+                    await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question.ReplaceWithPhoneticSpellings(),
+                        cancelToken: _speechCancellationToken.Token);
+
+                    foreach (var item in CurrentQuestion.PossibleAnswers)
+                    {
+                        if (item.NotAttempted)
+                        {
+                            item.IsReading = true;
+                            _speechCancellationToken = new CancellationTokenSource();
+                            await TextToSpeech.Default.SpeakAsync(item.Text.ReplaceWithPhoneticSpellings(),
+                                cancelToken: _speechCancellationToken.Token);
+                            item.IsReading = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine($"Question {CurrentQuestion.Number} not read due to user setting");
+            }
+        }
+
         private int GetNextQuestionNumber()
         {
             if (StartQuestionNumber.HasValue && EndQuestionNumber.HasValue)
@@ -252,6 +301,8 @@ namespace JBQQuizMe.ViewModel
             {
                 item.Attempted = true;
             }
+
+            CancelQuestionRead();
 
             Message = null;
             CorrectAnswers += 1;
@@ -295,6 +346,7 @@ namespace JBQQuizMe.ViewModel
             await Task.Delay(250);
 
             CurrentQuestion = GetNextQuestion();
+            await ReadCurrentQuestion();
         }
 
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
