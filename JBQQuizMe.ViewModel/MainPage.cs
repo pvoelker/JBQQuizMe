@@ -16,6 +16,8 @@ namespace JBQQuizMe.ViewModel
             MaxQuestionNumber = repository.GetMaxNumber();
 
             ReadQuestions = Preferences.Default.Get(PreferenceKeys.ReadQuestions, true);
+            StartQuestionNumberStr = Preferences.Default.Get<string>(PreferenceKeys.StartQuestionRange, null);
+            EndQuestionNumberStr = Preferences.Default.Get<string>(PreferenceKeys.EndQuestionRange, null);
 
             try
             {
@@ -87,6 +89,7 @@ namespace JBQQuizMe.ViewModel
             get => _startQuestionNumber;
             set
             {
+                Preferences.Default.Set(PreferenceKeys.StartQuestionRange, value);
                 SetProperty(ref _startQuestionNumber, value, true);
                 ValidateProperty(EndQuestionNumberStr, nameof(EndQuestionNumberStr));
                 OnPropertyChanged(nameof(StartQuestionNumber));
@@ -114,6 +117,7 @@ namespace JBQQuizMe.ViewModel
             get => _endQuestionNumber;
             set
             {
+                Preferences.Default.Set(PreferenceKeys.EndQuestionRange, value);
                 SetProperty(ref _endQuestionNumber, value, true);
                 ValidateProperty(StartQuestionNumberStr, nameof(StartQuestionNumberStr));
                 OnPropertyChanged(nameof(EndQuestionNumber));

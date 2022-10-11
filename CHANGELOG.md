@@ -49,3 +49,4 @@ Track changes made to the game application.
 - Fourth beta version
 - Add text to speech for questions and answers
 - Save text to speech settings between game runs
+- Save question start and end range between game runs
