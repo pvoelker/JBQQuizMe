@@ -14,10 +14,30 @@
     </ContentPage.Resources>
     <ScrollView>
         <Grid>
-            <VerticalStackLayout>
-                <Label
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
                 Text="Make the candle glow brighter by answering questions correctly!"
-                Margin="10,10,10,20"
+                Margin="5"
                 FontFamily="MorningRainbow"
                 FontSize="Large"
                 TextColor="Gray"
@@ -25,198 +45,188 @@
                 HorizontalOptions="Center"
                 SemanticProperties.HeadingLevel="Level1" />
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <VerticalStackLayout
-                    Grid.Column="0"
-                    Margin="5"
-                    Spacing="20" 
-                    VerticalOptions="Center">
+            <Label
+                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6"
+                Margin="5"
+                Text="{Binding Path=CurrentQuestion.Question}"
+                FontSize="Medium"
+                LineBreakMode="WordWrap"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level2" />
 
-                        <Label
-                        Text="{Binding Path=CurrentQuestion.Question}"
-                        FontSize="Medium"
-                        HorizontalOptions="Center"
-                        SemanticProperties.HeadingLevel="Level2" />
+            <!-- TargetNullValue being a single space is on purpose so the space the label occupies does not automatically collapse when the value is NULL -->
+            <Frame
+                Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
+                BorderColor="Transparent">
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.47,0.29">
+                        <GradientStop Color="Yellow" Offset="{Binding Completion}" />
+                        <GradientStop Color="LightYellow" Offset="{Binding Completion, Converter={StaticResource CandleGlowRadius}}" />
+                        <GradientStop Color="White" Offset="0.0" />
+                    </RadialGradientBrush>
+                </Frame.Background>
+            </Frame>
 
-                        <ListView ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
-                              VerticalScrollBarVisibility="Never"
-                              HasUnevenRows="True">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <Grid>
-                                            <Button Text="{Binding Path=Text}"
-                                                FontSize="{Binding Path=Text, Converter={StaticResource TextLengthToFontSize}}"
-                                                LineBreakMode="WordWrap"
-                                                IsEnabled="{Binding Path=NotAttempted}"
-                                                Command="{Binding Path=Clicked}"
-                                                VerticalOptions="CenterAndExpand"
-                                                MinimumHeightRequest="60">
-                                                <Button.Behaviors>
-                                                    <b:ButtonClickJitter/>
-                                                </Button.Behaviors>
-                                                <Button.Style>
-                                                    <Style TargetType="Button">
-                                                        <Style.Triggers>
-                                                            <DataTrigger TargetType="Button" Binding="{Binding Path=IsReading}" Value="True">
-                                                                <Setter Property="BackgroundColor" Value= "Orange" />
-                                                            </DataTrigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Button.Style>
-                                            </Button>
-                                        </Grid>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+            <Image
+                Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
+                Source="whitecandle.png"
+                SemanticProperties.Description="White candle"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image.Shadow>
+                    <Shadow Brush="Black"
+                    Offset="10,10"
+                    Radius="20"
+                    Opacity="0.8" />
+                </Image.Shadow>
+                <Image.Behaviors>
+                    <b:ImageJiggle />
+                </Image.Behaviors>
+            </Image>
 
-                        <!-- TargetNullValue being a single space is on purpose so the space the label occupies does not automatically collapse when the value is NULL -->
-                        <Label
-                        Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"
-                        FontSize="Small"
-                        HorizontalOptions="Center"
-                        SemanticProperties.HeadingLevel="Level2" />
+            <Image
+                Grid.Row="2" Grid.Column="4" Grid.RowSpan="3" Grid.ColumnSpan="2"
+                Source="sparkle.png"
+                IsVisible="false"
+                SemanticProperties.Description="Sparkle"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image.Behaviors>
+                    <b:ImageSparkle />
+                </Image.Behaviors>
+            </Image>
 
-                        <Label
-                        Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"
-                        FontSize="Micro"
-                        HorizontalOptions="Center"
-                        SemanticProperties.HeadingLevel="Level2" />
-                    </VerticalStackLayout>
-
-                    <Grid
-                    Grid.Column="1"
-                    Margin="5"
-                    VerticalOptions="FillAndExpand"
-                    HorizontalOptions="FillAndExpand">
-                        <Frame BorderColor="Transparent">
-                            <Frame.Background>
-                                <RadialGradientBrush Center="0.47,0.29">
-                                    <GradientStop Color="Yellow" Offset="{Binding Completion}" />
-                                    <GradientStop Color="LightYellow" Offset="{Binding Completion, Converter={StaticResource CandleGlowRadius}}" />
-                                    <GradientStop Color="White" Offset="0.0" />
-                                </RadialGradientBrush>
-                            </Frame.Background>
-                        </Frame>
-
-                        <Image
-                        Source="whitecandle.png"
-                        SemanticProperties.Description="White candle"
-                        HeightRequest="200"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center">
-                            <Image.Shadow>
-                                <Shadow Brush="Black"
-                                Offset="10,10"
-                                Radius="20"
-                                Opacity="0.8" />
-                            </Image.Shadow>
-                            <Image.Behaviors>
-                                <b:ImageJiggle />
-                            </Image.Behaviors>
-                        </Image>
-
-                        <Image
-                        Source="stars.png"
-                        IsVisible="false"
-                        SemanticProperties.Description="Stars"
-                        HeightRequest="200"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center">
-                            <Image.Behaviors>
-                                <b:ImageSpinOut />
-                            </Image.Behaviors>
-                        </Image>
-
+            <!-- The 'MaximumHeightRequest' is to fix the grid layout problems on MacOS -->
+            <CollectionView
+                MaximumHeightRequest="300"
+                Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="4"
+                ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
+                ItemsLayout="VerticalList"
+                ItemSizingStrategy="MeasureAllItems">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
                         <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Image
-                            Grid.Row="0"
-                            Source="sparkle.png"
-                            IsVisible="false"
-                            SemanticProperties.Description="Sparkle"
-                            HeightRequest="100"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center">
-                                <Image.Behaviors>
-                                    <b:ImageSparkle />
-                                </Image.Behaviors>
-                            </Image>
+                            <Button
+                                Margin="1"
+                                Text="{Binding Path=Text}"
+                                FontSize="{Binding Path=Text, Converter={StaticResource TextLengthToFontSize}}"
+                                LineBreakMode="WordWrap"
+                                IsEnabled="{Binding Path=NotAttempted}"
+                                Command="{Binding Path=Clicked}"
+                                MinimumHeightRequest="60">
+                                <Button.Behaviors>
+                                    <b:ButtonClickJitter/>
+                                </Button.Behaviors>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Style.Triggers>
+                                            <DataTrigger TargetType="Button" Binding="{Binding Path=IsReading}" Value="True">
+                                                <Setter Property="BackgroundColor" Value= "Orange" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                         </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-                        <Label
-                        Grid.Column="0"
-                        IsVisible="{Binding Path=AreCandlesLit}"
-                        Text="{Binding Path=CandlesLit, StringFormat='Candles Lit: {0}'}"
-                        FontFamily="MorningRainbow"
-                        FontSize="Medium"
-                        TextColor="Orange"
-                        HorizontalOptions="Start"
-                        VerticalOptions="End"
-                        SemanticProperties.HeadingLevel="Level2">
-                        </Label>
-                    </Grid>
-                </Grid>
+            <Label
+                Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
+                MinimumHeightRequest="10"
+                Margin="2"
+                Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"
+                FontSize="Small"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level2" />
 
-                <Label
+            <Label
+                Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
+                MinimumHeightRequest="10"
+                Margin="2"
+                Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"
+                FontSize="Micro"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level2" />
+            
+            <Label
+                Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2"
+                IsVisible="{Binding Path=AreCandlesLit}"
+                Text="{Binding Path=CandlesLit, StringFormat='Candles Lit: {0}'}"
+                FontFamily="MorningRainbow"
+                FontSize="Medium"
+                TextColor="Orange"
+                HorizontalOptions="Start"
+                VerticalOptions="End"
+                SemanticProperties.HeadingLevel="Level2">
+            </Label>
+
+            <Label
+                Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"                
+                Margin="5"
+                MinimumHeightRequest="20"
                 FontSize="Large"
                 FontFamily="MorningRainbow"
                 TextColor="DarkViolet"
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
-                Text="{Binding Message}"
-                Margin="20">
-                    <Label.Shadow>
-                        <Shadow Brush="Gray"
-                        Offset="5,5"
-                        Radius="10"
-                        Opacity="0.6" />
-                    </Label.Shadow>
-                    <Label.Behaviors>
-                        <b:MessageThump />
-                    </Label.Behaviors>
-                </Label>
+                Text="{Binding Message}">
+                <Label.Shadow>
+                    <Shadow Brush="Gray"
+                    Offset="5,5"
+                    Radius="10"
+                    Opacity="0.6" />
+                </Label.Shadow>
+                <Label.Behaviors>
+                    <b:MessageThump />
+                </Label.Behaviors>
+            </Label>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label
-                    Grid.Column="0"
-                    Text="{Binding Path=CorrectAnswers, StringFormat='Correct Answers {0}'}"
-                    FontFamily="MorningRainbow"
-                    FontSize="Medium"
-                    HorizontalOptions="Center"
-                    SemanticProperties.HeadingLevel="Level2">
-                        <Label.Behaviors>
-                            <b:CorrectLabelThump />
-                        </Label.Behaviors>
-                    </Label>
+            <Label
+                Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3"
+                Margin="0,10"
+                Text="{Binding Path=CorrectAnswers, StringFormat='Correct Answers {0}'}"
+                FontFamily="MorningRainbow"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level2">
+                <Label.Behaviors>
+                    <b:CorrectLabelThump />
+                </Label.Behaviors>
+            </Label>
 
-                    <Label
-                        Grid.Column="1"
-                        Text="{Binding Path=WrongAnswers, StringFormat='Wrong Answers {0}'}"
-                        FontFamily="MorningRainbow"
-                        FontSize="Medium"
-                        HorizontalOptions="Center"
-                        SemanticProperties.HeadingLevel="Level2">
-                        <Label.Behaviors>
-                            <b:WrongLabelThump />
-                        </Label.Behaviors>
-                    </Label>
-                </Grid>
-            </VerticalStackLayout>
+            <Label
+                Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="3"
+                Margin="0,10"
+                Text="{Binding Path=WrongAnswers, StringFormat='Wrong Answers {0}'}"
+                FontFamily="MorningRainbow"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level2">
+                <Label.Behaviors>
+                    <b:WrongLabelThump />
+                </Label.Behaviors>
+            </Label>
+
+            <!--This need need to be here to be in front of all other controls for the animation-->
+            <Image
+                Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
+                Source="stars.png"
+                IsVisible="false"
+                SemanticProperties.Description="Stars"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image.Behaviors>
+                    <b:ImageSpinOut />
+                </Image.Behaviors>
+            </Image>
 
             <ImageButton
+                Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6"
                 Source="frog.png"
                 SemanticProperties.Description="Frog"
                 HeightRequest="300"
