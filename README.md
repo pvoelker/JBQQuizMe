@@ -23,6 +23,12 @@ dotnet publish -f net6.0-windows10.0.19041.0 -c Release /p:RuntimeIdentifierOver
 
 dotnet publish -f:net6.0-android -c:Release /p:AndroidSigningKeyPass=[kspassword] /p:AndroidSigningStorePass=[kspassword]
 
+### MacOS (Catalyst)
+
+- This needs to be run on a MacOS system
+
+dotnet publish -f net6.0-maccatalyst -c Release
+
 ## Credits
 
 - Pastor Michelle Redmon from Faith Chapel of Overland Park for transcribing the questions
