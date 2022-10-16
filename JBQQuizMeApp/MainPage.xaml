@@ -45,6 +45,7 @@
             <HorizontalStackLayout
                 HorizontalOptions="Center">
                 <Entry
+                    MinimumWidthRequest="80"
                     FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="Start"
@@ -63,6 +64,7 @@
                     VerticalOptions="Center"
                     FontSize="Medium">to</Label>
                 <Entry
+                    MinimumWidthRequest="80"
                     FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="End"
