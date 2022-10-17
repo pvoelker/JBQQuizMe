@@ -11,6 +11,7 @@
     <ContentPage.Resources>
         <c:CandleGlowGradientStop x:Key="CandleGlowRadius" />
         <c:TextLengthToFontSize x:Key="TextLengthToFontSize" />
+        <c:TextNotNullOrEmptyToBool x:Key="TextNotNullOrEmptyToBool" />
     </ContentPage.Resources>
     <ScrollView>
         <Grid>
@@ -76,9 +77,9 @@
                 VerticalOptions="Center">
                 <Image.Shadow>
                     <Shadow Brush="Black"
-                    Offset="10,10"
-                    Radius="20"
-                    Opacity="0.8" />
+                        Offset="10,10"
+                        Radius="20"
+                        Opacity="0.8" />
                 </Image.Shadow>
                 <Image.Behaviors>
                     <b:ImageJiggle />
@@ -176,9 +177,9 @@
                 Text="{Binding Message}">
                 <Label.Shadow>
                     <Shadow Brush="Gray"
-                    Offset="5,5"
-                    Radius="10"
-                    Opacity="0.6" />
+                        Offset="5,5"
+                        Radius="10"
+                        Opacity="0.6" />
                 </Label.Shadow>
                 <Label.Behaviors>
                     <b:MessageThump />
@@ -239,6 +240,36 @@
                     <b:AnnoyingFrog />
                 </ImageButton.Behaviors>
             </ImageButton>
+
+            <ImageButton
+                Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6"
+                Source="raincloud.png"
+                SemanticProperties.Description="Rain Cloud"
+                HeightRequest="400"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BorderWidth="0"
+                BackgroundColor="Transparent"
+                IsVisible="false">
+                <ImageButton.Behaviors>
+                    <b:RainCloud />
+                </ImageButton.Behaviors>
+            </ImageButton>
+
+            <Label
+                IsVisible="{Binding Path=LargeMessage, Converter={StaticResource TextNotNullOrEmptyToBool}}"
+                Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6"
+                Margin="20"
+                Text="{Binding Path=LargeMessage}"
+                FontFamily="MorningRainbow"
+                FontSize="Large"
+                FontAttributes="Bold"
+                LineBreakMode="WordWrap"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                TextColor="Gold">
+            </Label>
         </Grid>
     </ScrollView>
 </ContentPage>

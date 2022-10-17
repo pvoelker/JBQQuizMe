@@ -77,6 +77,8 @@ namespace JBQQuizMe.ViewModel
 
         public IRelayCommand ShowFrog { get; set; }
 
+        public IRelayCommand ShowRainCloud { get; set; }
+
         #endregion
 
         private AskedQuestion _currentQuestion = null;
@@ -91,6 +93,13 @@ namespace JBQQuizMe.ViewModel
         {
             get => _message;
             private set => SetProperty(ref _message, value);
+        }
+
+        private string _largeMessage = null;
+        public string LargeMessage
+        {
+            get => _largeMessage;
+            set => SetProperty(ref _largeMessage, value);
         }
 
         private decimal _completion = 0;
@@ -322,6 +331,15 @@ namespace JBQQuizMe.ViewModel
                 CorrectAnswerGiven.Execute(null);
             }
 
+            if (IsGoodRole(.3))
+            {
+                if (ShowRainCloud != null)
+                {
+                    LargeMessage = "Poke the rain cloud to keep it away from the candle!";
+                    ShowRainCloud.Execute(null);
+                }
+            }
+
             Completion += COMPLETION_DELTA;
 
             if (Completion == 1m)
@@ -354,7 +372,7 @@ namespace JBQQuizMe.ViewModel
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             answer.Attempted = true;
-            Message = "Try again! Poke the frog...";
+            Message = "Try again!";
             WrongAnswers += 1;
 
             if (WrongAnswerGiven != null)
@@ -367,10 +385,14 @@ namespace JBQQuizMe.ViewModel
                 Completion -= COMPLETION_DELTA;
             }
 
-            if (ShowFrog != null)
+            if (IsGoodRole(.3))
             {
-                ShowFrog.Execute(null);
-            }    
+                if (ShowFrog != null)
+                {
+                    LargeMessage = "Poke the frog away!";
+                    ShowFrog.Execute(null);
+                }
+            }
         }
 
         private static string FormatList(IEnumerable<string> list)
@@ -382,6 +404,11 @@ namespace JBQQuizMe.ViewModel
         {
             var index = _random.Next(_congratMessages.Count);
             return _congratMessages[index];
+        }
+
+        private bool IsGoodRole(double chance)
+        {
+            return _random.NextDouble() < chance;
         }
     }
 }

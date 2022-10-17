@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JBQQuizMeApp.Behaviors
 {
-    public class AnnoyingFrog : Behavior<ImageButton>
+    public class RainCloud : Behavior<ImageButton>
     {
         private Random _rand = new Random();
 
@@ -51,7 +51,7 @@ namespace JBQQuizMeApp.Behaviors
 
             if (context != null)
             {
-                context.ShowFrog = new AsyncRelayCommand(async () =>
+                context.ShowRainCloud = new AsyncRelayCommand(async () =>
                 {
                     control.Scale = 0;
 
