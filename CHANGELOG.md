@@ -57,3 +57,4 @@ Track changes made to the game application.
 - First MacOS build
 - Adjust annoying frog to only show some of the time
 - Add a cloud the player has to click away on a correct answer
+- Clean up SVG files
