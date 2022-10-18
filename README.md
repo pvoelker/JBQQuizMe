@@ -26,8 +26,9 @@ dotnet publish -f:net6.0-android -c:Release /p:AndroidSigningKeyPass=[kspassword
 ### MacOS (Catalyst)
 
 - This needs to be run on a MacOS system
+- At this time this will generate an **unsigned** package (.pkg) file
 
-dotnet publish -f net6.0-maccatalyst -c Release
+dotnet publish -f net6.0-maccatalyst -c Release /p:CreatePackage=true
 
 ## Credits
 
