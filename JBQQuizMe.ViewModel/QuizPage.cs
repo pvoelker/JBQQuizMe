@@ -210,7 +210,7 @@ namespace JBQQuizMe.ViewModel
             retVal.PossibleAnswers = new List<Answer>();
             if (question.Type != null)
             {
-                var otherQuestions = _repository.GetByType(question.Type);
+                var otherQuestions = _repository.GetByType(question.Type).Where(x => x.Number != question.Number);
 
                 foreach(var item in otherQuestions.Where(x => FormatList(x.Answer) != retVal.CorrectAnswer.Text))
                 {
