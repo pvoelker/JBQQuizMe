@@ -49,6 +49,7 @@
                     FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="Start"
+                    HorizontalTextAlignment="Center"
                     Text="{Binding Path=StartQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>
@@ -68,6 +69,7 @@
                     FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="End"
+                    HorizontalTextAlignment="Center"
                     Text="{Binding Path=EndQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>

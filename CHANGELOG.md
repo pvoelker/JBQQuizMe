@@ -58,3 +58,4 @@ Track changes made to the game application.
 - Adjust annoying frog to only show some of the time
 - Add a cloud the player has to click away on a correct answer
 - Clean up SVG files
+- Known Issue: Font is smaller on MacOS (https://github.com/dotnet/maui/issues/10622)
