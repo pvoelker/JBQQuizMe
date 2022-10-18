@@ -45,9 +45,11 @@
             <HorizontalStackLayout
                 HorizontalOptions="Center">
                 <Entry
+                    MinimumWidthRequest="80"
                     FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="Start"
+                    HorizontalTextAlignment="Center"
                     Text="{Binding Path=StartQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>
@@ -63,9 +65,11 @@
                     VerticalOptions="Center"
                     FontSize="Medium">to</Label>
                 <Entry
+                    MinimumWidthRequest="80"
                     FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="End"
+                    HorizontalTextAlignment="Center"
                     Text="{Binding Path=EndQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>

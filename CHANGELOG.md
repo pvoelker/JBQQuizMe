@@ -50,3 +50,12 @@ Track changes made to the game application.
 - Add text to speech for questions and answers
 - Save text to speech settings between game runs
 - Save question start and end range between game runs
+
+## Version 0.7.0.0
+
+- Fifth beta version
+- First MacOS build
+- Adjust annoying frog to only show some of the time
+- Add a cloud the player has to click away on a correct answer
+- Clean up SVG files
+- Known Issue: Font is smaller on MacOS (https://github.com/dotnet/maui/issues/10622)
