@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using JBQQuizMe.Repository;
 using JBQQuizMe.ViewModel.Extensions;
+using JBQQuizMe.ViewModel.Providers;
 using Microsoft.Maui.ApplicationModel;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -24,15 +25,13 @@ namespace JBQQuizMe.ViewModel
 
         private const decimal COMPLETION_DELTA = 0.1m;
 
-        private const int MAX_QUESTIONS = 4;
-
-        private QuestionsRepository _repository = new QuestionsRepository();
+        private const int MAX_ANSWERS = 4;
 
         private Random _random = new Random();
 
-        private Dictionary<int, int> _timesAsked = new Dictionary<int, int>();
-
         private CancellationTokenSource _speechCancellationToken = default;
+
+        private QuestionProvider _questionProvider = null;
 
         public QuizPage()
         {
@@ -40,24 +39,10 @@ namespace JBQQuizMe.ViewModel
 
         public async Task Initialize()
         {
-            if (StartQuestionNumber.HasValue && EndQuestionNumber.HasValue)
-            {
-                for (int i = StartQuestionNumber.Value; i <= EndQuestionNumber.Value; i++)
-                {
-                    _timesAsked.Add(i, 0);
-                }
-            }
-            else
-            {
-                int maxQuestionNumber = _repository.GetMaxNumber();
+            _questionProvider = new QuestionProvider(MAX_ANSWERS, StartQuestionNumber, EndQuestionNumber);
 
-                for (int i = 1; i <= maxQuestionNumber; i++)
-                {
-                    _timesAsked.Add(i, 0);
-                }
-            }
+            CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswer, WrongAnswer);
 
-            CurrentQuestion = GetNextQuestion();
             await ReadCurrentQuestion();
         }
 
@@ -159,97 +144,6 @@ namespace JBQQuizMe.ViewModel
             set => SetProperty(ref _readQuestions, value);
         }
 
-        private AskedQuestion GetNextQuestion()
-        {
-            if(_timesAsked.Count() < 0)
-            {
-                throw new InvalidOperationException($"'{nameof(Initialize)}' has not been called");
-            }
-
-            var minTimesAsked = _timesAsked.Min(x => x.Value);
-
-            var nextNumber = GetNextQuestionNumber();
-
-            while (1 == 1)
-            {
-                int timesAsked = 0;
-                if(_timesAsked.TryGetValue(nextNumber, out timesAsked))
-                {
-                    if(timesAsked <= minTimesAsked)
-                    {
-                        _timesAsked[nextNumber] = timesAsked + 1;
-                        break;
-                    }
-                    else
-                    {
-                        nextNumber = GetNextQuestionNumber();
-                    }
-                }
-                else
-                {
-                    throw new InvalidOperationException("Question number not found in asked count tracking");
-                }
-            }
-
-            var question = _repository.GetByNumber(nextNumber);
-
-            var retVal = new AskedQuestion
-            {
-                Number = question.Number,
-                Question = question.Question,
-                Passage = question.Passage,
-                CorrectAnswer = new Answer
-                {
-                    Text = FormatList(question.Answer),
-                    IsCorrect = true,
-                }
-            };
-
-            retVal.CorrectAnswer.Clicked = new AsyncRelayCommand(async () => await CorrectAnswer());
-
-            retVal.PossibleAnswers = new List<Answer>();
-            if (question.Type != null)
-            {
-                var otherQuestions = _repository.GetByType(question.Type).Where(x => x.Number != question.Number);
-
-                foreach(var item in otherQuestions.Where(x => FormatList(x.Answer) != retVal.CorrectAnswer.Text))
-                {
-                    var newAnswer = new Answer
-                    {
-                        Text = FormatList(item.Answer),
-                        IsCorrect = false
-                    };
-
-                    newAnswer.Clicked = new RelayCommand(async () => await WrongAnswer(newAnswer));
-
-                    retVal.PossibleAnswers.Add(newAnswer);
-                }
-            }
-            else
-            {
-                foreach (var item in question.WrongAnswers)
-                {
-                    var newAnswer = new Answer
-                    {
-                        Text = FormatList(item),
-                        IsCorrect = false
-                    };
-
-                    newAnswer.Clicked = new RelayCommand(async () => await WrongAnswer(newAnswer));
-
-                    retVal.PossibleAnswers.Add(newAnswer);
-                }
-            }
-
-            retVal.PossibleAnswers.Shuffle();
-            retVal.PossibleAnswers = retVal.PossibleAnswers.Take(MAX_QUESTIONS - 1).ToList();
-
-            retVal.PossibleAnswers.Add(retVal.CorrectAnswer);
-            retVal.PossibleAnswers.Shuffle();
-
-            return retVal;
-        }
-
         private void CancelQuestionRead()
         {
             if (_speechCancellationToken != default)
@@ -286,20 +180,6 @@ namespace JBQQuizMe.ViewModel
             else
             {
                 System.Diagnostics.Debug.WriteLine($"Question {CurrentQuestion.Number} not read due to user setting");
-            }
-        }
-
-        private int GetNextQuestionNumber()
-        {
-            if (StartQuestionNumber.HasValue && EndQuestionNumber.HasValue)
-            {
-                return _random.Next(StartQuestionNumber.Value, EndQuestionNumber.Value + 1);
-            }
-            else
-            {
-                int max = _repository.GetMaxNumber();
-
-                return _random.Next(1, max + 1);
             }
         }
 
@@ -363,7 +243,7 @@ namespace JBQQuizMe.ViewModel
             // Pause before putting up the new quetion to help prevent mis-clicks
             await Task.Delay(250);
 
-            CurrentQuestion = GetNextQuestion();
+            CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswer, WrongAnswer);
             await ReadCurrentQuestion();
         }
 
@@ -393,11 +273,6 @@ namespace JBQQuizMe.ViewModel
                     ShowFrog.Execute(null);
                 }
             }
-        }
-
-        private static string FormatList(IEnumerable<string> list)
-        {
-            return string.Join(", ", list);
         }
 
         private string GetCongratMessage()
