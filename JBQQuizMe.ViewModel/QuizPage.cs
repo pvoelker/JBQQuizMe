@@ -37,13 +37,13 @@ namespace JBQQuizMe.ViewModel
         {
         }
 
-        public async Task Initialize()
+        public async Task InitializeAsync()
         {
             _questionProvider = new QuestionProvider(MAX_ANSWERS, StartQuestionNumber, EndQuestionNumber);
 
-            CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswer, WrongAnswer);
+            CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
-            await ReadCurrentQuestion();
+            await ReadCurrentQuestionAsync();
         }
 
         #region Commands
@@ -152,7 +152,7 @@ namespace JBQQuizMe.ViewModel
             }
         }
 
-        private async Task ReadCurrentQuestion()
+        public async Task ReadCurrentQuestionAsync()
         {
             if (ReadQuestions == true)
             {
@@ -183,7 +183,7 @@ namespace JBQQuizMe.ViewModel
             }
         }
 
-        private async Task CorrectAnswer()
+        private async Task CorrectAnswerAsync()
         {
             // Prevent answer from being re-clicked
             foreach(var item in CurrentQuestion.PossibleAnswers)
@@ -211,15 +211,6 @@ namespace JBQQuizMe.ViewModel
                 CorrectAnswerGiven.Execute(null);
             }
 
-            if (IsGoodRole(.3))
-            {
-                if (ShowRainCloud != null)
-                {
-                    LargeMessage = "Poke the rain cloud to keep it away from the candle!";
-                    ShowRainCloud.Execute(null);
-                }
-            }
-
             Completion += COMPLETION_DELTA;
 
             if (Completion == 1m)
@@ -243,12 +234,26 @@ namespace JBQQuizMe.ViewModel
             // Pause before putting up the new quetion to help prevent mis-clicks
             await Task.Delay(250);
 
-            CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswer, WrongAnswer);
-            await ReadCurrentQuestion();
+            CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
+
+            if (IsGoodRole(.3))
+            {
+                if (ShowRainCloud != null)
+                {
+                    LargeMessage = "Poke the rain cloud to keep it away from the candle!";
+                    ShowRainCloud.Execute(null);
+                }
+
+                // Question is read after the rain cloud is poked away
+            }
+            else
+            {
+                await ReadCurrentQuestionAsync();
+            }
         }
 
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-        private async Task WrongAnswer(Answer answer)
+        private async Task WrongAnswerAsync(Answer answer)
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             answer.Attempted = true;
