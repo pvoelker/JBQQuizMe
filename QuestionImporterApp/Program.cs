@@ -3,6 +3,8 @@ using QuestionImporterApp;
 using QuestionImporterApp.Validations;
 using System;
 using System.Globalization;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace QuestionsImporterApp
 {
@@ -56,35 +58,39 @@ namespace QuestionsImporterApp
                 {
                     Console.WriteLine("All validations passed");
 
+                    var key = GenerateKey();
+
+                    Console.WriteLine($"NEW KEY: {key}");
+
                     using StreamWriter file = new("question_data.cs.snippet", false);
 
                     foreach (var row in rows)
                     {
                         file.WriteLine(@"new QuestionInfo {");
                         file.WriteLine($"    Number = { row.Number },");
-                        file.WriteLine($"    Question = \"{ FormatString(row.Question) }\",");
+                        file.WriteLine($"    Question = \"{ EncryptString(key, row.Question) }\",");
                         if(string.IsNullOrEmpty(row.Answer) == false)
                         {
                             if (row.IsAnswerList)
                             {
-                                var formattedList = row.AnswersAsList().Select(x => $"\"{ FormatString(x) }\"");
+                                var formattedList = row.AnswersAsList().Select(x => $"\"{ EncryptString(key, x) }\"");
                                 file.WriteLine($"    Answer = new List<string> {{ { string.Join(',', formattedList) } }},");
                             }
                             else
                             {
-                                file.WriteLine($"    Answer = new List<string> {{ \"{ FormatString(row.Answer) }\" }},");
+                                file.WriteLine($"    Answer = new List<string> {{ \"{ EncryptString(key, row.Answer) }\" }},");
                             }
                         }
                         else
                         {
                             if (row.IsOriginalAnswerList)
                             {
-                                var formattedList = row.OriginalAnswersAsList().Select(x => $"\"{ FormatString(x) }\"");
+                                var formattedList = row.OriginalAnswersAsList().Select(x => $"\"{ EncryptString(key, x) }\"");
                                 file.WriteLine($"    Answer = new List<string> {{ { string.Join(',', formattedList) } }},");
                             }
                             else
                             {
-                                file.WriteLine($"    Answer = new List<string> {{ \"{ FormatString(row.OriginalAnswer) }\" }},");
+                                file.WriteLine($"    Answer = new List<string> {{ \"{ EncryptString(key, row.OriginalAnswer) }\" }},");
                             }
                         }
 
@@ -98,7 +104,7 @@ namespace QuestionsImporterApp
                             file.WriteLine($"    WrongAnswers = new List<List<string>> {{");
                             foreach (var wrongAnswer in wrongAnswers)
                             {
-                                var formattedWrongAnswers = wrongAnswer.Split('~').Select(x => $"\"{ FormatString(x) }\"");
+                                var formattedWrongAnswers = wrongAnswer.Split('~').Select(x => $"\"{ EncryptString(key, x) }\"");
 
                                 file.WriteLine($"        new List<string> {{ {string.Join(',', formattedWrongAnswers)} }},");
                             }
@@ -133,9 +139,43 @@ namespace QuestionsImporterApp
             }
         }
 
-        static private string FormatString(string value)
+        static private string GenerateKey()
         {
-            return value.Replace(@"""", @"\""");
+            var crypto = Aes.Create();
+            crypto.KeySize = 128;
+            crypto.BlockSize = 128;
+            crypto.GenerateKey();
+            byte[] keyGenerated = crypto.Key;
+            return Convert.ToBase64String(keyGenerated);
+        }
+
+        static private string EncryptString(string key, string plainText)
+        {
+            byte[] iv = new byte[16];
+            byte[] array;
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+                using (var memoryStream = new MemoryStream())
+                {
+                    using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (var streamWriter = new StreamWriter(cryptoStream))
+                        {
+                            streamWriter.Write(plainText);
+                        }
+
+                        array = memoryStream.ToArray();
+                    }
+                }
+            }
+
+            return Convert.ToBase64String(array);
         }
     }
 }

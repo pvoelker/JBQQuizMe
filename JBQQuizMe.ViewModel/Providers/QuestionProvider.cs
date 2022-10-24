@@ -4,19 +4,23 @@ using JBQQuizMe.ViewModel.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace JBQQuizMe.ViewModel.Providers
 {
-    // Provider for JBQ questions to ask
+    /// <summary>
+    /// Provider for JBQ questions to ask
+    /// </summary>
     public class QuestionProvider
     {
+        private const string _key = "mFnHHVhPlKYnUXaVzuRwWA==";
+
         private readonly Random _random = new Random();
 
         private readonly Dictionary<int, int> _timesAsked = new Dictionary<int, int>();
 
-        private readonly QuestionsRepository _repository = new QuestionsRepository();
+        private readonly IQuestionRepository _repository;
 
         private readonly int _maxAnswers;
 
@@ -25,18 +29,26 @@ namespace JBQQuizMe.ViewModel.Providers
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="repository">An instance of the question repository interface</param>
         /// <param name="maxAnswers">Maximum number of answers to provide with a question. One answer will be the correct one</param>
         /// <param name="startQuestionNumber">Starting question number. Null if no limit</param>
         /// <param name="endQuestionNumber">Ending question number. Null if no limit</param>
+        /// <exception cref="ArgumentNullException">An invalid constructor argument was given, see exeception information</exception>
         /// <exception cref="ArgumentOutOfRangeException">One of the constructor arguments has an invalid value</exception>
         /// <remarks>Both start and end question number must be provided or both must be null.</remarks>
-        public QuestionProvider(int maxAnswers, int? startQuestionNumber, int? endQuestionNumber)
+        public QuestionProvider(IQuestionRepository repository, int maxAnswers, int? startQuestionNumber, int? endQuestionNumber)
         {
-            if (maxAnswers <= 2)
+            if (repository == null)
             {
-                new ArgumentOutOfRangeException(nameof(maxAnswers), "Two or more answers must be provided with a question");
+                throw new ArgumentNullException(nameof(repository), "A repository instance must be provided");
             }
 
+            if (maxAnswers <= 2)
+            {
+                throw new ArgumentOutOfRangeException(nameof(maxAnswers), "Two or more answers must be provided with a question");
+            }
+
+            _repository = repository;
             _maxAnswers = maxAnswers;
             _startQuestionNumber = startQuestionNumber;
             _endQuestionNumber = endQuestionNumber;
@@ -68,6 +80,8 @@ namespace JBQQuizMe.ViewModel.Providers
         /// <exception cref="InvalidOperationException">Question was not found in question number tracking</exception>
         public AskedQuestion GetNextQuestion(Func<Task> correctAnswer, Func<Answer, Task> wrongAnswer)
         {
+            
+
             var minTimesAsked = _timesAsked.Min(x => x.Value);
 
             var nextNumber = GetNextQuestionNumber();
@@ -98,11 +112,11 @@ namespace JBQQuizMe.ViewModel.Providers
             var retVal = new AskedQuestion
             {
                 Number = question.Number,
-                Question = question.Question,
+                Question = DecryptString(_key, question.Question),
                 Passage = question.Passage,
                 CorrectAnswer = new Answer
                 {
-                    Text = FormatList(question.Answer),
+                    Text = FormatList(question.Answer.Select(x => DecryptString(_key, x))),
                     IsCorrect = true,
                 }
             };
@@ -114,11 +128,12 @@ namespace JBQQuizMe.ViewModel.Providers
             {
                 var otherQuestions = _repository.GetByType(question.Type).Where(x => x.Number != question.Number);
 
-                foreach (var item in otherQuestions.Where(x => FormatList(x.Answer) != retVal.CorrectAnswer.Text))
+                var encryptedFormattedAnswer = FormatList(question.Answer);
+                foreach (var item in otherQuestions.Where(x => FormatList(x.Answer) != encryptedFormattedAnswer))
                 {
                     var newAnswer = new Answer
                     {
-                        Text = FormatList(item.Answer),
+                        Text = FormatList(item.Answer.Select(x => DecryptString(_key, x))),
                         IsCorrect = false
                     };
 
@@ -133,7 +148,7 @@ namespace JBQQuizMe.ViewModel.Providers
                 {
                     var newAnswer = new Answer
                     {
-                        Text = FormatList(item),
+                        Text = FormatList(item.Select(x => DecryptString(_key, x))),
                         IsCorrect = false
                     };
 
@@ -173,6 +188,30 @@ namespace JBQQuizMe.ViewModel.Providers
                 int max = _repository.GetMaxNumber();
 
                 return _random.Next(1, max + 1);
+            }
+        }
+
+        private static string DecryptString(string key, string cipherText)
+        {
+            byte[] iv = new byte[16];
+            byte[] buffer = Convert.FromBase64String(cipherText);
+
+            using (var aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (var memoryStream = new MemoryStream(buffer))
+                {
+                    using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (var streamReader = new StreamReader(cryptoStream))
+                        {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
             }
         }
     }

@@ -39,7 +39,7 @@ namespace JBQQuizMe.ViewModel
 
         public async Task InitializeAsync()
         {
-            _questionProvider = new QuestionProvider(MAX_ANSWERS, StartQuestionNumber, EndQuestionNumber);
+            _questionProvider = new QuestionProvider(new QuestionsRepository(), MAX_ANSWERS, StartQuestionNumber, EndQuestionNumber);
 
             CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
