@@ -12,6 +12,53 @@
         <c:CandleGlowGradientStop x:Key="CandleGlowRadius" />
         <c:TextLengthToFontSize x:Key="TextLengthToFontSize" />
         <c:TextNotNullOrEmptyToBool x:Key="TextNotNullOrEmptyToBool" />
+
+        <Style x:Key="quizInstructions" TargetType="Label">
+            <Setter Property="TextColor" Value="Gray" />
+            <Setter Property="FontFamily" Value="MorningRainbow" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+        </Style>
+
+        <Style x:Key="currentQuestion" TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='24', MacCatalyst='31.2'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+        </Style>
+
+        <Style x:Key="correctCount" TargetType="Label">
+            <Setter Property="TextColor" Value="DarkGreen" />
+            <Setter Property="FontFamily" Value="MorningRainbow" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="wrongCount" TargetType="Label">
+            <Setter Property="TextColor" Value="DarkRed" />
+            <Setter Property="FontFamily" Value="MorningRainbow" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="largeMessage" TargetType="Label">
+            <Setter Property="TextColor" Value="Gold" />
+            <Setter Property="BackgroundColor" Value="WhiteSmoke" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="FontFamily" Value="MorningRainbow" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="End" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+        </Style>
     </ContentPage.Resources>
     <ScrollView>
         <Grid>
@@ -36,24 +83,16 @@
             </Grid.ColumnDefinitions>
 
             <Label
+                Style="{StaticResource quizInstructions}"
                 Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
                 Text="Make the candle glow brighter by answering questions correctly!"
-                Margin="5"
-                FontFamily="MorningRainbow"
-                FontSize="Large"
-                TextColor="Gray"
-                LineBreakMode="WordWrap"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level1" />
+                Margin="5" />
 
             <Label
+                Style="{StaticResource currentQuestion}"
                 Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6"
                 Margin="5"
-                Text="{Binding Path=CurrentQuestion.Question}"
-                FontSize="Medium"
-                LineBreakMode="WordWrap"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level2" />
+                Text="{Binding Path=CurrentQuestion.Question}" />
 
             <!-- TargetNullValue being a single space is on purpose so the space the label occupies does not automatically collapse when the value is NULL -->
             <Frame
@@ -190,12 +229,9 @@
 
             <Label
                 Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3"
+                Style="{StaticResource correctCount}"
                 Margin="0,10"
-                TextColor="DarkGreen"
-                Text="{Binding Path=CorrectAnswers, StringFormat='Correct: {0}'}"
-                FontFamily="MorningRainbow"
-                FontSize="Large"
-                HorizontalOptions="Center">
+                Text="{Binding Path=CorrectAnswers, StringFormat='Correct: {0}'}">
                 <Label.Behaviors>
                     <b:CorrectLabelThump />
                 </Label.Behaviors>
@@ -203,12 +239,9 @@
 
             <Label
                 Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="3"
+                Style="{StaticResource wrongCount}"
                 Margin="0,10"
-                TextColor="DarkRed"
-                Text="{Binding Path=WrongAnswers, StringFormat='Wrong: {0}'}"
-                FontFamily="MorningRainbow"
-                FontSize="Large"
-                HorizontalOptions="Center">
+                Text="{Binding Path=WrongAnswers, StringFormat='Wrong: {0}'}">
                 <Label.Behaviors>
                     <b:WrongLabelThump />
                 </Label.Behaviors>
@@ -259,18 +292,11 @@
             </ImageButton>
 
             <Label
+                Style="{StaticResource largeMessage}"
+                Text="{Binding Path=LargeMessage}"
                 IsVisible="{Binding Path=LargeMessage, Converter={StaticResource TextNotNullOrEmptyToBool}}"
                 Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6"
-                Margin="20"
-                Text="{Binding Path=LargeMessage}"
-                FontFamily="MorningRainbow"
-                FontSize="Large"
-                FontAttributes="Bold"
-                LineBreakMode="WordWrap"
-                HorizontalTextAlignment="Center"
-                HorizontalOptions="Center"
-                VerticalOptions="End"
-                TextColor="Gold">
+                Margin="20">
             </Label>
         </Grid>
     </ScrollView>

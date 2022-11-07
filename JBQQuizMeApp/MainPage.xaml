@@ -11,25 +11,73 @@
         <Style x:Key="InvalidEntryStyle" TargetType="Entry">
             <Setter Property="TextColor" Value="Red" />
         </Style>
+
+        <Style x:Key="jbqMotto" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Gray900}" />
+            <Setter Property="FontFamily" Value="MorningRainbow" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='24', MacCatalyst='31.2'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="Shadow">
+                <Shadow Brush="Gray"
+                    Offset="10,10"
+                    Radius="10"
+                    Opacity="0.8" />
+            </Setter>
+        </Style>
+
+        <Style x:Key="optionsText" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Gray900}" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='18', MacCatalyst='23.4'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="optionsEntry" TargetType="Entry">
+            <Setter Property="TextColor" Value="{StaticResource Gray900}" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='22', MacCatalyst='28.6'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="startButton" TargetType="Button">
+            <Setter Property="TextColor" Value="{StaticResource White}" />
+            <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Padding" Value="80,0" />
+        </Style>
+
+        <Style x:Key="aboutButton" TargetType="Button">
+            <Setter Property="TextColor" Value="{StaticResource White}" />
+            <Setter Property="BackgroundColor" Value="Orange" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='18', MacCatalyst='23.4'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Padding" Value="5,0" />
+        </Style>
+
+        <Style x:Key="versionText" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Gray900}" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='16', MacCatalyst='20.8'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
     </ContentPage.Resources>    
     <ScrollView>
         <VerticalStackLayout 
             Padding="30,0" 
             VerticalOptions="Center">
 
-            <Label 
-                Text="Practice Junior Bible Quizzing.  Put the word of God into your heart!"
-                SemanticProperties.HeadingLevel="Level2"
-                FontFamily="MorningRainbow"
-                FontSize="Large"
-                HorizontalOptions="Center">
-                <Label.Shadow>
-                    <Shadow Brush="Gray"
-                        Offset="10,10"
-                        Radius="10"
-                        Opacity="0.8" />
-                </Label.Shadow>
-            </Label>
+            <Label
+                Style="{StaticResource Key=jbqMotto}"
+                Text="Practice Junior Bible Quizzing.  Put the word of God into your heart!" />
 
             <Image
                 Margin="10"
@@ -39,17 +87,14 @@
                 HorizontalOptions="Center" />
 
             <Label
-                HorizontalOptions="Center"
-                HorizontalTextAlignment="Center"
-                FontSize="Small">Bible Fact-Pak™ Question Number Range (optional):</Label>
+                Style="{StaticResource optionsText}">Bible Fact-Pak™ Question Number Range (optional):</Label>
             <HorizontalStackLayout
                 HorizontalOptions="Center">
                 <Entry
+                    Style="{StaticResource optionsEntry}"
                     MinimumWidthRequest="80"
-                    FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="Start"
-                    HorizontalTextAlignment="Center"
                     Text="{Binding Path=StartQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>
@@ -62,14 +107,12 @@
                     </Entry.Behaviors>
                 </Entry>
                 <Label
-                    VerticalOptions="Center"
-                    FontSize="Medium">to</Label>
+                    Style="{StaticResource optionsText}">to</Label>
                 <Entry
+                    Style="{StaticResource optionsEntry}"
                     MinimumWidthRequest="80"
-                    FontSize="Medium"
                     Keyboard="Numeric"
                     Placeholder="End"
-                    HorizontalTextAlignment="Center"
                     Text="{Binding Path=EndQuestionNumberStr}"
                     Margin="10,0">
                     <Entry.Behaviors>
@@ -84,15 +127,13 @@
             </HorizontalStackLayout>
 
             <Button 
+                Style="{StaticResource startButton}"
                 Text="Quiz Me!"
                 Margin="20"
-                Padding="80,0"
-                FontSize="Large"
-                Clicked="QuizMe_Clicked"
-                HorizontalOptions="Center" />
+                Clicked="QuizMe_Clicked" />
 
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Text="Read Questions/Answers:" Margin="20,0,0,0" VerticalOptions="Center" FontSize="Medium" />
+                <Label Style="{StaticResource optionsText}" Text="Read Questions/Answers:" Margin="20,0,0,0" />
                 <CheckBox IsChecked="{Binding Path=ReadQuestions}" VerticalOptions="Center" />
             </HorizontalStackLayout>
 
@@ -100,17 +141,13 @@
                 Margin="10"
                 HorizontalOptions="Center">
                 <Label 
+                    Style="{StaticResource versionText}"
                     IsVisible="{Binding Path=IsVersionInfoPresent}"
                     Text="{Binding Path=Version, StringFormat='Version {0}'}"
-                    FontSize="Small"
-                    VerticalOptions="Center"
                     Margin="0,0,10,0"/>
                 <Button
+                    Style="{StaticResource aboutButton}"
                     Text="About..."
-                    BackgroundColor="Orange"
-                    Padding="5,0"
-                    FontSize="Small"
-                    VerticalOptions="Center"
                     Clicked="InfoButton_Clicked" />
             </HorizontalStackLayout>
         </VerticalStackLayout>

@@ -65,3 +65,5 @@ Track changes made to the game application.
 - Sixth beta version
 - Pull code out of quiz view-model into 'question provider'
 - Fix issue where question is read while rain cloud is up
+- Implement proper UI styles
+- Address font size issue on MacOS in UI styles
