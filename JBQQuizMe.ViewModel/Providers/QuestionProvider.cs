@@ -2,8 +2,6 @@
 using JBQQuizMe.Repository;
 using JBQQuizMe.ViewModel.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -14,7 +12,7 @@ namespace JBQQuizMe.ViewModel.Providers
     /// </summary>
     public class QuestionProvider
     {
-        private const string _key = "mFnHHVhPlKYnUXaVzuRwWA==";
+        private const string _key = "B4A+hTqHIARBmwTiFODHqw==";
 
         private readonly Random _random = new Random();
 
@@ -80,8 +78,6 @@ namespace JBQQuizMe.ViewModel.Providers
         /// <exception cref="InvalidOperationException">Question was not found in question number tracking</exception>
         public AskedQuestion GetNextQuestion(Func<Task> correctAnswer, Func<Answer, Task> wrongAnswer)
         {
-            
-
             var minTimesAsked = _timesAsked.Min(x => x.Value);
 
             var nextNumber = GetNextQuestionNumber();
@@ -126,10 +122,11 @@ namespace JBQQuizMe.ViewModel.Providers
             retVal.PossibleAnswers = new List<Answer>();
             if (question.Type != null)
             {
-                var otherQuestions = _repository.GetByType(question.Type).Where(x => x.Number != question.Number);
+                var otherQuestions = _repository.GetByType(question.Type)
+                    .Where(x => x.Number != question.Number)
+                    .DistinctBy(x => x.AnswerHash);
 
-                var encryptedFormattedAnswer = FormatList(question.Answer);
-                foreach (var item in otherQuestions.Where(x => FormatList(x.Answer) != encryptedFormattedAnswer))
+                foreach (var item in otherQuestions.Where(x => x.AnswerHash != question.AnswerHash))
                 {
                     var newAnswer = new Answer
                     {

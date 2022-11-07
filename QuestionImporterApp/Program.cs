@@ -10,6 +10,8 @@ namespace QuestionsImporterApp
 {
     internal class Program
     {
+        static private Dictionary<int, string> _stringHashes = new Dictionary<int, string>();
+
         static void Main(string[] args)
         {
             args = new string[] { "C:\\Users\\heali\\Documents\\GitHub\\JBQQuizMe\\JQB_10Pt_Questions.csv" };
@@ -66,10 +68,13 @@ namespace QuestionsImporterApp
 
                     foreach (var row in rows)
                     {
+                        var hasModifiedAnswer = !string.IsNullOrEmpty(row.Answer);
+
                         file.WriteLine(@"new QuestionInfo {");
                         file.WriteLine($"    Number = { row.Number },");
                         file.WriteLine($"    Question = \"{ EncryptString(key, row.Question) }\",");
-                        if(string.IsNullOrEmpty(row.Answer) == false)
+                        file.WriteLine($"    AnswerHash = { GetStringHash(hasModifiedAnswer ? row.AnswersAsList() : row.OriginalAnswersAsList()) },");
+                        if (hasModifiedAnswer)
                         {
                             if (row.IsAnswerList)
                             {
@@ -176,6 +181,40 @@ namespace QuestionsImporterApp
             }
 
             return Convert.ToBase64String(array);
+        }
+
+        static private int GetStringHash(IEnumerable<string> values)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
+            if (values.Count() == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(values));
+            }
+            if (values.Any(x => string.IsNullOrEmpty(x)))
+            {
+                throw new ArgumentOutOfRangeException(nameof(values));
+            }
+
+            var mergedString = string.Join("|", values);
+
+            var hash = mergedString.GetHashCode();
+
+            if(_stringHashes.TryGetValue(hash, out var foundMergeString) == false)
+            {
+                _stringHashes.Add(hash, mergedString);
+            }
+            else
+            {
+                if (mergedString != foundMergeString)
+                {
+                    throw new InvalidOperationException("Deal with when/if it happens...");
+                }
+            }
+
+            return hash;
         }
     }
 }

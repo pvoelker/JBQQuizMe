@@ -67,3 +67,4 @@ Track changes made to the game application.
 - Fix issue where question is read while rain cloud is up
 - Implement proper UI styles
 - Address font size issue on MacOS in UI styles
+- Added an 'answer hash' to the question data to make generating wrong answers easier more efficient
