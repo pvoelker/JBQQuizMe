@@ -31,6 +31,29 @@
             <Setter Property="LineBreakMode" Value="WordWrap" />
         </Style>
 
+        <Style x:Key="passage" TargetType="Label">
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='22', MacCatalyst='28.6'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="bibleFactPakNum" TargetType="Label">
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='18', MacCatalyst='23.4'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="candlesLitCount" TargetType="Label">
+            <Setter Property="TextColor" Value="Orange" />
+            <Setter Property="FontFamily" Value="MorningRainbow" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='18', MacCatalyst='23.4'}" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="End" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
         <Style x:Key="correctCount" TargetType="Label">
             <Setter Property="TextColor" Value="DarkGreen" />
             <Setter Property="FontFamily" Value="MorningRainbow" />
@@ -49,7 +72,7 @@
 
         <Style x:Key="largeMessage" TargetType="Label">
             <Setter Property="TextColor" Value="Gold" />
-            <Setter Property="BackgroundColor" Value="WhiteSmoke" />
+            <Setter Property="BackgroundColor" Value="DarkGray" />
             <Setter Property="Padding" Value="10" />
             <Setter Property="FontFamily" Value="MorningRainbow" />
             <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
@@ -58,6 +81,15 @@
             <Setter Property="VerticalOptions" Value="End" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
             <Setter Property="LineBreakMode" Value="WordWrap" />
+        </Style>
+
+        <Style x:Key="message" TargetType="Label">
+            <Setter Property="TextColor" Value="DarkViolet" />
+            <Setter Property="FontFamily" Value="MorningRainbow" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
     </ContentPage.Resources>
     <ScrollView>
@@ -176,45 +208,30 @@
 
             <Label
                 Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
+                Style="{StaticResource passage}"
                 MinimumHeightRequest="10"
                 Margin="2"
-                HorizontalTextAlignment="Center"
-                Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"
-                FontSize="Small"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level2" />
+                Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"/>
 
             <Label
                 Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
+                Style="{StaticResource bibleFactPakNum}"
                 MinimumHeightRequest="10"
                 Margin="2"
-                HorizontalTextAlignment="Center"
-                Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"
-                FontSize="Micro"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level2" />
+                Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"/>
             
             <Label
+                Style="{StaticResource candlesLitCount}"
                 Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2"
                 IsVisible="{Binding Path=AreCandlesLit}"
-                Text="{Binding Path=CandlesLit, StringFormat='Candles Lit: {0}'}"
-                FontFamily="MorningRainbow"
-                FontSize="Medium"
-                TextColor="Orange"
-                HorizontalOptions="Start"
-                VerticalOptions="End"
-                SemanticProperties.HeadingLevel="Level2">
+                Text="{Binding Path=CandlesLit, StringFormat='Candles Lit: {0}'}">
             </Label>
 
             <Label
+                Style="{StaticResource message}"
                 Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"                
                 Margin="5"
                 MinimumHeightRequest="20"
-                FontSize="Large"
-                FontFamily="MorningRainbow"
-                TextColor="DarkViolet"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
                 Text="{Binding Message}">
                 <Label.Shadow>
                     <Shadow Brush="Gray"
@@ -293,9 +310,9 @@
 
             <Label
                 Style="{StaticResource largeMessage}"
+                Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6"
                 Text="{Binding Path=LargeMessage}"
                 IsVisible="{Binding Path=LargeMessage, Converter={StaticResource TextNotNullOrEmptyToBool}}"
-                Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6"
                 Margin="20">
             </Label>
         </Grid>
