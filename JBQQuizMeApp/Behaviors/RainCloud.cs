@@ -41,6 +41,8 @@ namespace JBQQuizMeApp.Behaviors
             context.LargeMessage = null;
 
             control.IsVisible = false;
+
+            await context.ReadCurrentQuestionAsync();
         }
 
         private void Control_BindingContextChanged(object sender, EventArgs e)
