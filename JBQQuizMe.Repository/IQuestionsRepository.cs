@@ -23,7 +23,7 @@ namespace JBQQuizMe.Repository
         /// </summary>
         /// <param name="number">The question number to retrieve</param>
         /// <returns>A question</returns>
-        QuestionInfo GetByNumber(int number);
+        QuestionInfo? GetByNumber(int number);
 
         /// <summary>
         /// Get all questions by question type

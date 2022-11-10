@@ -2,8 +2,6 @@
 using JBQQuizMe.Repository;
 using JBQQuizMe.ViewModel.Extensions;
 using System;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace JBQQuizMe.ViewModel.Providers
 {
@@ -12,8 +10,6 @@ namespace JBQQuizMe.ViewModel.Providers
     /// </summary>
     public class QuestionProvider
     {
-        private const string _key = "B4A+hTqHIARBmwTiFODHqw==";
-
         private readonly Random _random = new Random();
 
         private readonly Dictionary<int, int> _timesAsked = new Dictionary<int, int>();
@@ -108,11 +104,11 @@ namespace JBQQuizMe.ViewModel.Providers
             var retVal = new AskedQuestion
             {
                 Number = question.Number,
-                Question = DecryptString(_key, question.Question),
+                Question = question.Question,
                 Passage = question.Passage,
                 CorrectAnswer = new Answer
                 {
-                    Text = FormatList(question.Answer.Select(x => DecryptString(_key, x))),
+                    Text = FormatList(question.Answer),
                     IsCorrect = true,
                 }
             };
@@ -130,7 +126,7 @@ namespace JBQQuizMe.ViewModel.Providers
                 {
                     var newAnswer = new Answer
                     {
-                        Text = FormatList(item.Answer.Select(x => DecryptString(_key, x))),
+                        Text = FormatList(item.Answer),
                         IsCorrect = false
                     };
 
@@ -145,7 +141,7 @@ namespace JBQQuizMe.ViewModel.Providers
                 {
                     var newAnswer = new Answer
                     {
-                        Text = FormatList(item.Select(x => DecryptString(_key, x))),
+                        Text = FormatList(item),
                         IsCorrect = false
                     };
 
@@ -185,30 +181,6 @@ namespace JBQQuizMe.ViewModel.Providers
                 int max = _repository.GetMaxNumber();
 
                 return _random.Next(1, max + 1);
-            }
-        }
-
-        private static string DecryptString(string key, string cipherText)
-        {
-            byte[] iv = new byte[16];
-            byte[] buffer = Convert.FromBase64String(cipherText);
-
-            using (var aes = Aes.Create())
-            {
-                aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv;
-                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-
-                using (var memoryStream = new MemoryStream(buffer))
-                {
-                    using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (var streamReader = new StreamReader(cryptoStream))
-                        {
-                            return streamReader.ReadToEnd();
-                        }
-                    }
-                }
             }
         }
     }

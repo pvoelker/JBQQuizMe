@@ -68,3 +68,5 @@ Track changes made to the game application.
 - Implement proper UI styles
 - Address font size issue on MacOS in UI styles
 - Added an 'answer hash' to the question data to make generating wrong answers easier more efficient
+- Move decryption of data from provider into repository, which is more appropriate for a repository pattern
+- Add information about copyrighted material in the code

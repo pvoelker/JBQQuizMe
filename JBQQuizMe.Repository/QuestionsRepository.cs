@@ -1,11 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace JBQQuizMe.Repository
 {
+    /// <summary>
+    /// In-memory repository for questions
+    /// </summary>
+    /// <remarks>Questions and correct answers are sourced from the 10-points questions of the Bible Fact-Pak (TM) and is Copyright (c) 2021 Gospel Publishing House</remarks>
+    /// <remarks>In-memory data for questions and answers are encypted to help protect the copyrighted material</remarks>
     public class QuestionsRepository : IQuestionRepository
     {
+        private const string _key = "B4A+hTqHIARBmwTiFODHqw==";
+
         static private List<QuestionInfo> _data;
 
         /// <summary>
@@ -3269,19 +3279,58 @@ namespace JBQQuizMe.Repository
         /// <inheritdoc />
         public IEnumerable<QuestionInfo> GetAll()
         {
-            return _data;
+            return _data.Select(x => DecryptSingle(x)).ToList();
         }
 
         /// <inheritdoc />
-        public QuestionInfo GetByNumber(int number)
+        public QuestionInfo? GetByNumber(int number)
         {
-            return _data.SingleOrDefault(x => x.Number == number);
+            var retVal = _data.SingleOrDefault(x => x.Number == number);
+            return retVal == null ? null : DecryptSingle(retVal);
         }
 
         /// <inheritdoc />
         public IEnumerable<QuestionInfo> GetByType(string type)
         {
-            return _data.Where(x => x.Type == type);
+            return _data.Where(x => x.Type == type).Select(x => DecryptSingle(x)).ToList();
+        }
+
+        private static QuestionInfo DecryptSingle(QuestionInfo value)
+        {
+            return new QuestionInfo
+            {
+                Number = value.Number,
+                Question = DecryptString(_key, value.Question),
+                AnswerHash = value.AnswerHash,
+                Answer = value.Answer.Select(x => DecryptString(_key, x)).ToList(),
+                WrongAnswers = value.WrongAnswers == null ? null : value.WrongAnswers.Select(x => x.Select(x => DecryptString(_key, x)).ToList()).ToList(),
+                Passage = value.Passage,
+                Type = value.Type
+            };
+        }
+
+        private static string DecryptString(string key, string cipherText)
+        {
+            byte[] iv = new byte[16];
+            byte[] buffer = Convert.FromBase64String(cipherText);
+
+            using (var aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (var memoryStream = new MemoryStream(buffer))
+                {
+                    using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (var streamReader = new StreamReader(cryptoStream))
+                        {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
+            }
         }
     }
 }
