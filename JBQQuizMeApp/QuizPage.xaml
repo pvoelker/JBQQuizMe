@@ -54,20 +54,19 @@
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
 
-        <Style x:Key="correctCount" TargetType="Label">
-            <Setter Property="TextColor" Value="DarkGreen" />
+        <Style x:Key="correctBase" TargetType="Label">
             <Setter Property="FontFamily" Value="MorningRainbow" />
             <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>        
+        
+        <Style x:Key="correctCount" TargetType="Label" BasedOn="{StaticResource correctBase}">
+            <Setter Property="TextColor" Value="DarkGreen" />
         </Style>
 
-        <Style x:Key="wrongCount" TargetType="Label">
+        <Style x:Key="wrongCount" TargetType="Label" BasedOn="{StaticResource correctBase}">
             <Setter Property="TextColor" Value="DarkRed" />
-            <Setter Property="FontFamily" Value="MorningRainbow" />
-            <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
-            <Setter Property="HorizontalOptions" Value="Center" />
-            <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
 
         <Style x:Key="largeMessage" TargetType="Label">
@@ -126,7 +125,6 @@
                 Margin="5"
                 Text="{Binding Path=CurrentQuestion.Question}" />
 
-            <!-- TargetNullValue being a single space is on purpose so the space the label occupies does not automatically collapse when the value is NULL -->
             <Frame
                 Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
                 BorderColor="Transparent">
@@ -206,16 +204,17 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <!-- TargetNullValue being a single space is on purpose so the space the label occupies does not automatically collapse when the value is NULL -->
             <Label
-                Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
                 Style="{StaticResource passage}"
+                Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
                 MinimumHeightRequest="10"
                 Margin="2"
                 Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"/>
 
             <Label
-                Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
                 Style="{StaticResource bibleFactPakNum}"
+                Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
                 MinimumHeightRequest="10"
                 Margin="2"
                 Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"/>
@@ -245,8 +244,8 @@
             </Label>
 
             <Label
-                Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3"
                 Style="{StaticResource correctCount}"
+                Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3"
                 Margin="0,10"
                 Text="{Binding Path=CorrectAnswers, StringFormat='Correct: {0}'}">
                 <Label.Behaviors>
@@ -255,8 +254,8 @@
             </Label>
 
             <Label
-                Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="3"
                 Style="{StaticResource wrongCount}"
+                Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="3"
                 Margin="0,10"
                 Text="{Binding Path=WrongAnswers, StringFormat='Wrong: {0}'}">
                 <Label.Behaviors>

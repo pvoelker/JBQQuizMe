@@ -18,9 +18,13 @@ namespace JBQQuizMeApp.Converters
             {
                 origSize = 18m;
             }
-            else
+            else if (strValLen > 10)
             {
                 origSize = 22m;
+            }
+            else
+            {
+                origSize = 26m;
             }
 
             return AdjustFontSize(origSize);
@@ -35,7 +39,7 @@ namespace JBQQuizMeApp.Converters
         {
             if (DeviceInfo.Current.Platform == DevicePlatform.MacCatalyst)
             {
-                // On MacOS on Catalyst the fonts are artificially 70% smaller, correct for this...
+                // On MacOS on Catalyst the fonts are artificially 30% smaller, correct for this...
                 return value / 0.7m;
             }
 
