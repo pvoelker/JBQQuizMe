@@ -70,3 +70,9 @@ Track changes made to the game application.
 - Added an 'answer hash' to the question data to make generating wrong answers easier more efficient
 - Move decryption of data from provider into repository, which is more appropriate for a repository pattern
 - Add information about copyrighted material in the code
+
+## Version 0.9.0.0 (app ver 6)
+
+- Adjust font sizes on quiz page for better viewing on phone sized screens
+- Fix app project file so NuGet packages can be updated properly
+- Updated to version 2.0 of CommunityToolkit.Maui

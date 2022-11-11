@@ -33,14 +33,14 @@
 
         <Style x:Key="passage" TargetType="Label">
             <Setter Property="FontFamily" Value="OpenSansRegular" />
-            <Setter Property="FontSize" Value="{OnPlatform Default='22', MacCatalyst='28.6'}" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='18', MacCatalyst='25.7'}" />
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
 
         <Style x:Key="bibleFactPakNum" TargetType="Label">
             <Setter Property="FontFamily" Value="OpenSansRegular" />
-            <Setter Property="FontSize" Value="{OnPlatform Default='18', MacCatalyst='23.4'}" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='16', MacCatalyst='22.9'}" />
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>

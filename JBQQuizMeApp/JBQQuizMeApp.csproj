@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
@@ -19,10 +18,10 @@
 		<ApplicationIdGuid>AF1980A5-F16C-4734-A101-78BC36B26AD1</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<AssemblyVersion>0.8.0.0</AssemblyVersion>
-		<FileVersion>0.8.0.0</FileVersion>		
-		<ApplicationDisplayVersion>0.8.0</ApplicationDisplayVersion>
-		<ApplicationVersion>5</ApplicationVersion>
+		<AssemblyVersion>0.9.0.0</AssemblyVersion>
+		<FileVersion>0.9.0.0</FileVersion>		
+		<ApplicationDisplayVersion>0.9.0</ApplicationDisplayVersion>
+		<ApplicationVersion>6</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -33,7 +32,6 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-	  <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
 	  <AssemblyName>JBQQuizMe</AssemblyName>
 	  <Authors>Paul Voelker</Authors>
       <PublisherName>Paul Voelker</PublisherName>
@@ -92,7 +90,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
