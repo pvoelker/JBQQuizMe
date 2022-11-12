@@ -30,6 +30,15 @@ dotnet publish -f:net6.0-android -c:Release /p:AndroidSigningKeyPass=[kspassword
 
 dotnet publish -f net6.0-maccatalyst -c Release /p:CreatePackage=true
 
+### iOS
+
+- This needs to be run on a MacOS system
+- 'Archive on Build' is set in the project file
+- In the JBQQuizMeApp project file, make sure that '<CodesignKey>' is set to the distribution certificate in Keychain Access on the Mac build host
+- In the JBQQuizMeApp project file, make sure that '<CodesignProvision>' is set to the name of the codesign provision in the Apple Developer portal
+
+dotnet publish -f net6.0-ios -c Release /p:CreatePackage=true
+
 ## Credits
 
 - Pastor Michelle Redmon from Faith Chapel of Overland Park for transcribing the questions
