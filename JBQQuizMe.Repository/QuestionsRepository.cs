@@ -3303,7 +3303,7 @@ namespace JBQQuizMe.Repository
                 Question = DecryptString(_key, value.Question),
                 AnswerHash = value.AnswerHash,
                 Answer = value.Answer.Select(x => DecryptString(_key, x)).ToList(),
-                WrongAnswers = value.WrongAnswers == null ? null : value.WrongAnswers.Select(x => x.Select(x => DecryptString(_key, x)).ToList()).ToList(),
+                WrongAnswers = value.WrongAnswers?.Select(x => x.Select(x => DecryptString(_key, x)).ToList()).ToList(),
                 Passage = value.Passage,
                 Type = value.Type
             };
@@ -3320,16 +3320,11 @@ namespace JBQQuizMe.Repository
                 aes.IV = iv;
                 ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
-                using (var memoryStream = new MemoryStream(buffer))
-                {
-                    using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (var streamReader = new StreamReader(cryptoStream))
-                        {
-                            return streamReader.ReadToEnd();
-                        }
-                    }
-                }
+                using var memoryStream = new MemoryStream(buffer);
+                using var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
+                using var streamReader = new StreamReader(cryptoStream);
+
+                return streamReader.ReadToEnd();
             }
         }
     }
