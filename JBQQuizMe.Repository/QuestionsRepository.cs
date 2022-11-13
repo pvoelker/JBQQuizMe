@@ -12,13 +12,11 @@ namespace JBQQuizMe.Repository
     /// </summary>
     /// <remarks>Questions and correct answers are sourced from the 10-points questions of the Bible Fact-Pak (TM) and is Copyright (c) 2021 Gospel Publishing House</remarks>
     /// <remarks>In-memory data for questions and answers are encypted to help protect the copyrighted material</remarks>
-    public class QuestionsRepository : IQuestionRepository, IDisposable
+    public class QuestionsRepository : IQuestionRepository
     {
         private static readonly ICryptoTransform _decryptor;
 
         static private List<QuestionInfo> _data;
-
-        private bool _isDisposed = false;
 
         /// <summary>
         /// Static constructor for the repository
@@ -3328,26 +3326,6 @@ namespace JBQQuizMe.Repository
             using var streamReader = new StreamReader(cryptoStream);
 
             return streamReader.ReadToEnd();
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_isDisposed)
-            {
-                if (disposing)
-                {
-                    _decryptor?.Dispose();
-                }
-
-                _isDisposed = true;
-            }
-        }
-
-        public void Dispose()
-        {
-            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
         }
     }
 }
