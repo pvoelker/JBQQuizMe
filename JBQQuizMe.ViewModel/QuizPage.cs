@@ -1,12 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JBQQuizMe.Repository;
-using JBQQuizMe.ViewModel.Extensions;
 using JBQQuizMe.ViewModel.Providers;
-using Microsoft.Maui.ApplicationModel;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Reflection.Metadata;
+using System;
 
 namespace JBQQuizMe.ViewModel
 {
@@ -148,7 +144,16 @@ namespace JBQQuizMe.ViewModel
         {
             if (_speechCancellationToken != default)
             {
-                _speechCancellationToken.Cancel();
+                try
+                {
+                    _speechCancellationToken.Cancel();
+                }
+                catch(Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"An error occurred while cancelling: { ex }");
+                }
+
+                _speechCancellationToken = default;
             }
         }
 
@@ -161,8 +166,15 @@ namespace JBQQuizMe.ViewModel
                     CancelQuestionRead();
 
                     _speechCancellationToken = new CancellationTokenSource();
-                    await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question.ReplaceWithPhoneticSpellings(),
-                        cancelToken: _speechCancellationToken.Token);
+                    try
+                    {
+                        await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question.ReplaceWithPhoneticSpellings(),
+                            cancelToken: _speechCancellationToken.Token);
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"An error occurred reading question: {ex}");
+                    }
 
                     foreach (var item in CurrentQuestion.PossibleAnswers)
                     {
@@ -170,9 +182,19 @@ namespace JBQQuizMe.ViewModel
                         {
                             item.IsReading = true;
                             _speechCancellationToken = new CancellationTokenSource();
-                            await TextToSpeech.Default.SpeakAsync(item.Text.ReplaceWithPhoneticSpellings(),
-                                cancelToken: _speechCancellationToken.Token);
-                            item.IsReading = false;
+                            try
+                            {
+                                await TextToSpeech.Default.SpeakAsync(item.Text.ReplaceWithPhoneticSpellings(),
+                                    cancelToken: _speechCancellationToken.Token);
+                            }
+                            catch(Exception ex)
+                            {
+                                System.Diagnostics.Debug.WriteLine($"An error occurred reading answers: {ex}");
+                            }
+                            finally
+                            {
+                                item.IsReading = false;
+                            }
                         }
                     }
                 }

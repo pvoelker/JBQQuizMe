@@ -76,3 +76,4 @@ Track changes made to the game application.
 - Adjust font sizes on quiz page for better viewing on phone sized screens
 - Fix app project file so NuGet packages can be updated properly
 - Updated to version 2.0 of CommunityToolkit.Maui
+- BUG: Improve error handling on text-to-speech functionality in order to prevent runtime crashes
