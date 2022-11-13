@@ -12,17 +12,28 @@ namespace JBQQuizMe.Repository
     /// </summary>
     /// <remarks>Questions and correct answers are sourced from the 10-points questions of the Bible Fact-Pak (TM) and is Copyright (c) 2021 Gospel Publishing House</remarks>
     /// <remarks>In-memory data for questions and answers are encypted to help protect the copyrighted material</remarks>
-    public class QuestionsRepository : IQuestionRepository
+    public class QuestionsRepository : IQuestionRepository, IDisposable
     {
-        private const string _key = "B4A+hTqHIARBmwTiFODHqw==";
+        private static readonly ICryptoTransform _decryptor;
 
         static private List<QuestionInfo> _data;
+
+        private bool _isDisposed = false;
 
         /// <summary>
         /// Static constructor for the repository
         /// </summary>
         static QuestionsRepository()
         {
+            const string key = "B4A+hTqHIARBmwTiFODHqw==";
+
+            using (var aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = new byte[16];
+                _decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+            }
+
             _data = new List<QuestionInfo>
             {
                 new QuestionInfo {
@@ -3269,7 +3280,6 @@ namespace JBQQuizMe.Repository
             };
         }
 
-
         /// <inheritdoc />
         public int GetMaxNumber()
         {
@@ -3300,32 +3310,44 @@ namespace JBQQuizMe.Repository
             return new QuestionInfo
             {
                 Number = value.Number,
-                Question = DecryptString(_key, value.Question),
+                Question = DecryptString(value.Question),
                 AnswerHash = value.AnswerHash,
-                Answer = value.Answer.Select(x => DecryptString(_key, x)).ToList(),
-                WrongAnswers = value.WrongAnswers?.Select(x => x.Select(x => DecryptString(_key, x)).ToList()).ToList(),
+                Answer = value.Answer.Select(x => DecryptString(x)).ToList(),
+                WrongAnswers = value.WrongAnswers?.Select(x => x.Select(x => DecryptString(x)).ToList()).ToList(),
                 Passage = value.Passage,
                 Type = value.Type
             };
         }
 
-        private static string DecryptString(string key, string cipherText)
+        private static string DecryptString(string cipherText)
         {
-            byte[] iv = new byte[16];
             byte[] buffer = Convert.FromBase64String(cipherText);
 
-            using (var aes = Aes.Create())
+            using var memoryStream = new MemoryStream(buffer);
+            using var cryptoStream = new CryptoStream(memoryStream, _decryptor, CryptoStreamMode.Read);
+            using var streamReader = new StreamReader(cryptoStream);
+
+            return streamReader.ReadToEnd();
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_isDisposed)
             {
-                aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv;
-                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+                if (disposing)
+                {
+                    _decryptor?.Dispose();
+                }
 
-                using var memoryStream = new MemoryStream(buffer);
-                using var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
-                using var streamReader = new StreamReader(cryptoStream);
-
-                return streamReader.ReadToEnd();
+                _isDisposed = true;
             }
+        }
+
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }
