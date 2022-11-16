@@ -205,15 +205,20 @@ namespace JBQQuizMe.ViewModel
             }
         }
 
-        private async Task CorrectAnswerAsync()
+        public void StopQuestion()
         {
             // Prevent answer from being re-clicked
-            foreach(var item in CurrentQuestion.PossibleAnswers)
+            foreach (var item in CurrentQuestion.PossibleAnswers)
             {
                 item.Attempted = true;
             }
 
             CancelQuestionRead();
+        }
+
+        private async Task CorrectAnswerAsync()
+        {
+            StopQuestion();
 
             Message = null;
             CorrectAnswers += 1;
