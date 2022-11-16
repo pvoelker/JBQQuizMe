@@ -78,3 +78,4 @@ Track changes made to the game application.
 - Updated to version 2.0 of CommunityToolkit.Maui
 - BUG: Improve error handling on text-to-speech functionality in order to prevent runtime crashes
 - Cancel reading of question when quiz content page is left
+- Show version information in Android builds
