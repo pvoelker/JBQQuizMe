@@ -75,7 +75,8 @@ Track changes made to the game application.
 
 - Adjust font sizes on quiz page for better viewing on phone sized screens
 - Fix app project file so NuGet packages can be updated properly
-- Updated to version 2.0 of CommunityToolkit.Maui
 - BUG: Improve error handling on text-to-speech functionality in order to prevent runtime crashes
 - Cancel reading of question when quiz content page is left
 - Show version information in Android builds
+- Update to .NET 7 with associated package updates
+- Numerous UI layout fixes due to update to .NET 7
