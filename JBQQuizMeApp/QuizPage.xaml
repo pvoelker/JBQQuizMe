@@ -77,7 +77,7 @@
             <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
             <Setter Property="FontAttributes" Value="Bold" />
             <Setter Property="HorizontalOptions" Value="Center" />
-            <Setter Property="VerticalOptions" Value="End" />
+            <Setter Property="VerticalOptions" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
             <Setter Property="LineBreakMode" Value="WordWrap" />
         </Style>
@@ -92,222 +92,233 @@
         </Style>
     </ContentPage.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <Label
-            Style="{StaticResource quizInstructions}"
-            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
-            Text="Make the candle glow brighter by answering questions correctly!"
-            Margin="5" />
+            <Label
+                Style="{StaticResource quizInstructions}"
+                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
+                Text="Make the candle glow brighter by answering questions correctly!"
+                Margin="5" />
 
-        <Label
-            Style="{StaticResource currentQuestion}"
-            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6"
-            Margin="5"
-            Text="{Binding Path=CurrentQuestion.Question}" />
+            <Label
+                Style="{StaticResource currentQuestion}"
+                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6"
+                Margin="5"
+                Text="{Binding Path=CurrentQuestion.Question}" />
 
-        <Frame
-            Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
-            BorderColor="Transparent">
-            <Frame.Background>
-                <RadialGradientBrush Center="0.47,0.29">
-                    <GradientStop Color="Yellow" Offset="{Binding Completion}" />
-                    <GradientStop Color="LightYellow" Offset="{Binding Completion, Converter={StaticResource CandleGlowRadius}}" />
-                    <GradientStop Color="White" Offset="0.0" />
-                </RadialGradientBrush>
-            </Frame.Background>
-        </Frame>
+            <Frame
+                Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
+                BorderColor="Transparent">
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.47,0.29">
+                        <GradientStop Color="Yellow" Offset="{Binding Completion}" />
+                        <GradientStop Color="LightYellow" Offset="{Binding Completion, Converter={StaticResource CandleGlowRadius}}" />
+                        <GradientStop Color="White" Offset="0.0" />
+                    </RadialGradientBrush>
+                </Frame.Background>
+            </Frame>
 
-        <Image
-            Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
-            Source="whitecandle.png"
-            SemanticProperties.Description="White candle"
-            HeightRequest="200"
-            HorizontalOptions="Center"
-            VerticalOptions="Center">
-            <Image.Shadow>
-                <Shadow Brush="Black"
-                    Offset="10,10"
-                    Radius="20"
-                    Opacity="0.8" />
-            </Image.Shadow>
-            <Image.Behaviors>
-                <b:ImageJiggle />
-            </Image.Behaviors>
-        </Image>
+            <Image
+                Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
+                Source="whitecandle.png"
+                SemanticProperties.Description="White candle"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image.Shadow>
+                    <Shadow Brush="Black"
+                        Offset="10,10"
+                        Radius="20"
+                        Opacity="0.8" />
+                </Image.Shadow>
+                <Image.Behaviors>
+                    <b:ImageJiggle />
+                </Image.Behaviors>
+            </Image>
 
-        <Image
-            Grid.Row="2" Grid.Column="4" Grid.RowSpan="3" Grid.ColumnSpan="2"
-            Source="sparkle.png"
-            IsVisible="false"
-            SemanticProperties.Description="Sparkle"
-            HeightRequest="100"
-            HorizontalOptions="Center"
-            VerticalOptions="Center">
-            <Image.Behaviors>
-                <b:ImageSparkle />
-            </Image.Behaviors>
-        </Image>
+            <Image
+                Grid.Row="2" Grid.Column="4" Grid.RowSpan="3" Grid.ColumnSpan="2"
+                Source="sparkle.png"
+                IsVisible="false"
+                SemanticProperties.Description="Sparkle"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image.Behaviors>
+                    <b:ImageSparkle />
+                </Image.Behaviors>
+            </Image>
 
-        <CollectionView
-            Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="4"
-            ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
-            ItemsLayout="VerticalList"
-            ItemSizingStrategy="MeasureAllItems">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Button
-                        Margin="1"
-                        Text="{Binding Path=Text}"
-                        FontSize="{Binding Path=Text, Converter={StaticResource TextLengthToFontSize}}"
-                        LineBreakMode="WordWrap"
-                        IsEnabled="{Binding Path=NotAttempted}"
-                        Command="{Binding Path=Clicked}"
-                        MinimumHeightRequest="60">
-                        <Button.Behaviors>
-                            <b:ButtonClickJitter/>
-                        </Button.Behaviors>
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Style.Triggers>
-                                    <DataTrigger TargetType="Button" Binding="{Binding Path=IsReading}" Value="True">
-                                        <Setter Property="BackgroundColor" Value= "Orange" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            <CollectionView
+                Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="4"
+                ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
+                ItemsLayout="VerticalList"
+                ItemSizingStrategy="MeasureAllItems">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Button
+                            Margin="1"
+                            Text="{Binding Path=Text}"
+                            FontSize="{Binding Path=Text, Converter={StaticResource TextLengthToFontSize}}"
+                            LineBreakMode="WordWrap"
+                            IsEnabled="{Binding Path=NotAttempted}"
+                            Command="{Binding Path=Clicked}"
+                            MinimumHeightRequest="60">
+                            <Button.Behaviors>
+                                <b:ButtonClickJitter/>
+                            </Button.Behaviors>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Style.Triggers>
+                                        <DataTrigger TargetType="Button" Binding="{Binding Path=IsReading}" Value="True">
+                                            <Setter Property="BackgroundColor" Value= "Orange" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <!-- TargetNullValue being a single space is on purpose so the space the label occupies does not automatically collapse when the value is NULL -->
-        <Label
-            Style="{StaticResource passage}"
-            Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
-            MinimumHeightRequest="10"
-            Margin="2"
-            Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"/>
+            <!-- TargetNullValue being a single space is on purpose so the space the label occupies does not automatically collapse when the value is NULL -->
+            <Label
+                Style="{StaticResource passage}"
+                Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
+                MinimumHeightRequest="10"
+                Margin="2"
+                Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"/>
 
-        <Label
-            Style="{StaticResource bibleFactPakNum}"
-            Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
-            MinimumHeightRequest="10"
-            Margin="2"
-            Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"/>
+            <Label
+                Style="{StaticResource bibleFactPakNum}"
+                Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
+                MinimumHeightRequest="10"
+                Margin="2"
+                Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"/>
             
-        <Label
-            Style="{StaticResource candlesLitCount}"
-            Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2"
-            IsVisible="{Binding Path=AreCandlesLit}"
-            Text="{Binding Path=CandlesLit, StringFormat='Candles Lit: {0}'}">
-        </Label>
+            <Label
+                Style="{StaticResource candlesLitCount}"
+                Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2"
+                IsVisible="{Binding Path=AreCandlesLit}"
+                Text="{Binding Path=CandlesLit, StringFormat='Candles Lit: {0}'}">
+            </Label>
 
-        <Label
-            Style="{StaticResource message}"
-            Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"                
-            Margin="5"
-            MinimumHeightRequest="20"
-            Text="{Binding Message}">
-            <Label.Shadow>
-                <Shadow Brush="Gray"
-                    Offset="5,5"
-                    Radius="10"
-                    Opacity="0.6" />
-            </Label.Shadow>
-            <Label.Behaviors>
-                <b:MessageThump />
-            </Label.Behaviors>
-        </Label>
+            <Label
+                Style="{StaticResource message}"
+                Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"                
+                Margin="5"
+                MinimumHeightRequest="20"
+                Text="{Binding Message}">
+                <Label.Shadow>
+                    <Shadow Brush="Gray"
+                        Offset="5,5"
+                        Radius="10"
+                        Opacity="0.6" />
+                </Label.Shadow>
+                <Label.Behaviors>
+                    <b:MessageThump />
+                </Label.Behaviors>
+            </Label>
 
-        <Label
-            Style="{StaticResource correctCount}"
-            Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3"
-            Margin="0,10"
-            Text="{Binding Path=CorrectAnswers, StringFormat='Correct: {0}'}">
-            <Label.Behaviors>
-                <b:CorrectLabelThump />
-            </Label.Behaviors>
-        </Label>
+            <Label
+                Style="{StaticResource correctCount}"
+                Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3"
+                Margin="0,10"
+                Text="{Binding Path=CorrectAnswers, StringFormat='Correct: {0}'}">
+                <Label.Behaviors>
+                    <b:CorrectLabelThump />
+                </Label.Behaviors>
+            </Label>
 
-        <Label
-            Style="{StaticResource wrongCount}"
-            Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="3"
-            Margin="0,10"
-            Text="{Binding Path=WrongAnswers, StringFormat='Wrong: {0}'}">
-            <Label.Behaviors>
-                <b:WrongLabelThump />
-            </Label.Behaviors>
-        </Label>
+            <Label
+                Style="{StaticResource wrongCount}"
+                Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="3"
+                Margin="0,10"
+                Text="{Binding Path=WrongAnswers, StringFormat='Wrong: {0}'}">
+                <Label.Behaviors>
+                    <b:WrongLabelThump />
+                </Label.Behaviors>
+            </Label>
 
-        <!--This need need to be here to be in front of all other controls for the animation-->
-        <Image
-            Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
-            Source="stars.png"
-            IsVisible="false"
-            SemanticProperties.Description="Stars"
-            HeightRequest="200"
-            HorizontalOptions="Center"
-            VerticalOptions="Center">
-            <Image.Behaviors>
-                <b:ImageSpinOut />
-            </Image.Behaviors>
-        </Image>
+            <!--This need need to be here to be in front of all other controls for the animation-->
+            <Image
+                Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
+                Source="stars.png"
+                IsVisible="false"
+                SemanticProperties.Description="Stars"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image.Behaviors>
+                    <b:ImageSpinOut />
+                </Image.Behaviors>
+            </Image>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        
+            <ImageButton
+                Grid.Row="0" Grid.Column="0"
+                Source="frog.png"
+                SemanticProperties.Description="Frog"
+                HeightRequest="300"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BorderWidth="0"
+                BackgroundColor="Transparent"
+                IsVisible="false">
+                <ImageButton.Behaviors>
+                    <b:AnnoyingFrog />
+                </ImageButton.Behaviors>
+            </ImageButton>
 
-        <ImageButton
-            Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6"
-            Source="frog.png"
-            SemanticProperties.Description="Frog"
-            HeightRequest="300"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            BorderWidth="0"
-            BackgroundColor="Transparent"
-            IsVisible="false">
-            <ImageButton.Behaviors>
-                <b:AnnoyingFrog />
-            </ImageButton.Behaviors>
-        </ImageButton>
+            <ImageButton
+                Grid.Row="0" Grid.Column="0"
+                Source="raincloud.png"
+                SemanticProperties.Description="Rain Cloud"
+                HeightRequest="400"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BorderWidth="0"
+                BackgroundColor="Transparent"
+                IsVisible="false">
+                <ImageButton.Behaviors>
+                    <b:RainCloud />
+                </ImageButton.Behaviors>
+            </ImageButton>
 
-        <ImageButton
-            Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6"
-            Source="raincloud.png"
-            SemanticProperties.Description="Rain Cloud"
-            HeightRequest="400"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            BorderWidth="0"
-            BackgroundColor="Transparent"
-            IsVisible="false">
-            <ImageButton.Behaviors>
-                <b:RainCloud />
-            </ImageButton.Behaviors>
-        </ImageButton>
-
-        <Label
-            Style="{StaticResource largeMessage}"
-            Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6"
-            Text="{Binding Path=LargeMessage}"
-            IsVisible="{Binding Path=LargeMessage, Converter={StaticResource TextNotNullOrEmptyToBool}}"
-            Margin="20">
-        </Label>
+            <Label
+                Style="{StaticResource largeMessage}"
+                Grid.Row="1" Grid.Column="0"
+                Text="{Binding Path=LargeMessage}"
+                IsVisible="{Binding Path=LargeMessage, Converter={StaticResource TextNotNullOrEmptyToBool}}"
+                Margin="20">
+            </Label>        
+        </Grid>
     </Grid>
 </ContentPage>
