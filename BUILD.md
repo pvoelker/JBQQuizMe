@@ -5,9 +5,7 @@
 - The signing certificate needs to be added to the Certificate Manager ('certmgr')
 - The certificate thumbnail needs to be known
 - In the JBQQuizMeApp project file, 'PackageCertificateThumbprint' may need to be updated to the current thumbnail
-
-### 32-bit (not working yet)
-dotnet publish -f net7.0-windows10.0.19041.0 -c Release -r win10-x86
+- Make sure that 'Package.appxmanifest' is updated with the correct version
 
 ### 64-bit Windows
 dotnet publish -f net7.0-windows10.0.19041.0 -c Release /p:RuntimeIdentifierOverride=win10-x64
