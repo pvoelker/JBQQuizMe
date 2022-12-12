@@ -67,6 +67,7 @@
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<Nullable>warnings</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -97,7 +98,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="3.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -240,7 +240,15 @@ namespace JBQQuizMe.ViewModel
 
             Completion += COMPLETION_DELTA;
 
+            bool candleLit = false;
             if (Completion == 1m)
+            {
+                CandlesLit = CandlesLit + 1;
+                Completion = 0m;
+                candleLit = true;
+            }
+
+            if(candleLit)
             {
                 Message = GetCongratMessage();
 
@@ -253,9 +261,6 @@ namespace JBQQuizMe.ViewModel
                 {
                     Celebration.Execute(null);
                 }
-
-                CandlesLit = CandlesLit + 1;
-                Completion = 0m;
             }
 
             // Pause before putting up the new quetion to help prevent mis-clicks
@@ -263,7 +268,7 @@ namespace JBQQuizMe.ViewModel
 
             CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
-            if (IsGoodRole(.3))
+            if (!candleLit && IsGoodRole(.3))
             {
                 if (ShowRainCloud != null)
                 {

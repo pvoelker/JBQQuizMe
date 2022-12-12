@@ -80,3 +80,4 @@ Track changes made to the game application.
 - Show version information in Android builds
 - Update to .NET 7 with associated package updates
 - Numerous UI layout fixes due to update to .NET 7
+- Don't show a rain cloud when a candle has been lit
