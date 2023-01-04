@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using JBQQuizMe.Repository;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
@@ -19,32 +18,25 @@ namespace JBQQuizMe.ViewModel
             StartQuestionNumberStr = Preferences.Default.Get<string>(PreferenceKeys.StartQuestionRange, null);
             EndQuestionNumberStr = Preferences.Default.Get<string>(PreferenceKeys.EndQuestionRange, null);
 
-            try
-            {
-                var assembly = Assembly.GetEntryAssembly();
+            var assembly = Assembly.GetEntryAssembly();
 
-                if (assembly != null)
+            if (assembly != null)
+            {
+                Version = assembly.GetName().Version;
+                object[] attribs = assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), true);
+                if (attribs.Length > 0)
                 {
-                    Version = assembly.GetName().Version;
-                    object[] attribs = assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), true);
-                    if (attribs.Length > 0)
-                    {
-                        Copyright = ((AssemblyCopyrightAttribute)attribs[0]).Copyright;
-                    }
-                    else
-                    {
-                        Copyright = "ERROR: Unable to get copyright";
-                    }
+                    Copyright = ((AssemblyCopyrightAttribute)attribs[0]).Copyright;
                 }
                 else
                 {
-                    Version = null;
-                    Copyright = null;
+                    Copyright = "ERROR: Unable to get copyright";
                 }
             }
-            catch
+            else
             {
-                throw; // Ignore exception and move on, we will hit this on Android
+                Version = AppInfo.Current.Version;
+                Copyright = null;
             }
         }
 

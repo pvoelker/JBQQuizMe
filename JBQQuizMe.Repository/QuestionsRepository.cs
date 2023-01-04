@@ -14,7 +14,7 @@ namespace JBQQuizMe.Repository
     /// <remarks>In-memory data for questions and answers are encypted to help protect the copyrighted material</remarks>
     public class QuestionsRepository : IQuestionRepository
     {
-        private const string _key = "B4A+hTqHIARBmwTiFODHqw==";
+        private static readonly ICryptoTransform _decryptor;
 
         static private List<QuestionInfo> _data;
 
@@ -23,6 +23,15 @@ namespace JBQQuizMe.Repository
         /// </summary>
         static QuestionsRepository()
         {
+            const string key = "B4A+hTqHIARBmwTiFODHqw==";
+
+            using (var aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = new byte[16];
+                _decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+            }
+
             _data = new List<QuestionInfo>
             {
                 new QuestionInfo {
@@ -3269,7 +3278,6 @@ namespace JBQQuizMe.Repository
             };
         }
 
-
         /// <inheritdoc />
         public int GetMaxNumber()
         {
@@ -3300,37 +3308,24 @@ namespace JBQQuizMe.Repository
             return new QuestionInfo
             {
                 Number = value.Number,
-                Question = DecryptString(_key, value.Question),
+                Question = DecryptString(value.Question),
                 AnswerHash = value.AnswerHash,
-                Answer = value.Answer.Select(x => DecryptString(_key, x)).ToList(),
-                WrongAnswers = value.WrongAnswers == null ? null : value.WrongAnswers.Select(x => x.Select(x => DecryptString(_key, x)).ToList()).ToList(),
+                Answer = value.Answer.Select(x => DecryptString(x)).ToList(),
+                WrongAnswers = value.WrongAnswers?.Select(x => x.Select(x => DecryptString(x)).ToList()).ToList(),
                 Passage = value.Passage,
                 Type = value.Type
             };
         }
 
-        private static string DecryptString(string key, string cipherText)
+        private static string DecryptString(string cipherText)
         {
-            byte[] iv = new byte[16];
             byte[] buffer = Convert.FromBase64String(cipherText);
 
-            using (var aes = Aes.Create())
-            {
-                aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv;
-                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+            using var memoryStream = new MemoryStream(buffer);
+            using var cryptoStream = new CryptoStream(memoryStream, _decryptor, CryptoStreamMode.Read);
+            using var streamReader = new StreamReader(cryptoStream);
 
-                using (var memoryStream = new MemoryStream(buffer))
-                {
-                    using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (var streamReader = new StreamReader(cryptoStream))
-                        {
-                            return streamReader.ReadToEnd();
-                        }
-                    }
-                }
-            }
+            return streamReader.ReadToEnd();
         }
     }
 }

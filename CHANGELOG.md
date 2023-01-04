@@ -70,3 +70,14 @@ Track changes made to the game application.
 - Added an 'answer hash' to the question data to make generating wrong answers easier more efficient
 - Move decryption of data from provider into repository, which is more appropriate for a repository pattern
 - Add information about copyrighted material in the code
+
+## Version 0.9.0.0 (app ver 6)
+
+- Adjust font sizes on quiz page for better viewing on phone sized screens
+- Fix app project file so NuGet packages can be updated properly
+- BUG: Improve error handling on text-to-speech functionality in order to prevent runtime crashes
+- Cancel reading of question when quiz content page is left
+- Show version information in Android builds
+- Update to .NET 7 with associated package updates
+- Numerous UI layout fixes due to update to .NET 7
+- Don't show a rain cloud when a candle has been lit
