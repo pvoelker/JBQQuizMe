@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
+
+	<!-- TEMPORARY FIX TO: https://github.com/dotnet/maui/issues/12515  -->
+	<PublishReadyToRun>false</PublishReadyToRun>
   </PropertyGroup>
 
 </Project>
