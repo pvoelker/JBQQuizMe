@@ -18,10 +18,10 @@
 		<ApplicationIdGuid>AF1980A5-F16C-4734-A101-78BC36B26AD1</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<AssemblyVersion>0.9.0.0</AssemblyVersion>
-		<FileVersion>0.9.0.0</FileVersion>		
-		<ApplicationDisplayVersion>0.9.0</ApplicationDisplayVersion>
-		<ApplicationVersion>6</ApplicationVersion>
+		<AssemblyVersion>0.9.1.0</AssemblyVersion>
+		<FileVersion>0.9.1.0</FileVersion>		
+		<ApplicationDisplayVersion>0.9.1</ApplicationDisplayVersion>
+		<ApplicationVersion>7</ApplicationVersion>
 
 		<!-- TEMPORARY FIX TO: https://github.com/dotnet/maui/issues/12515  -->
 		<PublishReadyToRun>false</PublishReadyToRun>
@@ -41,7 +41,7 @@
 	  <Title>JBQ Quiz Me!</Title>
 	  <Product>JBQ Quiz Me!</Product>
 	  <Description>Game for practicing 10-point questions in Junior Bible Quizzing (JBQ)</Description>
-	  <Copyright>Copyright © 2022 Paul Voelker</Copyright>
+	  <Copyright>Copyright © 2023 Paul Voelker</Copyright>
       <DefaultLanguage>en</DefaultLanguage>
 	</PropertyGroup>
 
