@@ -1,4 +1,4 @@
-# Building
+ # Building
 
 ## Windows
 
@@ -23,6 +23,10 @@ dotnet publish -f:net7.0-android -c:Release /p:AndroidSigningKeyPass=[kspassword
 - At this time this will generate an **unsigned** package (.pkg) file
 
 dotnet publish -f net7.0-maccatalyst -c Release /p:CreatePackage=true
+
+ - Signing the installer/package (.pkg).  See "Keychain Access" in order to get the certificate information.
+
+productsign --sign "[Certificate Common Name]" [package to sign] [package to output]
 
 ## iOS
 
