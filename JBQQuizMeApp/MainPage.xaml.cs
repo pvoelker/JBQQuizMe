@@ -40,12 +40,18 @@ public partial class MainPage : ContentPage
 		{
 			builder.AppendLine($"Version: {context.Version}");
 		}
-		builder.AppendLine(string.Empty);
+
+        builder.AppendLine(string.Empty);
 		builder.AppendLine("• Questions are based on 10 point questions from the Bible Fact-Pak™ (https://biblefactpak.com/)");
 		builder.AppendLine("• Questions are sourced from the New Living Translation (NLT) version of the Bible");
 		builder.AppendLine("• Designed and developed by Paul Voelker of Faith Chapel - Overland Park");
-        builder.AppendLine("• Questions transcribed by Pastor Michelle Redmon of Faith Chapel - Overland Park");
-        builder.AppendLine("• Given to the glory of God");
+
+        // PEV - 1/18/2023 - Limiting the amount of text due to an issue in MacOS (Catalyst): https://github.com/dotnet/maui/issues/11766
+        if (DeviceInfo.Current.Platform != DevicePlatform.MacCatalyst)
+        {
+            builder.AppendLine("• Questions transcribed by Pastor Michelle Redmon of Faith Chapel - Overland Park");
+			builder.AppendLine("• Given to the glory of God");
+		}
 
         await DisplayAlert("About Game", builder.ToString(), "OK");
 	}
