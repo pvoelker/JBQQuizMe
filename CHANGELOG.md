@@ -82,3 +82,8 @@ Track changes made to the game application.
 - Numerous UI layout fixes due to update to .NET 7
 - Don't show a rain cloud when a candle has been lit
 - Known Issue: Workaround put in place for error during release builds - https://github.com/dotnet/maui/issues/12515
+
+## Version 0.9.1.0 (app ver 7)
+- BUG: Temporary fix for an issue with 'About' on MacOS (Catalyst): https://github.com/dotnet/maui/issues/11766
+- BUG: Fix user interface issue on MacOS (Catalyst) where a grid with no visible content was blocking clicks on the answer buttons
+- BUG: Fix spacing issue with answers on MacOS (Catalyst)

@@ -171,12 +171,13 @@
             <CollectionView
                 Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="4"
                 ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
-                ItemsLayout="VerticalList"
                 ItemSizingStrategy="MeasureAllItems">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="1" />
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Button
-                            Margin="1"
                             Text="{Binding Path=Text}"
                             FontSize="{Binding Path=Text, Converter={StaticResource TextLengthToFontSize}}"
                             LineBreakMode="WordWrap"
@@ -273,7 +274,9 @@
                 </Image.Behaviors>
             </Image>
         </Grid>
-        <Grid>
+
+        <!-- PEV - 1/18/2023 - On MacOS (Catalyst) the grid blocks clicks to components visible behind it, even if no components are visible in this grid -->
+        <Grid IsVisible="{Binding Path=LargeMessage, Converter={StaticResource TextNotNullOrEmptyToBool}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
