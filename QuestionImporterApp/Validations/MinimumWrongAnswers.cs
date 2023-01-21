@@ -12,9 +12,9 @@ namespace QuestionImporterApp.Validations
 
         public IEnumerable<string> Validate(IEnumerable<QuestionSheetRow> rows)
         {
-            var problems = rows.Where(x => x.HasWrongAnswers).Where(x => x.WrongAnswersAsList().Count() < 3);
+            var problems = rows.Where(x => x.HasWrongAnswers).Where(x => x.WrongAnswersAsList().Count() < 4);
 
-            return problems.Select(x => $"Question '{x.Number}' has fewer than three (3) wrong answers asssocated with it").ToList();
+            return problems.Select(x => $"Question '{x.Number}' has fewer than four (4) wrong answers associated with it").ToList();
         }
     }
 }
