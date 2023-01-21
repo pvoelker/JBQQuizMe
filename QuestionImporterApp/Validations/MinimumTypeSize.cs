@@ -14,7 +14,7 @@ namespace QuestionImporterApp.Validations
         {
             var problems = rows.Where(x => !string.IsNullOrEmpty(x.Type)).GroupBy(x => x.Type).Where(x => x.Count() < 4);
 
-            return problems.Select(x => $"Question type '{x.First().Type}' has fewer than four (4) questions asssocated with it").ToList();
+            return problems.Select(x => $"Question type '{x.First().Type}' has fewer than four (4) questions associated with it").ToList();
         }
     }
 }
