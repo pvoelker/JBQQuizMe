@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:JBQQuizMe.ViewModel;assembly=JBQQuizMe.ViewModel"
              xmlns:b="clr-namespace:JBQQuizMeApp.Behaviors"
              xmlns:c="clr-namespace:JBQQuizMeApp.Converters"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              x:Class="JBQQuizMeApp.QuizPage">
     <ContentPage.BindingContext>
         <vm:QuizPage/>
@@ -12,6 +13,7 @@
         <c:CandleGlowGradientStop x:Key="CandleGlowRadius" />
         <c:TextLengthToFontSize x:Key="TextLengthToFontSize" />
         <c:TextNotNullOrEmptyToBool x:Key="TextNotNullOrEmptyToBool" />
+        <c:ObjectNotNullToBool x:Key="ObjectNotNullToBool" />
 
         <Style x:Key="quizInstructions" TargetType="Label">
             <Setter Property="TextColor" Value="Gray" />
@@ -276,52 +278,22 @@
         </Grid>
 
         <!-- PEV - 1/18/2023 - On MacOS (Catalyst) the grid blocks clicks to components visible behind it, even if no components are visible in this grid -->
-        <Grid IsVisible="{Binding Path=LargeMessage, Converter={StaticResource TextNotNullOrEmptyToBool}}">
+        <Grid IsVisible="{Binding Path=LottieImage, Converter={StaticResource ObjectNotNullToBool}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-        
-            <ImageButton
-                Grid.Row="0" Grid.Column="0"
-                Source="frog.png"
-                SemanticProperties.Description="Frog"
-                HeightRequest="300"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                BorderWidth="0"
-                BackgroundColor="Transparent"
-                IsVisible="false">
-                <ImageButton.Behaviors>
-                    <b:AnnoyingFrog />
-                </ImageButton.Behaviors>
-            </ImageButton>
 
-            <ImageButton
-                Grid.Row="0" Grid.Column="0"
-                Source="raincloud.png"
-                SemanticProperties.Description="Rain Cloud"
-                HeightRequest="400"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                BorderWidth="0"
-                BackgroundColor="Transparent"
-                IsVisible="false">
-                <ImageButton.Behaviors>
-                    <b:RainCloud />
-                </ImageButton.Behaviors>
-            </ImageButton>
-
-            <Label
-                Style="{StaticResource largeMessage}"
-                Grid.Row="1" Grid.Column="0"
-                Text="{Binding Path=LargeMessage}"
-                IsVisible="{Binding Path=LargeMessage, Converter={StaticResource TextNotNullOrEmptyToBool}}"
-                Margin="20">
-            </Label>        
+            <skia:SKLottieView
+                  IsVisible="{Binding Path=LottieImage, Converter={StaticResource ObjectNotNullToBool}}"
+                  Source="{Binding Path=LottieImage}"
+                  RepeatCount="1"
+                  HorizontalOptions="Fill"
+                  VerticalOptions="Fill"
+                  IsComplete="{Binding Path=IsAnimationComplete}">
+            </skia:SKLottieView>
         </Grid>
     </Grid>
 </ContentPage>

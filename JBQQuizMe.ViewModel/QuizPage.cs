@@ -2,6 +2,8 @@
 using CommunityToolkit.Mvvm.Input;
 using JBQQuizMe.Repository;
 using JBQQuizMe.ViewModel.Providers;
+using SkiaSharp.Extended.UI.Controls;
+using SkiaSharp.Extended.UI.Controls.Converters;
 using System;
 
 namespace JBQQuizMe.ViewModel
@@ -19,11 +21,28 @@ namespace JBQQuizMe.ViewModel
             "Keep going!"
         };
 
+        private static readonly List<string> _successLotties = new List<string>()
+        {
+            "111592-happy-pencil.json",
+            "126974-blasting-confetti.json",
+            "127094-confetti-falling.json",
+            "128258-snake-confetti.json",
+            "132379-heart-love-music.json",
+            "132630-happy-star.json"
+        };
+
+        private static readonly List<string> _failLotties = new List<string>()
+        {
+            "133064-angry-cloud.json"
+        };
+
         private const decimal COMPLETION_DELTA = 0.1m;
 
         private const int MAX_ANSWERS = 4;
 
         private Random _random = new Random();
+
+        private SKLottieImageSourceConverter _lottieConverter = new SKLottieImageSourceConverter();
 
         private CancellationTokenSource _speechCancellationToken = default;
 
@@ -38,6 +57,8 @@ namespace JBQQuizMe.ViewModel
             _questionProvider = new QuestionProvider(new QuestionsRepository(), MAX_ANSWERS, StartQuestionNumber, EndQuestionNumber);
 
             CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
+
+            Continue = new AsyncRelayCommand(async () => { await ReadCurrentQuestionAsync(); });
 
             await ReadCurrentQuestionAsync();
         }
@@ -56,17 +77,42 @@ namespace JBQQuizMe.ViewModel
 
         public IRelayCommand WrongAnswerGiven { get; set; }
 
-        public IRelayCommand ShowFrog { get; set; }
-
-        public IRelayCommand ShowRainCloud { get; set; }
+        public IAsyncRelayCommand Continue { get; private set; }
 
         #endregion
+
+        public bool IsAnimationComplete
+        {
+            set
+            {
+                // Detect when animation completes
+                if (value == true)
+                {
+                    LottieImage = null;
+
+                    if (StagedQuestion != null)
+                    {
+                        CurrentQuestion = StagedQuestion;
+                        StagedQuestion = null;
+                    }
+
+                    Continue.Execute(null);
+                }
+            }
+        }
 
         private AskedQuestion _currentQuestion = null;
         public AskedQuestion CurrentQuestion
         {
             get => _currentQuestion;
             private set => SetProperty(ref _currentQuestion, value);
+        }
+
+        private AskedQuestion _stagedQuestion = null;
+        public AskedQuestion StagedQuestion
+        {
+            get => _stagedQuestion;
+            private set => SetProperty(ref _stagedQuestion, value);
         }
 
         private string _message = null;
@@ -76,11 +122,11 @@ namespace JBQQuizMe.ViewModel
             private set => SetProperty(ref _message, value);
         }
 
-        private string _largeMessage = null;
-        public string LargeMessage
+        private SKLottieImageSource _lottieImage = null;
+        public SKLottieImageSource LottieImage
         {
-            get => _largeMessage;
-            set => SetProperty(ref _largeMessage, value);
+            get => _lottieImage;
+            set => SetProperty(ref _lottieImage, value);
         }
 
         private decimal _completion = 0;
@@ -223,20 +269,11 @@ namespace JBQQuizMe.ViewModel
             Message = null;
             CorrectAnswers += 1;
 
-            if (CandleSparkle != null)
-            {
-                CandleSparkle.Execute(null);
-            }
+            CandleSparkle?.Execute(null);
 
-            if (CandleJiggle != null)
-            {
-                CandleJiggle.Execute(null);
-            }
+            CandleJiggle?.Execute(null);
 
-            if(CorrectAnswerGiven != null)
-            {
-                CorrectAnswerGiven.Execute(null);
-            }
+            CorrectAnswerGiven?.Execute(null);
 
             Completion += COMPLETION_DELTA;
 
@@ -252,34 +289,27 @@ namespace JBQQuizMe.ViewModel
             {
                 Message = GetCongratMessage();
 
-                if (MessageThump != null)
-                {
-                    MessageThump.Execute(null);
-                }
+                MessageThump?.Execute(null);
 
-                if (Celebration != null)
-                {
-                    Celebration.Execute(null);
-                }
+                Celebration?.Execute(null);
             }
 
             // Pause before putting up the new quetion to help prevent mis-clicks
             await Task.Delay(250);
 
-            CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
-
             if (!candleLit && IsGoodRole(.3))
             {
-                if (ShowRainCloud != null)
-                {
-                    LargeMessage = "Poke the rain cloud to keep it away from the candle!";
-                    ShowRainCloud.Execute(null);
-                }
+                StagedQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
-                // Question is read after the rain cloud is poked away
+                int index = _random.Next(_successLotties.Count);
+                LottieImage = (SKLottieImageSource)_lottieConverter.ConvertFromString(_successLotties[index]);
+
+                // Question is read after animation finishes
             }
             else
             {
+                CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
+
                 await ReadCurrentQuestionAsync();
             }
         }
@@ -292,10 +322,7 @@ namespace JBQQuizMe.ViewModel
             Message = "Try again!";
             WrongAnswers += 1;
 
-            if (WrongAnswerGiven != null)
-            {
-                WrongAnswerGiven.Execute(null);
-            }
+            WrongAnswerGiven?.Execute(null);
 
             if (Completion > 0)
             {
@@ -304,11 +331,8 @@ namespace JBQQuizMe.ViewModel
 
             if (IsGoodRole(.3))
             {
-                if (ShowFrog != null)
-                {
-                    LargeMessage = "Poke the frog away!";
-                    ShowFrog.Execute(null);
-                }
+                int index = _random.Next(_failLotties.Count);
+                LottieImage = (SKLottieImageSource)_lottieConverter.ConvertFromString(_failLotties[index]);
             }
         }
 
