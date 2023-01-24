@@ -89,6 +89,13 @@ namespace JBQQuizMe.ViewModel
                 if (value == true)
                 {
                     LottieImage = null;
+
+                    if (StagedQuestion != null)
+                    {
+                        CurrentQuestion = StagedQuestion;
+                        StagedQuestion = null;
+                    }
+
                     Continue.Execute(null);
                 }
             }
@@ -99,6 +106,13 @@ namespace JBQQuizMe.ViewModel
         {
             get => _currentQuestion;
             private set => SetProperty(ref _currentQuestion, value);
+        }
+
+        private AskedQuestion _stagedQuestion = null;
+        public AskedQuestion StagedQuestion
+        {
+            get => _stagedQuestion;
+            private set => SetProperty(ref _stagedQuestion, value);
         }
 
         private string _message = null;
@@ -283,10 +297,10 @@ namespace JBQQuizMe.ViewModel
             // Pause before putting up the new quetion to help prevent mis-clicks
             await Task.Delay(250);
 
-            CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
-
             if (!candleLit && IsGoodRole(.3))
             {
+                StagedQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
+
                 int index = _random.Next(_successLotties.Count);
                 LottieImage = (SKLottieImageSource)_lottieConverter.ConvertFromString(_successLotties[index]);
 
@@ -294,6 +308,8 @@ namespace JBQQuizMe.ViewModel
             }
             else
             {
+                CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
+
                 await ReadCurrentQuestionAsync();
             }
         }
