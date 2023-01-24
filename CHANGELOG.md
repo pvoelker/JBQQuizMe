@@ -87,3 +87,7 @@ Track changes made to the game application.
 - BUG: Temporary fix for an issue with 'About' on MacOS (Catalyst): https://github.com/dotnet/maui/issues/11766
 - BUG: Fix user interface issue on MacOS (Catalyst) where a grid with no visible content was blocking clicks on the answer buttons
 - BUG: Fix spacing issue with answers on MacOS (Catalyst)
+
+## Version 0.10.0.0 (app ver 8)
+- Known Issue: App has trouble running for the first time on Windows 10 (https://github.com/dotnet/maui/issues/12080). Work around is to run the app as an administrator one time.
+- MAJOR: Switch from poking the frog and cloud to Lottie animations
