@@ -90,4 +90,4 @@ Track changes made to the game application.
 
 ## Version 0.10.0.0 (app ver 8)
 - Known Issue: App has trouble running for the first time on Windows 10 (https://github.com/dotnet/maui/issues/12080). Work around is to run the app as an administrator one time.
-- MAJOR: Switch from poking the frog and cloud to Lottie animations
+- MAJOR: Switch from poking the frog and cloud to Lottie animations for correct and wrong answers

@@ -35,14 +35,14 @@
 
         <Style x:Key="passage" TargetType="Label">
             <Setter Property="FontFamily" Value="OpenSansRegular" />
-            <Setter Property="FontSize" Value="{OnPlatform Default='18', MacCatalyst='25.7'}" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='16', MacCatalyst='25.7'}" />
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
 
         <Style x:Key="bibleFactPakNum" TargetType="Label">
             <Setter Property="FontFamily" Value="OpenSansRegular" />
-            <Setter Property="FontSize" Value="{OnPlatform Default='16', MacCatalyst='22.9'}" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='14', MacCatalyst='22.9'}" />
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
@@ -289,7 +289,7 @@
             <skia:SKLottieView
                   IsVisible="{Binding Path=LottieImage, Converter={StaticResource ObjectNotNullToBool}}"
                   Source="{Binding Path=LottieImage}"
-                  RepeatCount="1"
+                  RepeatCount="1"                
                   HorizontalOptions="Fill"
                   VerticalOptions="Fill"
                   IsComplete="{Binding Path=IsAnimationComplete}">
