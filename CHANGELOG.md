@@ -91,3 +91,8 @@ Track changes made to the game application.
 ## Version 0.10.0.0 (app ver 8)
 - Known Issue: App has trouble running for the first time on Windows 10 (https://github.com/dotnet/maui/issues/12080). Work around is to run the app as an administrator one time.
 - MAJOR: Switch from poking the frog and cloud to Lottie animations for correct and wrong answers
+
+## Version 0.10.1.0 (app ver 9)
+- Build for updated MAUI.NET version 7.0.59
+- FIX: First time run on Windows 10 corrected in MAUI 7.0.59 included in VS 17.4.5 (https://github.com/dotnet/maui/issues/12080)
+- FIX: Build issue fixed (https://github.com/dotnet/maui/issues/12515)

@@ -1,4 +1,13 @@
- # Building
+# Updating Version
+
+- Increment 'ApplicationVersion'
+- Update 'AssemblyVersion'
+- Update 'FileVersion'
+- Update 'ApplicationDisplayVersion'
+- In 'Package.appxmanifest' for Windows platform, update 'Version' in 'Identity'
+- Document new version in 'CHANGELOG.md'
+
+# Building
 
 ## Windows
 
