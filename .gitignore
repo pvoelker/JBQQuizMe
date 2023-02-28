@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+*.zip
+
+# Apple files
+*.ipa
+*.DS_Store
+
 # Android secure files (not to be added to source control)
 *.keystore
 
