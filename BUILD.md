@@ -39,9 +39,19 @@ productsign --sign "[Certificate Common Name]" [package to sign] [package to out
 
 ## iOS
 
-- This needs to be run on a MacOS system
-- 'Archive on Build' is set in the project file
+### Setup
+- An app must be created on 'App Store Connect' with the bundle ID set to ApplicationId
+- In XCode go to Settings.  Select Accounts and add your 'Apple ID' account
+
+### Steps
+- This needs to be run on a MacOS system with Visual Studio for Mac installed
 - In the JBQQuizMeApp project file, make sure that '<CodesignKey>' is set to the distribution certificate in Keychain Access on the Mac build host
 - In the JBQQuizMeApp project file, make sure that '<CodesignProvision>' is set to the name of the codesign provision in the Apple Developer portal
 
 dotnet publish -f net7.0-ios -c Release /p:CreatePackage=true
+
+- In Visual Studio for Mac:
+- Right click on 'JBQQuizMeApp' and select 'View Archives'
+- The build should be listed
+- Right click build and select 'Sign and Distribute'
+- Select 'App Store' as distribution channel and proceed
