@@ -96,3 +96,7 @@ Track changes made to the game application.
 - Build for updated MAUI.NET version 7.0.59
 - FIX: First time run on Windows 10 corrected in MAUI 7.0.59 included in VS 17.4.5 (https://github.com/dotnet/maui/issues/12080)
 - FIX: Build issue fixed (https://github.com/dotnet/maui/issues/12515)
+
+## Version 0.10.2.0 (app ver 10)
+- Fix user interface issues in dark mode
+- Change how candle is sized so it looks better
