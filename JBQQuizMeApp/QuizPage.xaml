@@ -143,9 +143,9 @@
                 Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
                 Source="whitecandle.png"
                 SemanticProperties.Description="White candle"
-                Margin="20,40"
-                HorizontalOptions="Center"
-                VerticalOptions="Center">
+                Margin="40,60"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
                 <Image.Shadow>
                     <Shadow Brush="Black"
                         Offset="10,10"
