@@ -148,9 +148,9 @@
                 VerticalOptions="Fill">
                 <Image.Shadow>
                     <Shadow Brush="Black"
-                        Offset="10,10"
-                        Radius="20"
-                        Opacity="0.8" />
+                        Offset="5,5"
+                        Radius="10"
+                        Opacity="0.3" />
                 </Image.Shadow>
                 <Image.Behaviors>
                     <b:ImageJiggle />
