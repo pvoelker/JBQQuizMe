@@ -100,3 +100,8 @@ Track changes made to the game application.
 ## Version 0.10.2.0 (app ver 10)
 - Fix user interface issues in dark mode
 - Change how candle is sized so it looks better
+- POST RELEASE NOTE: This version failed validation on the Apple App Store on iOS 16.3.1
+
+## Version 0.10.3.0 (app ver 11)
+- Use compiled bindings in XAML
+- Removed unused email provider from code

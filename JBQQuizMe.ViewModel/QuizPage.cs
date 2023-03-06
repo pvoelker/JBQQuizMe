@@ -83,6 +83,11 @@ namespace JBQQuizMe.ViewModel
 
         public bool IsAnimationComplete
         {
+            get
+            {
+                // This is to resolve a compile time XFC0045 error with compiled bindings on SkiaSharp.Extended.UI.Controls.SKLottieView
+                throw new NotImplementedException($"The GET should not be used on {nameof(IsAnimationComplete)}");
+            }
             set
             {
                 // Detect when animation completes
