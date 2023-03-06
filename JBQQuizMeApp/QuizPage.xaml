@@ -5,7 +5,8 @@
              xmlns:b="clr-namespace:JBQQuizMeApp.Behaviors"
              xmlns:c="clr-namespace:JBQQuizMeApp.Converters"
              xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
-             x:Class="JBQQuizMeApp.QuizPage">
+             x:Class="JBQQuizMeApp.QuizPage"
+             x:DataType="vm:QuizPage">
     <ContentPage.BindingContext>
         <vm:QuizPage/>
     </ContentPage.BindingContext>
@@ -180,6 +181,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Button
+                            x:DataType="vm:Answer"
                             Text="{Binding Path=Text}"
                             FontSize="{Binding Path=Text, Converter={StaticResource TextLengthToFontSize}}"
                             LineBreakMode="WordWrap"
@@ -287,12 +289,12 @@
             </Grid.ColumnDefinitions>
 
             <skia:SKLottieView
-                  IsVisible="{Binding Path=LottieImage, Converter={StaticResource ObjectNotNullToBool}}"
-                  Source="{Binding Path=LottieImage}"
-                  RepeatCount="1"                
-                  HorizontalOptions="Fill"
-                  VerticalOptions="Fill"
-                  IsComplete="{Binding Path=IsAnimationComplete}">
+                IsVisible="{Binding Path=LottieImage, Converter={StaticResource ObjectNotNullToBool}}"
+                Source="{Binding Path=LottieImage}"
+                RepeatCount="1"                
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                IsComplete="{Binding Path=IsAnimationComplete, Mode=OneWayToSource}">
             </skia:SKLottieView>
         </Grid>
     </Grid>
