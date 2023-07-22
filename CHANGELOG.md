@@ -105,3 +105,8 @@ Track changes made to the game application.
 ## Version 0.10.3.0 (app ver 11)
 - Use compiled bindings in XAML
 - Removed unused email provider from code
+- 
+- ## Version 0.10.4.0 (app ver 12)
+- Fix drop shadow on candle
+- Minor library update
+- Add phonetic spelling
