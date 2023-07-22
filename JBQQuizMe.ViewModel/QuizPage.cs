@@ -5,6 +5,7 @@ using JBQQuizMe.ViewModel.Providers;
 using SkiaSharp.Extended.UI.Controls;
 using SkiaSharp.Extended.UI.Controls.Converters;
 using System;
+using System.Diagnostics;
 
 namespace JBQQuizMe.ViewModel
 {
@@ -42,6 +43,8 @@ namespace JBQQuizMe.ViewModel
 
         private Random _random = new Random();
 
+        private Stopwatch _stopwatch = new Stopwatch();
+
         private SKLottieImageSourceConverter _lottieConverter = new SKLottieImageSourceConverter();
 
         private CancellationTokenSource _speechCancellationToken = default;
@@ -61,6 +64,10 @@ namespace JBQQuizMe.ViewModel
             Continue = new AsyncRelayCommand(async () => { await ReadCurrentQuestionAsync(); });
 
             await ReadCurrentQuestionAsync();
+
+            _stopwatch.Start();
+
+            ElapsedTime = _stopwatch.Elapsed;
         }
 
         #region Commands
@@ -97,6 +104,8 @@ namespace JBQQuizMe.ViewModel
 
                     if (StagedQuestion != null)
                     {
+                        ElapsedTime = _stopwatch.Elapsed;
+
                         CurrentQuestion = StagedQuestion;
                         StagedQuestion = null;
                     }
@@ -189,6 +198,13 @@ namespace JBQQuizMe.ViewModel
         {
             get => _readQuestions;
             set => SetProperty(ref _readQuestions, value);
+        }
+
+        private TimeSpan _elapsedTime = default;
+        public TimeSpan ElapsedTime
+        {
+            get => _elapsedTime;
+            private set => SetProperty(ref _elapsedTime, value);
         }
 
         private void CancelQuestionRead()
@@ -313,6 +329,8 @@ namespace JBQQuizMe.ViewModel
             }
             else
             {
+                ElapsedTime = _stopwatch.Elapsed;
+
                 CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
                 await ReadCurrentQuestionAsync();

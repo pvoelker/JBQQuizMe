@@ -110,3 +110,4 @@ Track changes made to the game application.
 - Fix drop shadow on candle
 - Minor library update
 - Add phonetic spelling
+- Add an elapsed time on the quizzing screen

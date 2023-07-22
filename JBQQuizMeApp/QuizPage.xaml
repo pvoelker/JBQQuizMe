@@ -57,6 +57,16 @@
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
 
+        <Style x:Key="elapsedTime" TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="Opacity" Value="0.6" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='12', MacCatalyst='20'}" />
+            <Setter Property="HorizontalOptions" Value="End" />
+            <Setter Property="VerticalOptions" Value="Start" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
         <Style x:Key="correctBase" TargetType="Label">
             <Setter Property="FontFamily" Value="MorningRainbow" />
             <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
@@ -213,7 +223,14 @@
                 MinimumHeightRequest="10"
                 Margin="2"
                 Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"/>
-            
+
+            <Label
+                Style="{StaticResource elapsedTime}"
+                Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"
+                Text="{Binding Path=ElapsedTime, StringFormat='{}{0:hh}:{0:mm}:{0:ss}'}"
+                Margin="2">
+            </Label>
+
             <Label
                 Style="{StaticResource candlesLitCount}"
                 Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2"
