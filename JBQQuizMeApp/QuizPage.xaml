@@ -147,12 +147,6 @@
                 Margin="40,60"
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill">
-                <Image.Shadow>
-                    <Shadow Brush="Black"
-                        Offset="5,5"
-                        Radius="10"
-                        Opacity="0.3" />
-                </Image.Shadow>
                 <Image.Behaviors>
                     <b:ImageJiggle />
                 </Image.Behaviors>
