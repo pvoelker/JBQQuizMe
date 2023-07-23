@@ -111,3 +111,4 @@ Track changes made to the game application.
 - Minor library update
 - Add phonetic spelling
 - Add an elapsed time on the quizzing screen
+- Allow animations to be cancelled

@@ -63,6 +63,8 @@ namespace JBQQuizMe.ViewModel
 
             Continue = new AsyncRelayCommand(async () => { await ReadCurrentQuestionAsync(); });
 
+            CancelAnimation = new RelayCommand(() => { LottieImage = null; });
+
             await ReadCurrentQuestionAsync();
 
             _stopwatch.Start();
@@ -85,6 +87,8 @@ namespace JBQQuizMe.ViewModel
         public IRelayCommand WrongAnswerGiven { get; set; }
 
         public IAsyncRelayCommand Continue { get; private set; }
+
+        public IRelayCommand CancelAnimation { get; private set; }
 
         #endregion
 
@@ -217,7 +221,7 @@ namespace JBQQuizMe.ViewModel
                 }
                 catch(Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"An error occurred while cancelling: { ex }");
+                    Debug.WriteLine($"An error occurred while cancelling: { ex }");
                 }
 
                 _speechCancellationToken = default;
@@ -240,7 +244,7 @@ namespace JBQQuizMe.ViewModel
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine($"An error occurred reading question: {ex}");
+                        Debug.WriteLine($"An error occurred reading question: {ex}");
                     }
 
                     foreach (var item in CurrentQuestion.PossibleAnswers)
@@ -256,7 +260,7 @@ namespace JBQQuizMe.ViewModel
                             }
                             catch(Exception ex)
                             {
-                                System.Diagnostics.Debug.WriteLine($"An error occurred reading answers: {ex}");
+                                Debug.WriteLine($"An error occurred reading answers: {ex}");
                             }
                             finally
                             {
@@ -268,7 +272,7 @@ namespace JBQQuizMe.ViewModel
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine($"Question {CurrentQuestion.Number} not read due to user setting");
+                Debug.WriteLine($"Question {CurrentQuestion.Number} not read due to user setting");
             }
         }
 
