@@ -5,6 +5,7 @@ using JBQQuizMe.ViewModel.Providers;
 using SkiaSharp.Extended.UI.Controls;
 using SkiaSharp.Extended.UI.Controls.Converters;
 using System;
+using System.Diagnostics;
 
 namespace JBQQuizMe.ViewModel
 {
@@ -42,6 +43,8 @@ namespace JBQQuizMe.ViewModel
 
         private Random _random = new Random();
 
+        private Stopwatch _stopwatch = new Stopwatch();
+
         private SKLottieImageSourceConverter _lottieConverter = new SKLottieImageSourceConverter();
 
         private CancellationTokenSource _speechCancellationToken = default;
@@ -60,7 +63,13 @@ namespace JBQQuizMe.ViewModel
 
             Continue = new AsyncRelayCommand(async () => { await ReadCurrentQuestionAsync(); });
 
+            CancelAnimation = new RelayCommand(() => { LottieImage = null; });
+
             await ReadCurrentQuestionAsync();
+
+            _stopwatch.Start();
+
+            ElapsedTime = _stopwatch.Elapsed;
         }
 
         #region Commands
@@ -78,6 +87,8 @@ namespace JBQQuizMe.ViewModel
         public IRelayCommand WrongAnswerGiven { get; set; }
 
         public IAsyncRelayCommand Continue { get; private set; }
+
+        public IRelayCommand CancelAnimation { get; private set; }
 
         #endregion
 
@@ -97,6 +108,8 @@ namespace JBQQuizMe.ViewModel
 
                     if (StagedQuestion != null)
                     {
+                        ElapsedTime = _stopwatch.Elapsed;
+
                         CurrentQuestion = StagedQuestion;
                         StagedQuestion = null;
                     }
@@ -191,6 +204,13 @@ namespace JBQQuizMe.ViewModel
             set => SetProperty(ref _readQuestions, value);
         }
 
+        private TimeSpan _elapsedTime = default;
+        public TimeSpan ElapsedTime
+        {
+            get => _elapsedTime;
+            private set => SetProperty(ref _elapsedTime, value);
+        }
+
         private void CancelQuestionRead()
         {
             if (_speechCancellationToken != default)
@@ -201,7 +221,7 @@ namespace JBQQuizMe.ViewModel
                 }
                 catch(Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"An error occurred while cancelling: { ex }");
+                    Debug.WriteLine($"An error occurred while cancelling: { ex }");
                 }
 
                 _speechCancellationToken = default;
@@ -224,7 +244,7 @@ namespace JBQQuizMe.ViewModel
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine($"An error occurred reading question: {ex}");
+                        Debug.WriteLine($"An error occurred reading question: {ex}");
                     }
 
                     foreach (var item in CurrentQuestion.PossibleAnswers)
@@ -240,7 +260,7 @@ namespace JBQQuizMe.ViewModel
                             }
                             catch(Exception ex)
                             {
-                                System.Diagnostics.Debug.WriteLine($"An error occurred reading answers: {ex}");
+                                Debug.WriteLine($"An error occurred reading answers: {ex}");
                             }
                             finally
                             {
@@ -252,7 +272,7 @@ namespace JBQQuizMe.ViewModel
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine($"Question {CurrentQuestion.Number} not read due to user setting");
+                Debug.WriteLine($"Question {CurrentQuestion.Number} not read due to user setting");
             }
         }
 
@@ -313,6 +333,8 @@ namespace JBQQuizMe.ViewModel
             }
             else
             {
+                ElapsedTime = _stopwatch.Elapsed;
+
                 CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
                 await ReadCurrentQuestionAsync();

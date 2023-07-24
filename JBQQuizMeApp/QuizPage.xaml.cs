@@ -28,5 +28,15 @@ public partial class QuizPage : ContentPage
             context.StopQuestion();
         }
     }
+
+    private void Animation_Tapped(object sender, TappedEventArgs e)
+    {
+        var context = BindingContext as JBQQuizMe.ViewModel.QuizPage;
+
+        if (context != null)
+        {
+            context.CancelAnimation.Execute(this);
+        }
+    }
 }
 

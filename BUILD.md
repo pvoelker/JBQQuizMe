@@ -1,3 +1,9 @@
+# Updating Workloads
+
+Always make sure to update the dotnet workloads:
+
+dotnet workload list
+
 # Updating Version
 
 - Increment 'ApplicationVersion'
