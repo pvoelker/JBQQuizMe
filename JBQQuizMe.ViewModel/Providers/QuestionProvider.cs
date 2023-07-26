@@ -20,6 +20,8 @@ namespace JBQQuizMe.ViewModel.Providers
 
         private readonly int? _startQuestionNumber, _endQuestionNumber;
 
+        private int _iterQuestionNum = 0;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -47,7 +49,7 @@ namespace JBQQuizMe.ViewModel.Providers
             _startQuestionNumber = startQuestionNumber;
             _endQuestionNumber = endQuestionNumber;
 
-            if (_startQuestionNumber.HasValue && _endQuestionNumber.HasValue)
+            if (_startQuestionNumber.HasValue && _endQuestionNumber.HasValue && !InIterateQuestionsMode())
             {
                 for (int i = _startQuestionNumber.Value; i <= _endQuestionNumber.Value; i++)
                 {
@@ -152,7 +154,11 @@ namespace JBQQuizMe.ViewModel.Providers
             }
 
             retVal.PossibleAnswers.Shuffle();
-            retVal.PossibleAnswers = retVal.PossibleAnswers.Take(_maxAnswers - 1).ToList();
+            if (!InIterateQuestionsMode() || question.Type != null)
+            {
+                // If we are in 'iterate questions mode' and the question has its own wrong answers, list all the possible wrong answers
+                retVal.PossibleAnswers = retVal.PossibleAnswers.Take(_maxAnswers - 1).ToList();
+            }
 
             retVal.PossibleAnswers.Add(retVal.CorrectAnswer);
             retVal.PossibleAnswers.Shuffle();
@@ -172,7 +178,20 @@ namespace JBQQuizMe.ViewModel.Providers
 
         private int GetNextQuestionNumber()
         {
-            if (_startQuestionNumber.HasValue && _endQuestionNumber.HasValue)
+            if (InIterateQuestionsMode())
+            {
+                // Special mode to iterate through all questions
+
+                if (_iterQuestionNum == _repository.GetMaxNumber())
+                {
+                    _iterQuestionNum = 0;
+                }
+
+                _iterQuestionNum++;
+
+                return _iterQuestionNum;
+            }
+            else if (_startQuestionNumber.HasValue && _endQuestionNumber.HasValue)
             {
                 return _random.Next(_startQuestionNumber.Value, _endQuestionNumber.Value + 1);
             }
@@ -182,6 +201,12 @@ namespace JBQQuizMe.ViewModel.Providers
 
                 return _random.Next(1, max + 1);
             }
+        }
+
+        private bool InIterateQuestionsMode()
+        {
+            return _startQuestionNumber == _repository.GetMaxNumber() &&
+                _endQuestionNumber == _repository.GetMaxNumber();
         }
     }
 }
