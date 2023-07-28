@@ -65,11 +65,11 @@ namespace JBQQuizMe.ViewModel
 
             CancelAnimation = new RelayCommand(() => { LottieImage = null; });
 
-            await ReadCurrentQuestionAsync();
-
             _stopwatch.Start();
 
             ElapsedTime = _stopwatch.Elapsed;
+
+            await ReadCurrentQuestionAsync();
         }
 
         #region Commands
@@ -117,6 +117,13 @@ namespace JBQQuizMe.ViewModel
                     Continue.Execute(null);
                 }
             }
+        }
+
+        private Answer _selectedAnswer = null;
+        public Answer SelectedAnswer
+        {
+            get => _selectedAnswer;
+            private set => SetProperty(ref _selectedAnswer, value);
         }
 
         private AskedQuestion _currentQuestion = null;
@@ -213,6 +220,8 @@ namespace JBQQuizMe.ViewModel
 
         private void CancelQuestionRead()
         {
+            SelectedAnswer = null;
+
             if (_speechCancellationToken != default)
             {
                 try
@@ -247,14 +256,18 @@ namespace JBQQuizMe.ViewModel
                         Debug.WriteLine($"An error occurred reading question: {ex}");
                     }
 
+                    Debug.WriteLine("READ QUESTION: " + Environment.StackTrace);
+
                     foreach (var item in CurrentQuestion.PossibleAnswers)
                     {
                         if (item.NotAttempted)
                         {
-                            item.IsReading = true;
+                            item.IsReading = true; 
                             _speechCancellationToken = new CancellationTokenSource();
                             try
                             {
+                                SelectedAnswer = item;
+
                                 await TextToSpeech.Default.SpeakAsync(item.Text.ReplaceWithPhoneticSpellings(),
                                     cancelToken: _speechCancellationToken.Token);
                             }
@@ -265,6 +278,7 @@ namespace JBQQuizMe.ViewModel
                             finally
                             {
                                 item.IsReading = false;
+                                SelectedAnswer = null;
                             }
                         }
                     }
