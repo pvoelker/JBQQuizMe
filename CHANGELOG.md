@@ -116,3 +116,4 @@ Track changes made to the game application.
 - ## Version 0.10.5.0 (app ver 13)
 - Add special mode to iterate through all questions
 - Improved reading of questions to make it more fault tolerant
+- Improved consistency of color styles on the question answer buttons
