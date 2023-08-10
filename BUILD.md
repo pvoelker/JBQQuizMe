@@ -13,6 +13,11 @@ Always make sure to update the dotnet workloads:
 - In 'Package.appxmanifest' for Windows platform, update 'Version' in 'Identity'
 - Document new version in 'CHANGELOG.md'
 
+# Updating Copyright
+
+- Update copyright in JBQQuizMeApp project file
+- Update copyright information in 'Info.plist' for MacCatalyst platform
+
 # Building
 
 ## Windows
@@ -53,13 +58,14 @@ Submit package for notarization. Use an app-specific password generated at apple
 ### Setup
 - An app must be created on 'App Store Connect' with the bundle ID set to ApplicationId
 - In XCode go to Settings.  Select Accounts and add your 'Apple ID' account
+- Make sure to Download Manual Profiles to make sure the latest profiles are on the local machine
 
 ### Steps
 - This needs to be run on a MacOS system with Visual Studio for Mac installed
 - In the JBQQuizMeApp project file, make sure that '<CodesignKey>' is set to the distribution certificate in Keychain Access on the Mac build host
 - In the JBQQuizMeApp project file, make sure that '<CodesignProvision>' is set to the name of the codesign provision in the Apple Developer portal
 
-> dotnet publish -f net7.0-ios -c Release /p:CreatePackage=true
+> dotnet publish -f net7.0-ios -c Release
 
 - In Visual Studio for Mac:
 - Right click on 'JBQQuizMeApp' and select 'View Archives'
