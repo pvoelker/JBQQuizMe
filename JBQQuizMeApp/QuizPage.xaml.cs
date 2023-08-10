@@ -1,4 +1,6 @@
-﻿namespace JBQQuizMeApp;
+﻿using JBQQuizMe.ViewModel;
+
+namespace JBQQuizMeApp;
 
 public partial class QuizPage : ContentPage
 {
@@ -36,6 +38,21 @@ public partial class QuizPage : ContentPage
         if (context != null)
         {
             context.CancelAnimation.Execute(this);
+        }
+    }
+
+    private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedQuestion = e.CurrentSelection.FirstOrDefault() as AskedQuestion;
+
+        var collView = sender as CollectionView;
+
+        if (collView != null)
+        {
+            if (selectedQuestion != null)
+            {
+                collView.ScrollTo(selectedQuestion);
+            }
         }
     }
 }

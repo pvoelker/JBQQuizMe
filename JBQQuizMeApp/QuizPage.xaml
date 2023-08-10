@@ -178,7 +178,10 @@
             <CollectionView
                 Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="4"
                 ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
-                ItemSizingStrategy="MeasureAllItems">
+                ItemSizingStrategy="MeasureAllItems"
+                SelectionMode="Single"
+                SelectedItem="{Binding SelectedAnswer}"
+                SelectionChanged="CollectionView_SelectionChanged">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="1" />
                 </CollectionView.ItemsLayout>
@@ -201,6 +204,10 @@
                                         <DataTrigger TargetType="Button" Binding="{Binding Path=IsReading}" Value="True">
                                             <Setter Property="BackgroundColor" Value= "Orange" />
                                         </DataTrigger>
+                                        <DataTrigger TargetType="Button" Binding="{Binding Path=Attempted}" Value="True">
+                                            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
+                                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}" />
+                                        </DataTrigger>                                        
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>

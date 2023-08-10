@@ -168,11 +168,20 @@ namespace JBQQuizMe.ViewModel
             }
             else if(instance.StartQuestionNumber >= instance.EndQuestionNumber)
             {
-                return new("Start question number must be less than the end question number");
+                if (instance.StartQuestionNumber != instance.MaxQuestionNumber &&
+                    instance.EndQuestionNumber != instance.MaxQuestionNumber)
+                {
+                    return new("Start question number must be less than the end question number");
+                }
             }
             else if((instance.EndQuestionNumber - instance.StartQuestionNumber + 1) < 10)
             {
-                return new("Range of questions must be equal to or greater than 10");
+                if (instance.StartQuestionNumber != instance.MaxQuestionNumber &&
+                    instance.EndQuestionNumber != instance.MaxQuestionNumber)
+                {
+                    return new("Range of questions must be equal to or greater than 10");
+
+                }
             }
 
             return ValidationResult.Success;

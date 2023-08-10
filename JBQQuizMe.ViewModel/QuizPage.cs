@@ -47,6 +47,8 @@ namespace JBQQuizMe.ViewModel
 
         private SKLottieImageSourceConverter _lottieConverter = new SKLottieImageSourceConverter();
 
+        private Task _speechTask = null;
+
         private CancellationTokenSource _speechCancellationToken = default;
 
         private QuestionProvider _questionProvider = null;
@@ -61,15 +63,21 @@ namespace JBQQuizMe.ViewModel
 
             CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
-            Continue = new AsyncRelayCommand(async () => { await ReadCurrentQuestionAsync(); });
+            Continue = new RelayCommand<bool>((readNewQuestion) =>
+            {
+                if (readNewQuestion)
+                {
+                    ReadCurrentQuestion();
+                }
+            });
 
             CancelAnimation = new RelayCommand(() => { LottieImage = null; });
-
-            await ReadCurrentQuestionAsync();
 
             _stopwatch.Start();
 
             ElapsedTime = _stopwatch.Elapsed;
+
+            ReadCurrentQuestion();
         }
 
         #region Commands
@@ -86,7 +94,7 @@ namespace JBQQuizMe.ViewModel
 
         public IRelayCommand WrongAnswerGiven { get; set; }
 
-        public IAsyncRelayCommand Continue { get; private set; }
+        public IRelayCommand Continue { get; private set; }
 
         public IRelayCommand CancelAnimation { get; private set; }
 
@@ -112,11 +120,22 @@ namespace JBQQuizMe.ViewModel
 
                         CurrentQuestion = StagedQuestion;
                         StagedQuestion = null;
-                    }
 
-                    Continue.Execute(null);
+                        Continue.Execute(true);
+                    }
+                    else
+                    {
+                        Continue.Execute(false);
+                    }
                 }
             }
+        }
+
+        private Answer _selectedAnswer = null;
+        public Answer SelectedAnswer
+        {
+            get => _selectedAnswer;
+            private set => SetProperty(ref _selectedAnswer, value);
         }
 
         private AskedQuestion _currentQuestion = null;
@@ -213,11 +232,17 @@ namespace JBQQuizMe.ViewModel
 
         private void CancelQuestionRead()
         {
+            SelectedAnswer = null;
+
             if (_speechCancellationToken != default)
             {
                 try
                 {
                     _speechCancellationToken.Cancel();
+
+                    _speechTask.Wait();
+                    _speechTask.Dispose();
+                    _speechTask = null;
                 }
                 catch(Exception ex)
                 {
@@ -228,7 +253,7 @@ namespace JBQQuizMe.ViewModel
             }
         }
 
-        public async Task ReadCurrentQuestionAsync()
+        public void ReadCurrentQuestion()
         {
             if (ReadQuestions == true)
             {
@@ -236,38 +261,59 @@ namespace JBQQuizMe.ViewModel
                 {
                     CancelQuestionRead();
 
-                    _speechCancellationToken = new CancellationTokenSource();
-                    try
+                    if(_speechTask != null)
                     {
-                        await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question.ReplaceWithPhoneticSpellings(),
-                            cancelToken: _speechCancellationToken.Token);
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine($"An error occurred reading question: {ex}");
+                        throw new Exception("Speech tasks are not cleaned up");
                     }
 
-                    foreach (var item in CurrentQuestion.PossibleAnswers)
+                    // Read the questions in a task that can be cancelled through the speech cancellation token
+                    _speechTask = Task.Run(async () =>
                     {
-                        if (item.NotAttempted)
+                        _speechCancellationToken = new CancellationTokenSource();
+                        try
                         {
-                            item.IsReading = true;
-                            _speechCancellationToken = new CancellationTokenSource();
-                            try
+                            await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question.ReplaceWithPhoneticSpellings(),
+                                cancelToken: _speechCancellationToken.Token);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"An error occurred reading question: {ex}");
+                        }
+
+                        if (_speechCancellationToken.IsCancellationRequested == false)
+                        {
+
+                            foreach (var item in CurrentQuestion.PossibleAnswers)
                             {
-                                await TextToSpeech.Default.SpeakAsync(item.Text.ReplaceWithPhoneticSpellings(),
-                                    cancelToken: _speechCancellationToken.Token);
-                            }
-                            catch(Exception ex)
-                            {
-                                Debug.WriteLine($"An error occurred reading answers: {ex}");
-                            }
-                            finally
-                            {
-                                item.IsReading = false;
+                                if (item.NotAttempted)
+                                {
+                                    item.IsReading = true;
+                                    _speechCancellationToken = new CancellationTokenSource();
+                                    try
+                                    {
+                                        SelectedAnswer = item;
+
+                                        await TextToSpeech.Default.SpeakAsync(item.Text.ReplaceWithPhoneticSpellings(),
+                                            cancelToken: _speechCancellationToken.Token);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Debug.WriteLine($"An error occurred reading answers: {ex}");
+                                    }
+                                    finally
+                                    {
+                                        item.IsReading = false;
+                                        SelectedAnswer = null;
+                                    }
+
+                                    if (_speechCancellationToken.IsCancellationRequested == true)
+                                    {
+                                        break;
+                                    }
+                                }
                             }
                         }
-                    }
+                    });
                 }
             }
             else
@@ -278,11 +324,7 @@ namespace JBQQuizMe.ViewModel
 
         public void StopQuestion()
         {
-            // Prevent answer from being re-clicked
-            foreach (var item in CurrentQuestion.PossibleAnswers)
-            {
-                item.Attempted = true;
-            }
+            // PEV - 8/10/2023 - Do not set attempted to 'true' on all possible answers here. It disables the buttons and on Mac Catalyst, it messes up the button styles...
 
             CancelQuestionRead();
         }
@@ -337,7 +379,7 @@ namespace JBQQuizMe.ViewModel
 
                 CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
-                await ReadCurrentQuestionAsync();
+                ReadCurrentQuestion();
             }
         }
 
