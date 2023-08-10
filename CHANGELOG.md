@@ -117,3 +117,4 @@ Track changes made to the game application.
 - Add special mode to iterate through all questions
 - Improved reading of questions to make it more fault tolerant
 - Improved consistency of color styles on the question answer buttons
+- Fix spelling mistakes in questions and answers

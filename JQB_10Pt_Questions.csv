@@ -1,5 +1,5 @@
 ﻿Number,Question,OriginalAnswer,Type,Answer,WrongAnswers,Passage,OTNT,Theme
-1,What is the Bible?,The Bible is the inspired Word of God and is His revelation to all people of himself and His plan of salvation.,,The inspired Word of God and is His revelation to all people of himself and His plan of salvation.,A collection of ancient songs.|The written word of the prophets of God.|A collection of ancient writing by church elders.|A self-help book.,,,General
+1,What is the Bible?,The Bible is the inspired Word of God and is His revelation to all people of himself and His plan of salvation.,,The inspired Word of God and is His revelation to all people of himself and His plan of salvation.,A collection of ancient songs.|The written word of the prophets of God.|A collection of ancient writings by church elders.|A self-help book.,,,General
 2,How many books are there in the Bible?,Sixty-six,Number,66,,,,General
 3,What are the two divisions of the Bible?,Old Testament and New Testament,,,The Front and Back Part|The Beatitudes and Psalms|The Gospel and the Law|The Old and New Sections,,,General
 4,"What does ""testament"" mean?",Covenant [contract or agreement],TermDefinition,,,,,General
@@ -12,7 +12,7 @@
 11,Which book of the Bible tells about the beginnings of the world?,Genesis,BookOfTheBible,,,,OT,Creation
 12,What are the four Gospels?,Matthew|Mark|Luke|John,,,Peter~Paul~Mary~Joe|Genesis~Exodus~Leviticus~Numbers|Psalms~Proverbs~Romans~Acts|1 John~2 John~3 John~Jude,,NT,General
 13,"What does the word ""gospel"" mean?",Good news,TermDefinition,,,,,General
-14,What is the theme of the four Gospels?,The life and teaching of Jesus,,,"The life and teachings of Moses|The life of the apostels|The revalation of the end times|Eat, Sleep, Repeat",,NT,Ministry of Jesus
+14,What is the theme of the four Gospels?,The life and teachings of Jesus,,,"The life and teachings of Moses|The life of the apostles|The revelation of the end times|Eat, Sleep, Repeat",,NT,Ministry of Jesus
 15,Who wrote more books of the Bible than any other person?,Paul,Man,,,,NT,Ministry of Paul
 16,Which book of the Bible tells about the beginnings of the Church?,Acts,BookOfTheBible,,,,NT,General
 17,Which New Testament book is composed almost entirely of prophecies of the future?,Revelation,BookOfTheBible,,,,NT,End Times
@@ -28,7 +28,7 @@
 27,Who were the first two brothers?,Cain and Abel,TwoPersons,,,Genesis 4:1-2,OT,Garden of Eden
 28,Who was the first murderer?,Cain,Man,,,Genesis 4:8,OT,Garden of Eden
 29,How did sin enter the world?,Through the disobedience of Adam and Eve,,,Through the disobedience of Cain and Abel|Through the obedience of Noah|Through the disobedience of the angels|Through the Internet,Genesis 3:1-19;Romans 5:14,,Garden of Eden
-30,The account of man's first sin mentioned what two trees?,The tree of the knowledge of good and evil|The tree of life,,,The tree of widsom~The tree of wealth|The tree of peace~The tree of health|The tree of love~The bush of fire|The tree on the left~The tree on the right,Genesis 2:17; 3:24,OT,Garden of Eden
+30,The account of man's first sin mentioned what two trees?,The tree of the knowledge of good and evil|The tree of life,,,The tree of wisdom~The tree of wealth|The tree of peace~The tree of health|The tree of love~The bush of fire|The tree on the left~The tree on the right,Genesis 2:17; 3:24,OT,Garden of Eden
 31,What man walked with God until God took him to heaven without dying?,Enoch,Man,,,Genesis 5:23-24,OT,Noah
 32,"Who lived longer than any other person, and how long did he live?",Methuselah--969 years,,,Lamech--1001 years|Jared--962 years|Noah--950 years|Mahalalel--895,Genesis 5:27,OT,Noah
 33,Why did God send a flood upon the earth?,Because people were so wicked and they thought about evil all the time,,,Because people were sometimes wicked|Because people did not pick up their trash|Because people did not read the Bible|Because too many people left their sinks on,Genesis 6:5,OT,Noah
@@ -48,7 +48,7 @@
 47,What was the name of the son born to Abraham and Hagar?,Ishmael,Man,,,Genesis 16:15-16,OT,Abraham
 48,What two cities did God destroy with fire because of their great wickedness?,Sodom and Gomorrah,,,Ephesus and Corinth|Hebron and Debir|Minneapolis and St. Paul|Cairo and Giza,Genesis 19:24-25,OT,Abraham
 49,What was the name of the son born to Abraham and Sarah?,Isaac,Man,,,Genesis 21:1-3,OT,Abraham
-50,How old were Abraham and Sarah when Isaac was born?,Abraham was one hundred and Sarah was ninety years old.,,,Abraham was sixty and Sarah was fourty-five years old.|Abraham was twenty-three and Sarah was twenty years old.|Abraham and Sarah were both ninety years old.|We do not know how old they were.,Genesis 17:17; 21:1-5,OT,Abraham
+50,How old were Abraham and Sarah when Isaac was born?,Abraham was one hundred and Sarah was ninety years old.,,,Abraham was sixty and Sarah was forty-five years old.|Abraham was twenty-three and Sarah was twenty years old.|Abraham and Sarah were both ninety years old.|We do not know how old they were.,Genesis 17:17; 21:1-5,OT,Abraham
 51,Who was Isaac's wife?,Rebekah,Woman,,,Genesis 24:67,OT,Abraham
 52,Who were the twin sons of Isaac and Rebekah?,Esau and Jacob,TwoPersons,,,Genesis 25:20-26,OT,Jacob
 53,What did Esau sell to Jacob?,His birthright [his rights as the firstborn son],,His birthright,His donkey|His house|His robe|His sheep,Genesis 25:29-34,OT,Jacob
@@ -68,7 +68,7 @@
 67,Why did Joseph's brothers go to Egypt?,To buy food,,,To sell food|To sell a donkey|To find Joseph|To steal a golden cup,Genesis 42:3-5,OT,Joseph
 68,Where did Jacob and his family settle in Egypt?,Goshen,Place,,,Genesis 46:33-34,OT,Joseph
 69,Who was the baby that Pharaoh's daughter found floating in the river?,Moses,Man,,,Exodus 2:1-10,OT,Moses
-70,Why did Moses flee from Egypt?,Because it was known that he had killed an Egyptian who mistreated an Israelite,,,Because it was known that he had killed an Israelite who beat an Egyptian|Because he freed the slaves|Because he disobeyed pharoh|Because he forgot to pay his taxes,Exodus 2:11-15,OT,Moses
+70,Why did Moses flee from Egypt?,Because it was known that he had killed an Egyptian who mistreated an Israelite,,,Because it was known that he had killed an Israelite who beat an Egyptian|Because he freed the slaves|Because he disobeyed pharaoh|Because he forgot to pay his taxes,Exodus 2:11-15,OT,Moses
 71,Who was Moses' father-in-law and what was his position?,Jethro; priest of Midian,,,Job; prophet of Midian|Matthew; tax collector|Benjamin; cupbearer|Samson; lion tamer,Exodus 3:1,OT,Moses
 72,Where did God appear to Moses out of the burning bush?,Mount Sinai,Place,,,Exodus 3:1-2,OT,Moses
 73,What promise did God make to Moses at the burning bush?,That God would rescue the Israelites out of Egypt,,,That God would let the Israelites conquer Egypt|That God would bring the Israelites great wealth|That God would let the Israelites stay in Egypt another 7 years|That God would bring the Israelites pizza,Exodus 3:8-10,OT,Moses
@@ -193,7 +193,7 @@
 192,Who were the first four apostles Jesus called to follow Him?,Peter|Andrew|James|John,,,Noah~Moses~Adam~Eve|Timothy~Judas~Luke~Simon|James~John~Judas~Jude|Joe~Bill~Bob~Phil,Matthew 4:18-22,NT,Ministry of Jesus
 193,"What do we call the first statements of the Sermon on the Mount which all begin with the words, ""God blesses""?",[The] Beatitudes,,The Beatitudes,The Beatles|The Gospels|The New Testament|The Old Testament,Matthew 5:2-11,NT,Ministry of Jesus
 194,How did Jesus prove His power over nature?,By calming a storm on the Sea of Galilee,,,By stopping the sun and moon|By starting a storm on the Sea of Galilee|By destroying a mountain|By reversing time,Matthew 8:23-27,NT,Ministry of Jesus
-195,What strange gift did King Herod give to his stepdaughter?,The head of John the Baptist,,,The thumb of John the Baptist|A shubbery|The head of a lion|A portrait of himself,Matthew 14:6-11,NT,Ministry of Jesus
+195,What strange gift did King Herod give to his stepdaughter?,The head of John the Baptist,,,The thumb of John the Baptist|A shrubbery|The head of a lion|A portrait of himself,Matthew 14:6-11,NT,Ministry of Jesus
 196,"What revelation of himself did Jesus give to Peter, James and John on a high mountain?","Jesus' appearance was transformed, and he talked with Moses and Elijah.",,,Jesus' appearance looked the same.|Jesus talked with Noah.|Jesus' cloths were made of gold.|Jesus gave them his autobiography.,Matthew 17:1-8,NT,Ministry of Jesus
 197,Why did the rich young leader fail to follow Jesus?,He loved the things he owned more than he loved Jesus.,,,He loved his wife more than he loved Jesus.|He loved his sheep more than he loved Jesus.|He loved his father more than he loved Jesus.|He did not believe Jesus.,Matthew 19:16-22; Luke 18:18-23,NT,Ministry of Jesus
 198,What did Jesus prophesy would happen to the stones of the temple?,Not one stone would be left on top of another,,,All of them would be wet|All of them would be burnt|Not one stone would be lost|One stone would be blue,Mark 13:1-2,NT,Ministry of Jesus
@@ -203,7 +203,7 @@
 202,Who did Jesus say was like the wise man who built his house upon the rock?,Those who hear His teachings and follow them,,,Those who hear His teachings but do not obey them|Those who do not listen|Those who talk too much|Those who do not read,Matthew 7:24,NT,Ministry of Jesus
 203,"In Jesus' parable, who helped the man who had been beaten and robbed?",The Good Samaritan,,,The Bad Samaritan|The Good Persian|The Babylonian|The New Yorker,Luke 10:30-37,NT,Ministry of Jesus
 204,"In the Parable of the Sower, to what did Jesus compare the seed?",The Word of God,,,The Tree of Life|The Fruit of Salvation|The Faith of the Holy|The Ark of the Covenant,Mark 4:14,NT,Ministry of Jesus
-205,What did Jesus teach about material possessions?,Don't be greedy.  A person's life is not measured by how much they own.,,Don't be greedy,Don't be wasteful|Don't convet your neighbors possessions|Do not steal|Don't misplace them|Do not sell them,Luke 12:15,NT,Ministry of Jesus
+205,What did Jesus teach about material possessions?,Don't be greedy.  A person's life is not measured by how much they own.,,Don't be greedy,Don't be wasteful|Don't covet your neighbors possessions|Do not steal|Don't misplace them|Do not sell them,Luke 12:15,NT,Ministry of Jesus
 206,What did Jesus do in healing the man born blind?,He put mud on his eyes and told him to go and wash it off.,,,He put oil on his eyes and told him to go and wash it off.|He fed the man fish.|He told the man's family to pray.|He gave the man eye drops.,John 9:1-7,NT,Ministry of Jesus
 207,Which of Jesus' parables tells us that God is willing to forgive and restore the sinner who repents?,The Parable of the Prodigal Son,,,The Good Samaritan|The Mustard Seed|The Lost Sheep|The Two Sons,Luke 15:11-32,NT,Ministry of Jesus
 208,How did Jesus answer those who asked if it was right for them to pay taxes to Caesar?,"Give Caesar what belongs to Caesar, and give God what belongs to God.",,,Do not give Caesar anything.|Give to God after what is given to Caesar.|Give to God what belongs to Caesar.|Give Caesar everything.,Matthew 22:15-22,NT,Ministry of Jesus
@@ -225,7 +225,7 @@
 224,Who was the first person to see Jesus after He was resurrected?,Mary Magdalene,Woman,,,John 20:1-18,NT,Resurrection of Jesus
 225,How was the way made for the women to get inside the tomb of Jesus?,An angel had rolled away the stone.,,,A group of men rolled away the stone.|An angel blew up the stone.|The stone disappeared.|A field worker moved it.,Matthew 28:2,NT,Resurrection of Jesus
 226,Who was the disciple who at first doubted Jesus' resurrection?,Thomas,Man,,,John 20:24-29,NT,Resurrection of Jesus
-227,"After Jesus walked and talked with His apostles following His resurrection, what happened to Him?",He was taken up into a cloud until they could no longer see Him.,,,He appeared to the masses to give a sermon.|He walked into the ocean until they could not longer see Him.|A dove came down and he dissappeared.|He went back into the tomb.,Acts 1:1-9,NT,Resurrection of Jesus
+227,"After Jesus walked and talked with His apostles following His resurrection, what happened to Him?",He was taken up into a cloud until they could no longer see Him.,,,He appeared to the masses to give a sermon.|He walked into the ocean until they could not longer see Him.|A dove came down and he disappeared.|He went back into the tomb.,Acts 1:1-9,NT,Resurrection of Jesus
 228,Who was chosen to replace Judas as an apostle?,Matthias,Man,,,Acts 1:23-26,NT,Early Church
 229,About how many people waited in Jerusalem for the coming of the Holy Spirit?,[About] 120,Number,120,,Acts 1:12-15,NT,Early Church
 230,What gift of God was given to the Church on the Day of Pentecost?,The gift of the Holy Spirit,,,The gift of the Bible|The gift of dance|The gift of healing|The gift of knowledge,Acts 2:1-4,NT,Early Church
@@ -237,10 +237,10 @@
 236,Who was the first person to be martyred for being a Christian?,Stephen,Man,,,Acts 7:59,NT,Early Church
 237,"According to church history, who was the only one of the twelve apostles not martyred for his faith in the risen Christ?",John,Man,,,,,General
 238,Why did Saul of Tarsus go to Damascus?,To arrest Christians,,,To collect taxes|To get a name change|To free Christians|To pickup an order of sandwiches,Acts 9:1-2,NT,Early Church
-239,What happened to Saul of Tarsus near Damascus?,"Jesus appeared to him in a light from heaven, and Saul accepted Him as Lord.",,,A donkey spoke to him.|He was robbed and beaten by theives.|He found a silver coin.|Jesus appeared to him in a scroll.,Acts 9:3-9,NT,Early Church
+239,What happened to Saul of Tarsus near Damascus?,"Jesus appeared to him in a light from heaven, and Saul accepted Him as Lord.",,,A donkey spoke to him.|He was robbed and beaten by thieves.|He found a silver coin.|Jesus appeared to him in a scroll.,Acts 9:3-9,NT,Early Church
 240,Who was raised from the dead in answer to Peter's prayer?,Tabitha [Dorcas],Woman,,,Acts 9:36-41,NT,Early Church
 241,Who was the Roman officer who sent for Peter to come and preach to him?,Cornelius,Man,,,Acts 10:1,NT,Early Church
-242,What happened while Peter was preaching at Cornelius's house?,The Holy Spirit fell upon all who were listening to the message.,,,The Romans arrested everyone.|An earthquake happened.|A dove pearched at the window.|Everyone was arrested.,Acts 10:44-48,NT,Early Church
+242,What happened while Peter was preaching at Cornelius's house?,The Holy Spirit fell upon all who were listening to the message.,,,The Romans arrested everyone.|An earthquake happened.|A dove perched at the window.|Everyone was arrested.,Acts 10:44-48,NT,Early Church
 243,"In what city were Jesus' followers first called ""Christians""?",Antioch,Place,,,Acts 11:26,NT,Early Church
 244,How did Peter escape from prison the night before Herod planned to kill him?,An angel opened the prison for him.,,,The door was left unlocked.|Peter got the key from the guard.|Peter bribed the guard.|The window was broken.,Acts 12:6-11,NT,Early Church
 245,Who helped Paul on his first missionary journey?,Barnabas,Man,,,Acts 13:1-4,NT,Ministry of Paul
@@ -257,7 +257,7 @@
 256,Why did God give the Law?,To show us how sinful we are,,,To show us how good we are|Because he can|Because people needed rules|Because people asked for them,Romans 3:20,NT,General
 257,What is the penalty of sin?,"Romans 6:23 For the wages of sin is death, but the free gift of God is eternal life through Christ Jesus our Lord.",DirectBibleQuote,"Romans 6:23 ""For the wages of sin is death, but the free gift of God is eternal life through Christ Jesus our Lord.""",,Romans 6:23,NT,General
 258,Why did Jesus die on the Cross?,He died for our sins.,,,He died to conquer the Romans.|He died for the Jews.|He died for nothing.|He died for the angels.|He died for his disciples.,1 Corinthians 15:3,NT,General
-259,Why should we wear all of the armor of God?,So that we can resist the attacks of the devil,,,So we can protect ourselved from non-Christians|So we can attack our enemies|So we can lead others to Jesus|So we can look cool,Ephesians 6:11-13,NT,General
+259,Why should we wear all of the armor of God?,So that we can resist the attacks of the devil,,,So we can protect ourselves from non-Christians|So we can attack our enemies|So we can lead others to Jesus|So we can look cool,Ephesians 6:11-13,NT,General
 260,"In the Christian's armor, what is the belt?",Truth,ChristiansArmor,,,Ephesians 6:14,NT,General
 261,"In the Christian's armor, what is the body armor?",God's righteousness,ChristiansArmor,,,Ephesians 6:14,NT,General
 262,"In the Christian's armor, what is worn on the feet?",The peace that comes from the good news so that you will be fully prepared,ChristiansArmor,,,Ephesians 6:15,NT,General
