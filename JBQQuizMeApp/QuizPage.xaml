@@ -136,15 +136,15 @@
                 Style="{StaticResource currentQuestion}"
                 Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6"
                 Margin="5"
-                Text="{Binding Path=CurrentQuestion.Question}" />
+                Text="{Binding Path=CurrentQuestion.Question, Mode=OneWay}" />
 
             <Frame
                 Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
                 BorderColor="Transparent">
                 <Frame.Background>
                     <RadialGradientBrush Center="0.47,0.29">
-                        <GradientStop Color="Yellow" Offset="{Binding Completion}" />
-                        <GradientStop Color="LightYellow" Offset="{Binding Completion, Converter={StaticResource CandleGlowRadius}}" />
+                        <GradientStop Color="Yellow" Offset="{Binding Path=Completion, Mode=OneWay}" />
+                        <GradientStop Color="LightYellow" Offset="{Binding Path=Completion, Mode=OneWay, Converter={StaticResource CandleGlowRadius}}" />
                         <GradientStop Color="White" Offset="0.0" />
                     </RadialGradientBrush>
                 </Frame.Background>
@@ -177,10 +177,10 @@
 
             <CollectionView
                 Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="4"
-                ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers}"
+                ItemsSource="{Binding Path=CurrentQuestion.PossibleAnswers, Mode=OneWay}"
                 ItemSizingStrategy="MeasureAllItems"
                 SelectionMode="Single"
-                SelectedItem="{Binding SelectedAnswer}"
+                SelectedItem="{Binding Path=SelectedAnswer, Mode=OneWay}"
                 SelectionChanged="CollectionView_SelectionChanged">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="1" />
@@ -222,14 +222,14 @@
                 Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
                 MinimumHeightRequest="10"
                 Margin="2"
-                Text="{Binding Path=CurrentQuestion.Passage, StringFormat='Passage: {0}', TargetNullValue=' '}"/>
+                Text="{Binding Path=CurrentQuestion.Passage, Mode=OneWay, StringFormat='Passage: {0}', TargetNullValue=' '}"/>
 
             <Label
                 Style="{StaticResource bibleFactPakNum}"
                 Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
                 MinimumHeightRequest="10"
                 Margin="2"
-                Text="{Binding Path=CurrentQuestion.Number, StringFormat='Bible Fact-Pak™ Question #{0}'}"/>
+                Text="{Binding Path=CurrentQuestion.Number, Mode=OneWay, StringFormat='Bible Fact-Pak™ Question #{0}'}"/>
 
             <Label
                 Style="{StaticResource elapsedTime}"
@@ -250,7 +250,7 @@
                 Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"                
                 Margin="5"
                 MinimumHeightRequest="20"
-                Text="{Binding Message}">
+                Text="{Binding Path=Message, Mode=OneWay}">
                 <Label.Shadow>
                     <Shadow Brush="Gray"
                         Offset="5,5"
@@ -266,7 +266,7 @@
                 Style="{StaticResource correctCount}"
                 Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3"
                 Margin="0,10"
-                Text="{Binding Path=CorrectAnswers, StringFormat='Correct: {0}'}">
+                Text="{Binding Path=CorrectAnswers, Mode=OneWay, StringFormat='Correct: {0}'}">
                 <Label.Behaviors>
                     <b:CorrectLabelThump />
                 </Label.Behaviors>
@@ -276,7 +276,7 @@
                 Style="{StaticResource wrongCount}"
                 Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="3"
                 Margin="0,10"
-                Text="{Binding Path=WrongAnswers, StringFormat='Wrong: {0}'}">
+                Text="{Binding Path=WrongAnswers, Mode=OneWay, StringFormat='Wrong: {0}'}">
                 <Label.Behaviors>
                     <b:WrongLabelThump />
                 </Label.Behaviors>

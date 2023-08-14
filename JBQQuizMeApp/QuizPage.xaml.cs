@@ -43,16 +43,23 @@ public partial class QuizPage : ContentPage
 
     private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var selectedQuestion = e.CurrentSelection.FirstOrDefault() as AskedQuestion;
-
-        var collView = sender as CollectionView;
-
-        if (collView != null)
+        try
         {
-            if (selectedQuestion != null)
+            var selectedQuestion = e.CurrentSelection.FirstOrDefault() as Answer;
+
+            var collView = sender as CollectionView;
+
+            if (collView != null)
             {
-                collView.ScrollTo(selectedQuestion);
+                if (selectedQuestion != null)
+                {
+                    collView.ScrollTo(selectedQuestion);
+                }
             }
+        }
+        catch(Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"An error occurred while changing selection: { ex }");
         }
     }
 }
