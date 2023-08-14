@@ -234,22 +234,25 @@ namespace JBQQuizMe.ViewModel
         {
             SelectedAnswer = null;
 
-            if (_speechCancellationToken != default)
+            try
             {
-                try
+                if (_speechCancellationToken != default &&
+                    _speechCancellationToken.IsCancellationRequested == false)
                 {
                     _speechCancellationToken.Cancel();
+                    // Let speech task dispose and set cancellation token to null
+                }
 
+                if (_speechTask != null)
+                {
                     _speechTask.Wait();
                     _speechTask.Dispose();
                     _speechTask = null;
                 }
-                catch(Exception ex)
-                {
-                    Debug.WriteLine($"An error occurred while cancelling: { ex }");
-                }
-
-                _speechCancellationToken = default;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine($"An error occurred while cancelling: { ex }");
             }
         }
 
@@ -261,7 +264,7 @@ namespace JBQQuizMe.ViewModel
                 {
                     CancelQuestionRead();
 
-                    if(_speechTask != null)
+                    if (_speechTask != null)
                     {
                         throw new Exception("Speech tasks are not cleaned up");
                     }
@@ -269,47 +272,55 @@ namespace JBQQuizMe.ViewModel
                     // Read the questions in a task that can be cancelled through the speech cancellation token
                     _speechTask = Task.Run(async () =>
                     {
-                        _speechCancellationToken = new CancellationTokenSource();
-                        try
+                        bool isQuestionReadCancelled = false;
+                        using (_speechCancellationToken = new CancellationTokenSource())
                         {
-                            await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question.ReplaceWithPhoneticSpellings(),
-                                cancelToken: _speechCancellationToken.Token);
-                        }
-                        catch (Exception ex)
-                        {
-                            Debug.WriteLine($"An error occurred reading question: {ex}");
-                        }
+                            try
+                            {
+                                await TextToSpeech.Default.SpeakAsync(CurrentQuestion.Question.ReplaceWithPhoneticSpellings(),
+                                    cancelToken: _speechCancellationToken.Token);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine($"An error occurred reading question: {ex}");
+                            }
 
-                        if (_speechCancellationToken.IsCancellationRequested == false)
-                        {
+                            isQuestionReadCancelled = _speechCancellationToken.IsCancellationRequested;
+                        }
+                        _speechCancellationToken = default;
 
+                        if (isQuestionReadCancelled == false)
+                        {
                             foreach (var item in CurrentQuestion.PossibleAnswers)
                             {
                                 if (item.NotAttempted)
                                 {
                                     item.IsReading = true;
-                                    _speechCancellationToken = new CancellationTokenSource();
-                                    try
+                                    using (_speechCancellationToken = new CancellationTokenSource())
                                     {
-                                        SelectedAnswer = item;
+                                        try
+                                        {
+                                            SelectedAnswer = item;
 
-                                        await TextToSpeech.Default.SpeakAsync(item.Text.ReplaceWithPhoneticSpellings(),
-                                            cancelToken: _speechCancellationToken.Token);
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        Debug.WriteLine($"An error occurred reading answers: {ex}");
-                                    }
-                                    finally
-                                    {
-                                        item.IsReading = false;
-                                        SelectedAnswer = null;
-                                    }
+                                            await TextToSpeech.Default.SpeakAsync(item.Text.ReplaceWithPhoneticSpellings(),
+                                                cancelToken: _speechCancellationToken.Token);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            Debug.WriteLine($"An error occurred reading answers: {ex}");
+                                        }
+                                        finally
+                                        {
+                                            item.IsReading = false;
+                                            SelectedAnswer = null;
+                                        }
 
-                                    if (_speechCancellationToken.IsCancellationRequested == true)
-                                    {
-                                        break;
+                                        if (_speechCancellationToken.IsCancellationRequested == true)
+                                        {
+                                            break;
+                                        }
                                     }
+                                    _speechCancellationToken = default;
                                 }
                             }
                         }

@@ -113,8 +113,16 @@ Track changes made to the game application.
 - Add an elapsed time on the quizzing screen
 - Allow animations to be cancelled
 
-- ## Version 0.10.5.0 (app ver 13)
+## Version 0.10.5.0 (app ver 13)
 - Add special mode to iterate through all questions
 - Improved reading of questions to make it more fault tolerant
 - Improved consistency of color styles on the question answer buttons
 - Fix spelling mistakes in questions and answers
+
+## Version 0.10.6.0 - 0.10.14.0 (app ver 14 - 22)
+- Various test builds for iOS startup screen crash issue
+
+## Version 0.11.0 (app ver 23)
+- Fix random crash in Windows when question possible answers are read
+- Fix 'scroll into view' when questions are read
+- Properly dispose CancellationTokenSource objects (possible memory/resource leak)
