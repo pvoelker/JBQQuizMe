@@ -29,21 +29,24 @@ namespace JBQQuizMeApp.Behaviors
         {
             var control = sender as Image;
 
-            var context = control.BindingContext as JBQQuizMe.ViewModel.QuizPage;
-
-            if (context != null)
+            if (control != null)
             {
-                context.CandleSparkle = new AsyncRelayCommand(async () =>
+                var context = control.BindingContext as JBQQuizMe.ViewModel.QuizPage;
+
+                if (context != null)
                 {
-                    control.Scale = .25;
-                    control.Rotation = _rand.Next(0, 360);
+                    context.CandleSparkle = new AsyncRelayCommand(async () =>
+                    {
+                        control.Scale = .25;
+                        control.Rotation = _rand.Next(0, 360);
 
-                    control.IsVisible = true;
+                        control.IsVisible = true;
 
-                    await control.ScaleTo(2, 250);
+                        await control.ScaleTo(2, 250);
 
-                    control.IsVisible = false;
-                });
+                        control.IsVisible = false;
+                    });
+                }
             }
         }
     }

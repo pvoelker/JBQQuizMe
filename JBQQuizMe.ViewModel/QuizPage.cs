@@ -59,7 +59,9 @@ namespace JBQQuizMe.ViewModel
         {
         }
 
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task InitializeAsync()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             _questionProvider = new QuestionProvider(new QuestionsRepository(), MAX_ANSWERS, StartQuestionNumber, EndQuestionNumber);
 

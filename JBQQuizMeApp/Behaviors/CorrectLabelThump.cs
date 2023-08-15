@@ -27,15 +27,18 @@ namespace JBQQuizMeApp.Behaviors
         {
             var control = sender as Label;
 
-            var context = control.BindingContext as JBQQuizMe.ViewModel.QuizPage;
-
-            if (context != null)
+            if (control != null)
             {
-                context.CorrectAnswerGiven = new AsyncRelayCommand(async () =>
+                var context = control.BindingContext as JBQQuizMe.ViewModel.QuizPage;
+
+                if (context != null)
                 {
-                    await control.ScaleTo(1.2, 250);
-                    await control.ScaleTo(1.0, 250);
-                });
+                    context.CorrectAnswerGiven = new AsyncRelayCommand(async () =>
+                    {
+                        await control.ScaleTo(1.2, 250);
+                        await control.ScaleTo(1.0, 250);
+                    });
+                }
             }
         }
     }

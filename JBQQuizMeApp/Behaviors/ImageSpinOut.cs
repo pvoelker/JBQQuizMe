@@ -27,43 +27,46 @@ namespace JBQQuizMeApp.Behaviors
         {
             var control = sender as Image;
 
-            var context = control.BindingContext as JBQQuizMe.ViewModel.QuizPage;
-
-            if (context != null)
+            if (control != null)
             {
-                context.Celebration = new AsyncRelayCommand(async () =>
+                var context = control.BindingContext as JBQQuizMe.ViewModel.QuizPage;
+
+                if (context != null)
                 {
-                    await control.ScaleTo(.25, 0);
-                    await control.RotateTo(0, 0);
+                    context.Celebration = new AsyncRelayCommand(async () =>
+                    {
+                        await control.ScaleTo(.25, 0);
+                        await control.RotateTo(0, 0);
 
-                    control.IsVisible = true;
+                        control.IsVisible = true;
 
-                    await Task.WhenAny
-                    (
-                        control.RelRotateTo(360, 1000),
-                        control.ScaleTo(1, 1000)
-                    );
-                    await Task.WhenAny
-                    (
-                        control.RelRotateTo(360, 1000),
-                        control.ScaleTo(4, 1000)
-                    );
-                    await Task.WhenAny
-                    (
-                        control.RelRotateTo(360, 1000),
-                        control.ScaleTo(1, 1000)
-                    );
-                    await Task.WhenAny
-                    (
-                        control.RelRotateTo(360, 1000),
-                        control.ScaleTo(.25, 1000)
-                    );
+                        await Task.WhenAny
+                        (
+                            control.RelRotateTo(360, 1000),
+                            control.ScaleTo(1, 1000)
+                        );
+                        await Task.WhenAny
+                        (
+                            control.RelRotateTo(360, 1000),
+                            control.ScaleTo(4, 1000)
+                        );
+                        await Task.WhenAny
+                        (
+                            control.RelRotateTo(360, 1000),
+                            control.ScaleTo(1, 1000)
+                        );
+                        await Task.WhenAny
+                        (
+                            control.RelRotateTo(360, 1000),
+                            control.ScaleTo(.25, 1000)
+                        );
 
-                    control.IsVisible = false;
+                        control.IsVisible = false;
 
-                    await control.ScaleTo(.25, 0);
-                    await control.RotateTo(0, 0);
-                });
+                        await control.ScaleTo(.25, 0);
+                        await control.RotateTo(0, 0);
+                    });
+                }
             }
         }
     }
