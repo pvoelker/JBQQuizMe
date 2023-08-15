@@ -126,3 +126,9 @@ Track changes made to the game application.
 - Fix random crash in Windows when question possible answers are read
 - Fix 'scroll into view' when questions are read
 - Properly dispose CancellationTokenSource objects (possible memory/resource leak)
+- Finally fixed long standing issue with crashing on iOS.  Two way XAML bindings were crashing against readonly properties
+
+## Version 1.0.0 (app ver 24)
+- Completed production version of game
+- Improve iterate questions mode
+- Minor corrections to question and answer text after full review
