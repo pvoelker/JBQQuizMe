@@ -42,7 +42,7 @@ public partial class MainPage : ContentPage
 		}
 
         builder.AppendLine(string.Empty);
-		builder.AppendLine("• Questions are based on 10 point questions from the Bible Fact-Pak™ (https://biblefactpak.com/)");
+		builder.AppendLine("• Questions are based on 10 point questions from the NLT (2021) Bible Fact-Pak™ (https://biblefactpak.com/)");
 		builder.AppendLine("• Questions are sourced from the New Living Translation (NLT) version of the Bible");
 		builder.AppendLine("• Designed and developed by Paul Voelker of Faith Chapel - Overland Park");
 

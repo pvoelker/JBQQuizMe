@@ -88,7 +88,7 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Style="{StaticResource optionsText}">Bible Fact-Pak™ Question Number Range (optional):</Label>
+                Style="{StaticResource optionsText}">Bible Fact-Pak™ (NLT) Question Number Range [optional]:</Label>
             
             <HorizontalStackLayout
                 HorizontalOptions="Center">
