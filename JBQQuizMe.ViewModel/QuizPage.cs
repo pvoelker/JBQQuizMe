@@ -29,11 +29,13 @@ namespace JBQQuizMe.ViewModel
             "127094-confetti-falling.json",
             "128258-snake-confetti.json",
             "132379-heart-love-music.json",
-            "132630-happy-star.json"
+            "132630-happy-star.json",
+            "strong-shield.json"
         };
 
         private static readonly List<string> _failLotties = new List<string>()
         {
+            "sad-ball.json",
             "133064-angry-cloud.json"
         };
 
