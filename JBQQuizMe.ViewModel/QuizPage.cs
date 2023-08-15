@@ -363,7 +363,7 @@ namespace JBQQuizMe.ViewModel
                 candleLit = true;
             }
 
-            if(candleLit)
+            if(candleLit && !_questionProvider.InIterateQuestionsMode())
             {
                 Message = GetCongratMessage();
 
@@ -375,7 +375,7 @@ namespace JBQQuizMe.ViewModel
             // Pause before putting up the new quetion to help prevent mis-clicks
             await Task.Delay(250);
 
-            if (!candleLit && IsGoodRole(.3))
+            if (!candleLit && IsGoodRole(.3) && !_questionProvider.InIterateQuestionsMode())
             {
                 StagedQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
