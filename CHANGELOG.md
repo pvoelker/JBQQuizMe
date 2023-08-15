@@ -132,3 +132,4 @@ Track changes made to the game application.
 - Completed production version of game
 - Improve iterate questions mode
 - Minor corrections to question and answer text after full review
+- Known Issue: Multi-line text does not work on the answer buttons only on Windows (https://github.com/dotnet/maui/issues/9277). This should be addressed when the project is updated to .NET 8 (LTS)
