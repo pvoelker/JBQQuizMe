@@ -9,4 +9,4 @@ Simple quizzing game for kids based on Junior Bible Quizzing (JBQ) 10-point ques
 - My son Matthew for helping with beta testing
 
 ## Where to Get
-- [Game Information and Download Page](https://github.com/pvoelker/JBQQuizMe)
+- [Game Information and Download Page](https://pvoelker.github.io/JBQQuizMe/)
