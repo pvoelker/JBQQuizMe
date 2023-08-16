@@ -67,6 +67,12 @@ namespace JBQQuizMe.ViewModel.Providers
             }
         }
 
+        public bool InIterateQuestionsMode()
+        {
+            return _startQuestionNumber == _repository.GetMaxNumber() &&
+                _endQuestionNumber == _repository.GetMaxNumber();
+        }
+
         /// <summary>
         /// Gets the next question
         /// </summary>
@@ -201,12 +207,6 @@ namespace JBQQuizMe.ViewModel.Providers
 
                 return _random.Next(1, max + 1);
             }
-        }
-
-        private bool InIterateQuestionsMode()
-        {
-            return _startQuestionNumber == _repository.GetMaxNumber() &&
-                _endQuestionNumber == _repository.GetMaxNumber();
         }
     }
 }

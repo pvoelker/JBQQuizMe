@@ -29,11 +29,13 @@ namespace JBQQuizMe.ViewModel
             "127094-confetti-falling.json",
             "128258-snake-confetti.json",
             "132379-heart-love-music.json",
-            "132630-happy-star.json"
+            "132630-happy-star.json",
+            "strong-shield.json"
         };
 
         private static readonly List<string> _failLotties = new List<string>()
         {
+            "sad-ball.json",
             "133064-angry-cloud.json"
         };
 
@@ -57,7 +59,9 @@ namespace JBQQuizMe.ViewModel
         {
         }
 
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task InitializeAsync()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             _questionProvider = new QuestionProvider(new QuestionsRepository(), MAX_ANSWERS, StartQuestionNumber, EndQuestionNumber);
 
@@ -363,7 +367,7 @@ namespace JBQQuizMe.ViewModel
                 candleLit = true;
             }
 
-            if(candleLit)
+            if(candleLit && !_questionProvider.InIterateQuestionsMode())
             {
                 Message = GetCongratMessage();
 
@@ -375,7 +379,7 @@ namespace JBQQuizMe.ViewModel
             // Pause before putting up the new quetion to help prevent mis-clicks
             await Task.Delay(250);
 
-            if (!candleLit && IsGoodRole(.3))
+            if (!candleLit && IsGoodRole(.3) && !_questionProvider.InIterateQuestionsMode())
             {
                 StagedQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 

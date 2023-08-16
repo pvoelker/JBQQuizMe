@@ -12,7 +12,8 @@ namespace JBQQuizMe.ViewModel
             { "Joab", "jowab" },
             { "Job", "jowb" },
             { "Elisha", "uhlaishuh" },
-            { "Philippian", "fihlihpiuhn" }
+            { "Philippian", "fihlihpiuhn" },
+            { "Mephibosheth", "muhfibuhsheth" }
         };
 
 

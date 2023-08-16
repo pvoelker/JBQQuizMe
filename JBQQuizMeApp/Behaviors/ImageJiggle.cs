@@ -27,19 +27,22 @@ namespace JBQQuizMeApp.Behaviors
         {
             var control = sender as Image;
 
-            var context = control.BindingContext as JBQQuizMe.ViewModel.QuizPage;
-
-            if (context != null)
+            if (control != null)
             {
-                context.CandleJiggle = new AsyncRelayCommand(async () =>
+                var context = control.BindingContext as JBQQuizMe.ViewModel.QuizPage;
+
+                if (context != null)
                 {
-                    for (int i = 0; i < 4; i++)
+                    context.CandleJiggle = new AsyncRelayCommand(async () =>
                     {
-                        await control.RotateTo(2, 50);
-                        await control.RotateTo(-2, 50);
-                    }
-                    await control.RotateTo(0);
-                });
+                        for (int i = 0; i < 4; i++)
+                        {
+                            await control.RotateTo(2, 50);
+                            await control.RotateTo(-2, 50);
+                        }
+                        await control.RotateTo(0);
+                    });
+                }
             }
         }
     }

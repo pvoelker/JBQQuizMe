@@ -12,13 +12,20 @@ public partial class QuizPage : ContentPage
 
         var context = BindingContext as JBQQuizMe.ViewModel.QuizPage;
 
-        context.StartQuestionNumber = startQuestionNumber;
-        context.EndQuestionNumber = endQuestionNumber;
-        context.ReadQuestions = readQuestions;
+        if (context != null)
+        {
+            context.StartQuestionNumber = startQuestionNumber;
+            context.EndQuestionNumber = endQuestionNumber;
+            context.ReadQuestions = readQuestions;
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-        context.InitializeAsync();
+            context.InitializeAsync();
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+        }
+        else
+        {
+            throw new NullReferenceException("Context cannot be null");
+        }
     }
 
     private void QuizPage_Disappearing(object sender, EventArgs e)
@@ -29,6 +36,10 @@ public partial class QuizPage : ContentPage
         {
             context.StopQuestion();
         }
+        else
+        {
+            throw new NullReferenceException("Context cannot be null");
+        }
     }
 
     private void Animation_Tapped(object sender, TappedEventArgs e)
@@ -38,6 +49,10 @@ public partial class QuizPage : ContentPage
         if (context != null)
         {
             context.CancelAnimation.Execute(this);
+        }
+        else
+        {
+            throw new NullReferenceException("Context cannot be null");
         }
     }
 
@@ -63,4 +78,3 @@ public partial class QuizPage : ContentPage
         }
     }
 }
-

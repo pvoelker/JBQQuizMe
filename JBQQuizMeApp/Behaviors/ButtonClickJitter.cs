@@ -24,12 +24,15 @@ namespace JBQQuizMeApp.Behaviors
         {
             var control = sender as Button;
 
-            for (int i = 0; i < 4; i++)
+            if (control != null)
             {
-                await control.RotateTo(1, 50);
-                await control.RotateTo(-1, 50);
+                for (int i = 0; i < 4; i++)
+                {
+                    await control.RotateTo(1, 50);
+                    await control.RotateTo(-1, 50);
+                }
+                await control.RotateTo(0, 50);
             }
-            await control.RotateTo(0, 50);
         }
     }
 }
