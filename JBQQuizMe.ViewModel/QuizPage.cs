@@ -2,8 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using JBQQuizMe.Repository;
 using JBQQuizMe.ViewModel.Providers;
-using SkiaSharp.Extended.UI.Controls;
-using SkiaSharp.Extended.UI.Controls.Converters;
 using System;
 using System.Diagnostics;
 
@@ -47,8 +45,6 @@ namespace JBQQuizMe.ViewModel
 
         private Stopwatch _stopwatch = new Stopwatch();
 
-        private SKLottieImageSourceConverter _lottieConverter = new SKLottieImageSourceConverter();
-
         private Task _speechTask = null;
 
         private CancellationTokenSource _speechCancellationToken = default;
@@ -75,7 +71,7 @@ namespace JBQQuizMe.ViewModel
                 }
             });
 
-            CancelAnimation = new RelayCommand(() => { LottieImage = null; });
+            CancelAnimation = new RelayCommand(() => { LottieImageFile = null; });
 
             _stopwatch.Start();
 
@@ -116,7 +112,7 @@ namespace JBQQuizMe.ViewModel
                 // Detect when animation completes
                 if (value == true)
                 {
-                    LottieImage = null;
+                    LottieImageFile = null;
 
                     if (StagedQuestion != null)
                     {
@@ -163,11 +159,11 @@ namespace JBQQuizMe.ViewModel
             private set => SetProperty(ref _message, value);
         }
 
-        private SKLottieImageSource _lottieImage = null;
-        public SKLottieImageSource LottieImage
+        private string _lottieImageFile = null;
+        public string LottieImageFile
         {
-            get => _lottieImage;
-            set => SetProperty(ref _lottieImage, value);
+            get => _lottieImageFile;
+            set => SetProperty(ref _lottieImageFile, value);
         }
 
         private decimal _completion = 0;
@@ -384,7 +380,7 @@ namespace JBQQuizMe.ViewModel
                 StagedQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
                 int index = _random.Next(_successLotties.Count);
-                LottieImage = (SKLottieImageSource)_lottieConverter.ConvertFromString(_successLotties[index]);
+                LottieImageFile = _successLotties[index];
 
                 // Question is read after animation finishes
             }
@@ -416,7 +412,7 @@ namespace JBQQuizMe.ViewModel
             if (IsGoodRole(.3))
             {
                 int index = _random.Next(_failLotties.Count);
-                LottieImage = (SKLottieImageSource)_lottieConverter.ConvertFromString(_failLotties[index]);
+                LottieImageFile = _failLotties[index];
             }
         }
 

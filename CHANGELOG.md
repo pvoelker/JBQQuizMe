@@ -134,3 +134,6 @@ Track changes made to the game application.
 - Minor corrections to question and answer text after full review
 - Known Issue: Multi-line text does not work on the possible answer buttons only on Windows (https://github.com/dotnet/maui/issues/9277). This should be addressed when the project is updated to .NET 8 (LTS)
 - Known Issue: The background color of the possible answer buttons do not change color when being read. Waiting to see if the issue is resolved in .NET 8 (LTS)
+
+## Version 1.1.0 (app ver 25)
+- Internal optimizations to handle Lottie animations
