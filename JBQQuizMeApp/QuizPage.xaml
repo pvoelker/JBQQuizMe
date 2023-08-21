@@ -15,6 +15,7 @@
         <c:TextLengthToFontSize x:Key="TextLengthToFontSize" />
         <c:TextNotNullOrEmptyToBool x:Key="TextNotNullOrEmptyToBool" />
         <c:ObjectNotNullToBool x:Key="ObjectNotNullToBool" />
+        <c:LottieImageSourceConverter x:Key="LottieImageSourceConverter" />
 
         <Style x:Key="quizInstructions" TargetType="Label">
             <Setter Property="TextColor" Value="{AppThemeBinding Light=Gray, Dark=LightGray}" />
@@ -298,7 +299,7 @@
         </Grid>
 
         <!-- PEV - 1/18/2023 - On MacOS (Catalyst) the grid blocks clicks to components visible behind it, even if no components are visible in this grid -->
-        <Grid IsVisible="{Binding Path=LottieImage, Converter={StaticResource ObjectNotNullToBool}}">
+        <Grid IsVisible="{Binding Path=LottieImageFile, Converter={StaticResource ObjectNotNullToBool}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
@@ -307,8 +308,8 @@
             </Grid.ColumnDefinitions>
 
             <skia:SKLottieView
-                IsVisible="{Binding Path=LottieImage, Converter={StaticResource ObjectNotNullToBool}}"
-                Source="{Binding Path=LottieImage}"
+                IsVisible="{Binding Path=LottieImageFile, Converter={StaticResource ObjectNotNullToBool}}"
+                Source="{Binding Path=LottieImageFile, Converter={StaticResource LottieImageSourceConverter}}"
                 RepeatCount="1"                
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill"
