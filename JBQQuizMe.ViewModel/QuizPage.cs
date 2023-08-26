@@ -53,6 +53,11 @@ namespace JBQQuizMe.ViewModel
 
         public QuizPage()
         {
+            // PEV - 8/25/2023 - The command has to be setup in the constructor or it does not get picked up in the view
+            CancelAnimation = new RelayCommand(() =>
+            {
+                LottieImageFile = null;
+            });
         }
 
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
@@ -70,8 +75,6 @@ namespace JBQQuizMe.ViewModel
                     ReadCurrentQuestion();
                 }
             });
-
-            CancelAnimation = new RelayCommand(() => { LottieImageFile = null; });
 
             _stopwatch.Start();
 

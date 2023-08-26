@@ -42,20 +42,6 @@ public partial class QuizPage : ContentPage
         }
     }
 
-    private void Animation_Tapped(object sender, TappedEventArgs e)
-    {
-        var context = BindingContext as JBQQuizMe.ViewModel.QuizPage;
-
-        if (context != null)
-        {
-            context.CancelAnimation.Execute(this);
-        }
-        else
-        {
-            throw new NullReferenceException("Context cannot be null");
-        }
-    }
-
     private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         try

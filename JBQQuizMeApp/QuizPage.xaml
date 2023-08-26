@@ -315,8 +315,7 @@
                 VerticalOptions="Fill"
                 IsComplete="{Binding Path=IsAnimationComplete, Mode=OneWayToSource}">
                 <skia:SKLottieView.GestureRecognizers>
-                    <!-- PEV - 7/22/2023 - Tried using the command directly but could not get it to work -->
-                    <TapGestureRecognizer Tapped="Animation_Tapped" />
+                    <TapGestureRecognizer Command="{Binding CancelAnimation}" />
                 </skia:SKLottieView.GestureRecognizers>
             </skia:SKLottieView>
         </Grid>
