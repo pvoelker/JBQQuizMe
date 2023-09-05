@@ -42,20 +42,6 @@ public partial class QuizPage : ContentPage
         }
     }
 
-    private void Animation_Tapped(object sender, TappedEventArgs e)
-    {
-        var context = BindingContext as JBQQuizMe.ViewModel.QuizPage;
-
-        if (context != null)
-        {
-            context.CancelAnimation.Execute(this);
-        }
-        else
-        {
-            throw new NullReferenceException("Context cannot be null");
-        }
-    }
-
     private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         try
@@ -75,6 +61,24 @@ public partial class QuizPage : ContentPage
         catch(Exception ex)
         {
             System.Diagnostics.Debug.WriteLine($"An error occurred while changing selection: { ex }");
+        }
+    }
+
+    // PEV - 9/4/2023 - At this time I can't get 'EventToCommandBehavior' to work, so I am using this to convert the event to a command
+    private void SKLottieView_AnimationCompleted(object sender, EventArgs e)
+    {
+        var context = BindingContext as JBQQuizMe.ViewModel.QuizPage;
+
+        if (context != null)
+        {
+            if (context.AnimationComplete != null)
+            {
+                context.AnimationComplete.Execute(this);
+            }
+        }
+        else
+        {
+            throw new NullReferenceException("Context cannot be null");
         }
     }
 }
