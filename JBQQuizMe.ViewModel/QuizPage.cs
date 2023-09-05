@@ -76,6 +76,25 @@ namespace JBQQuizMe.ViewModel
                 }
             });
 
+            AnimationComplete = new RelayCommand(() =>
+            {
+                LottieImageFile = null;
+
+                if (StagedQuestion != null)
+                {
+                    ElapsedTime = _stopwatch.Elapsed;
+
+                    CurrentQuestion = StagedQuestion;
+                    StagedQuestion = null;
+
+                    Continue.Execute(true);
+                }
+                else
+                {
+                    Continue.Execute(false);
+                }
+            });
+
             _stopwatch.Start();
 
             ElapsedTime = _stopwatch.Elapsed;
@@ -101,38 +120,9 @@ namespace JBQQuizMe.ViewModel
 
         public IRelayCommand CancelAnimation { get; private set; }
 
+        public IRelayCommand AnimationComplete { get; private set; }
+
         #endregion
-
-        public bool IsAnimationComplete
-        {
-            get
-            {
-                // This is to resolve a compile time XFC0045 error with compiled bindings on SkiaSharp.Extended.UI.Controls.SKLottieView
-                throw new NotImplementedException($"The GET should not be used on {nameof(IsAnimationComplete)}");
-            }
-            set
-            {
-                // Detect when animation completes
-                if (value == true)
-                {
-                    LottieImageFile = null;
-
-                    if (StagedQuestion != null)
-                    {
-                        ElapsedTime = _stopwatch.Elapsed;
-
-                        CurrentQuestion = StagedQuestion;
-                        StagedQuestion = null;
-
-                        Continue.Execute(true);
-                    }
-                    else
-                    {
-                        Continue.Execute(false);
-                    }
-                }
-            }
-        }
 
         private Answer _selectedAnswer = null;
         public Answer SelectedAnswer
