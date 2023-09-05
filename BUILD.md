@@ -28,20 +28,20 @@ Always make sure to update the dotnet workloads:
 - Make sure that 'Package.appxmanifest' is updated with the correct version
 
 ### 64-bit Windows
-> dotnet publish -f net7.0-windows10.0.19041.0 -c Release /p:RuntimeIdentifierOverride=win10-x64
+> dotnet publish -f net8.0-windows10.0.19041.0 -c Release /p:RuntimeIdentifierOverride=win10-x64
 
 ## Android
 
 - The jbqquizme.keystore needs to be copied to the JBQQuizMeApp project directory
 - Make sure you know the password to the keystore file and will be referenced as '[kspassword]'
 
-> dotnet publish -f:net7.0-android -c:Release /p:AndroidSigningKeyPass=[kspassword] /p:AndroidSigningStorePass=[kspassword]
+> dotnet publish -f:net8.0-android -c:Release /p:AndroidSigningKeyPass=[kspassword] /p:AndroidSigningStorePass=[kspassword]
 
 ## MacOS (Catalyst)
 
 Reference: https://learn.microsoft.com/en-us/dotnet/maui/mac-catalyst/deployment/publish-outside-app-store
 
-> dotnet publish -f net7.0-maccatalyst -c Release
+> dotnet publish -f net8.0-maccatalyst -c Release
 
 You may need to enter the admin password for the build machine serveral times.
 
@@ -65,7 +65,7 @@ Submit package for notarization. Use an app-specific password generated at apple
 - In the JBQQuizMeApp project file, make sure that '<CodesignKey>' is set to the distribution certificate in Keychain Access on the Mac build host
 - In the JBQQuizMeApp project file, make sure that '<CodesignProvision>' is set to the name of the codesign provision in the Apple Developer portal
 
-> dotnet publish -f net7.0-ios -c Release
+> dotnet publish -f net8.0-ios -c Release
 
 - In Visual Studio for Mac:
 - Right click on 'JBQQuizMeApp' and select 'View Archives'

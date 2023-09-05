@@ -62,11 +62,14 @@ namespace JBQQuizMe.ViewModel
         public QuizPage()
         {
             // PEV - 8/25/2023 - The command has to be setup in the constructor or it does not get picked up in the view
-            CancelAnimation = new RelayCommand(() =>
+            CancelAnimation = new AsyncRelayCommand(async () =>
             {
                 if (AnimationComplete != null)
                 {
-                    AnimationComplete.Execute(null);
+                    // Pause before putting up the new question to help prevent mis-clicks
+                    await Task.Delay(250);
+
+                    AnimationComplete.Execute(this);
                 }
             });
 
@@ -446,6 +449,9 @@ namespace JBQQuizMe.ViewModel
             }
             else
             {
+                // Pause before putting up the new question to help prevent mis-clicks
+                await Task.Delay(250);
+
                 ElapsedTime = _stopwatch.Elapsed;
 
                 CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
