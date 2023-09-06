@@ -1,4 +1,4 @@
-# JBQQuizMe
+# JBQ Quiz Me!
 
 Simple quizzing game for kids based on Junior Bible Quizzing (JBQ) 10-point questions
 
