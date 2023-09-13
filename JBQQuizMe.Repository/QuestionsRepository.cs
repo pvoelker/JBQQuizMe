@@ -3338,15 +3338,10 @@ namespace JBQQuizMe.Repository
         }
 
         /// <inheritdoc />
-        public IEnumerable<QuestionInfo> GetAll()
-        {
-            return _data.Select(x => DecryptSingle(x)).ToList();
-        }
-
-        /// <inheritdoc />
         public QuestionInfo? GetByNumber(int number)
         {
-            var retVal = _data.SingleOrDefault(x => x.Number == number);
+            // PEV - 9/13/2023 - Using FirstOrDefault instead of SingleOrDefault since we know that we have uniqueness and FirstOrDefault is faster
+            var retVal = _data.FirstOrDefault(x => x.Number == number);
             return retVal == null ? null : DecryptSingle(retVal);
         }
 
