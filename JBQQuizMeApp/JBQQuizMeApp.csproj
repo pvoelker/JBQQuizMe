@@ -32,14 +32,14 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-	  <AssemblyName>JBQQuizMe</AssemblyName>
-	  <Authors>Paul Voelker</Authors>
-      <PublisherName>Paul Voelker</PublisherName>
-	  <Title>JBQ Quiz Me!</Title>
-	  <Product>JBQ Quiz Me!</Product>
-	  <Description>Game for practicing 10-point questions in Junior Bible Quizzing (JBQ)</Description>
-	  <Copyright>Copyright © 2023 Paul Voelker</Copyright>
-      <DefaultLanguage>en</DefaultLanguage>
+		<AssemblyName>JBQQuizMe</AssemblyName>
+		<Authors>Paul Voelker</Authors>
+		<PublisherName>Paul Voelker</PublisherName>
+		<Title>JBQ Quiz Me!</Title>
+		<Product>JBQ Quiz Me!</Product>
+		<Description>Game for practicing 10-point questions in Junior Bible Quizzing (JBQ)</Description>
+		<Copyright>Copyright © 2023 Paul Voelker</Copyright>
+		<DefaultLanguage>en</DefaultLanguage>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-maccatalyst')) and '$(Configuration)' == 'Release'">
@@ -117,6 +117,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.86" />
 	</ItemGroup>
