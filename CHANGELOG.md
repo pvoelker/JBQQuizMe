@@ -138,3 +138,4 @@ Track changes made to the game application.
 ## Version 1.1.0 (app ver 25)
 - Internal optimizations to handle Lottie animations
 - Update to new version of SkiaSharp.Extended.UI.Maui
+- Fix issues with background color on buttons on iOS/Android

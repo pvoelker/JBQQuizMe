@@ -56,7 +56,10 @@ namespace JBQQuizMe.ViewModel
             // PEV - 8/25/2023 - The command has to be setup in the constructor or it does not get picked up in the view
             CancelAnimation = new RelayCommand(() =>
             {
-                LottieImageFile = null;
+                if (AnimationComplete != null)
+                {
+                    AnimationComplete.Execute(null);
+                }
             });
         }
 

@@ -13,12 +13,6 @@ namespace JBQQuizMe.Repository
         int GetMaxNumber();
 
         /// <summary>
-        /// Get all questions
-        /// </summary>
-        /// <returns>An enumerable of all questions</returns>
-        IEnumerable<QuestionInfo> GetAll();
-
-        /// <summary>
         /// Get a single question by the question number
         /// </summary>
         /// <param name="number">The question number to retrieve</param>

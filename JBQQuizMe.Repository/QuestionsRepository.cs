@@ -11,7 +11,7 @@ namespace JBQQuizMe.Repository
     /// In-memory repository for questions
     /// </summary>
     /// <remarks>Questions and correct answers are sourced from the 10-points questions of the Bible Fact-Pak (TM) and is Copyright (c) 2021 Gospel Publishing House</remarks>
-    /// <remarks>In-memory data for questions and answers are encypted to help protect the copyrighted material</remarks>
+    /// <remarks>In-memory data for questions and answers are encrypted to help protect the copyrighted material</remarks>
     public class QuestionsRepository : IQuestionRepository
     {
         private static readonly ICryptoTransform _decryptor;
@@ -3338,15 +3338,10 @@ namespace JBQQuizMe.Repository
         }
 
         /// <inheritdoc />
-        public IEnumerable<QuestionInfo> GetAll()
-        {
-            return _data.Select(x => DecryptSingle(x)).ToList();
-        }
-
-        /// <inheritdoc />
         public QuestionInfo? GetByNumber(int number)
         {
-            var retVal = _data.SingleOrDefault(x => x.Number == number);
+            // PEV - 9/13/2023 - Using FirstOrDefault instead of SingleOrDefault since we know that we have uniqueness and FirstOrDefault is faster
+            var retVal = _data.FirstOrDefault(x => x.Number == number);
             return retVal == null ? null : DecryptSingle(retVal);
         }
 
