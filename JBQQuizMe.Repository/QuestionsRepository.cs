@@ -11,7 +11,7 @@ namespace JBQQuizMe.Repository
     /// In-memory repository for questions
     /// </summary>
     /// <remarks>Questions and correct answers are sourced from the 10-points questions of the Bible Fact-Pak (TM) and is Copyright (c) 2021 Gospel Publishing House</remarks>
-    /// <remarks>In-memory data for questions and answers are encypted to help protect the copyrighted material</remarks>
+    /// <remarks>In-memory data for questions and answers are encrypted to help protect the copyrighted material</remarks>
     public class QuestionsRepository : IQuestionRepository
     {
         private static readonly ICryptoTransform _decryptor;
