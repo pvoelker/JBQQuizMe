@@ -17,6 +17,7 @@
         <c:TextNotNullOrEmptyToBool x:Key="TextNotNullOrEmptyToBool" />
         <c:ObjectNotNullToBool x:Key="ObjectNotNullToBool" />
         <c:LottieImageSourceConverter x:Key="LottieImageSourceConverter" />
+        <c:QuotationQuestionConverter x:Key="QuotationQuestionConverter" />
 
         <Style x:Key="quizInstructions" TargetType="Label">
             <Setter Property="TextColor" Value="{AppThemeBinding Light=Gray, Dark=LightGray}" />
@@ -84,6 +85,10 @@
             <Setter Property="TextColor" Value="{AppThemeBinding Light=DarkRed, Dark=Red}" />
         </Style>
 
+        <Style x:Key="revealedCount" TargetType="Label" BasedOn="{StaticResource correctBase}">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=DarkViolet, Dark=Violet}" />
+        </Style>
+
         <Style x:Key="largeMessage" TargetType="Label">
             <Setter Property="TextColor" Value="Gold" />
             <Setter Property="BackgroundColor" Value="DarkGray" />
@@ -130,15 +135,32 @@
 
             <Label
                 Style="{StaticResource quizInstructions}"
+                IsVisible="{Binding Path=NoInterruptionPoint}"
                 Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
                 Text="Make the candle glow brighter by answering questions correctly!"
                 Margin="5" />
 
             <Label
+                Style="{StaticResource quizInstructions}"
+                IsVisible="{Binding Path=InterruptionPoint}"
+                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
+                Text="Tap/click the question to reveal all of it..."
+                Margin="5" />
+
+            <Label
                 Style="{StaticResource currentQuestion}"
                 Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6"
-                Margin="5"
-                Text="{Binding Path=CurrentQuestion.Question, Mode=OneWay}" />
+                Margin="5">
+                <Label.Text>
+                    <MultiBinding Converter="{StaticResource QuotationQuestionConverter}">
+                        <Binding Path="CurrentQuestion.IsQuotation" Mode="OneWay" />
+                        <Binding Path="CurrentQuestion.Question" Mode="OneWay" />
+                    </MultiBinding>
+                </Label.Text>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RevealFullQuestion}" />
+                </Label.GestureRecognizers>
+            </Label>
 
             <Frame
                 Grid.Row="2" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2"
@@ -250,6 +272,7 @@
 
             <Label
                 Style="{StaticResource message}"
+                IsVisible="{Binding Path=HaveQuestionsNotBeenRevealed}"
                 Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"                
                 Margin="5"
                 MinimumHeightRequest="20"
@@ -263,6 +286,14 @@
                 <Label.Behaviors>
                     <b:MessageThump />
                 </Label.Behaviors>
+            </Label>
+
+            <Label
+                Style="{StaticResource revealedCount}"
+                IsVisible="{Binding Path=HaveQuestionsBeenRevealed}"
+                Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"                
+                Margin="5"
+                Text="{Binding Path=RevealedQuestions, Mode=OneWay, StringFormat='Revealed: {0}'}">
             </Label>
 
             <Label

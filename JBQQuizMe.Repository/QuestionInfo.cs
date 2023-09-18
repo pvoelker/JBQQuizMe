@@ -6,6 +6,7 @@ namespace JBQQuizMe.Repository
     public class QuestionInfo
     {
         public int Number { get; set; }
+        public bool IsQuotation { get; set; }
         public required string Question { get; set; }
         public int AnswerHash { get; set; }
         public required List<string> Answer { get; set; }

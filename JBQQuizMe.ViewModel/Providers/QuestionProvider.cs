@@ -18,6 +18,8 @@ namespace JBQQuizMe.ViewModel.Providers
 
         private readonly int _maxAnswers;
 
+        private readonly bool _onlyShowInterruptionPoint;
+
         private readonly int? _startQuestionNumber, _endQuestionNumber;
 
         private int _iterQuestionNum = 0;
@@ -27,12 +29,13 @@ namespace JBQQuizMe.ViewModel.Providers
         /// </summary>
         /// <param name="repository">An instance of the question repository interface</param>
         /// <param name="maxAnswers">Maximum number of answers to provide with a question. One answer will be the correct one</param>
+        /// <param name="onlyShowInterruptionPoint">True to only show the interruption point of the question</param>
         /// <param name="startQuestionNumber">Starting question number. Null if no limit</param>
         /// <param name="endQuestionNumber">Ending question number. Null if no limit</param>
-        /// <exception cref="ArgumentNullException">An invalid constructor argument was given, see exeception information</exception>
+        /// <exception cref="ArgumentNullException">An invalid constructor argument was given, see exception information</exception>
         /// <exception cref="ArgumentOutOfRangeException">One of the constructor arguments has an invalid value</exception>
         /// <remarks>Both start and end question number must be provided or both must be null.</remarks>
-        public QuestionProvider(IQuestionRepository repository, int maxAnswers, int? startQuestionNumber, int? endQuestionNumber)
+        public QuestionProvider(IQuestionRepository repository, int maxAnswers, bool onlyShowInterruptionPoint, int? startQuestionNumber, int? endQuestionNumber)
         {
             if (repository == null)
             {
@@ -46,6 +49,7 @@ namespace JBQQuizMe.ViewModel.Providers
 
             _repository = repository;
             _maxAnswers = maxAnswers;
+            _onlyShowInterruptionPoint = onlyShowInterruptionPoint;
             _startQuestionNumber = startQuestionNumber;
             _endQuestionNumber = endQuestionNumber;
 
@@ -109,10 +113,15 @@ namespace JBQQuizMe.ViewModel.Providers
 
             var question = _repository.GetByNumber(nextNumber);
 
+            var quotationQuestionSplit = question.Question.Split('|');
+            var cleanQuestion = question.Question.Replace('|', ' ');
+
             var retVal = new AskedQuestion
             {
                 Number = question.Number,
-                Question = question.Question,
+                IsQuotation = question.IsQuotation,
+                Question = _onlyShowInterruptionPoint ? (quotationQuestionSplit.Length == 1 ? cleanQuestion : (quotationQuestionSplit[0]) + "...") : cleanQuestion,
+                FullQuestion = cleanQuestion,
                 Passage = question.Passage,
                 CorrectAnswer = new Answer
                 {

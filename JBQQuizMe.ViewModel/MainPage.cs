@@ -15,6 +15,7 @@ namespace JBQQuizMe.ViewModel
             MaxQuestionNumber = repository.GetMaxNumber();
 
             ReadQuestions = Preferences.Default.Get(PreferenceKeys.ReadQuestions, true);
+            InterruptionPoint = Preferences.Default.Get(PreferenceKeys.ShowInterruptionPoint, false);
             StartQuestionNumberStr = Preferences.Default.Get<string>(PreferenceKeys.StartQuestionRange, null);
             EndQuestionNumberStr = Preferences.Default.Get<string>(PreferenceKeys.EndQuestionRange, null);
 
@@ -138,6 +139,17 @@ namespace JBQQuizMe.ViewModel
             {
                 Preferences.Default.Set(PreferenceKeys.ReadQuestions, value);
                 SetProperty(ref _readQuestions, value);
+            }
+        }
+
+        private bool _interruptionPoint = false;
+        public bool InterruptionPoint
+        {
+            get => _interruptionPoint;
+            set
+            {
+                Preferences.Default.Set(PreferenceKeys.ShowInterruptionPoint, value);
+                SetProperty(ref _interruptionPoint, value);
             }
         }
 

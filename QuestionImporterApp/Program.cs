@@ -72,6 +72,8 @@ namespace QuestionsImporterApp
 
                         file.WriteLine(@"new QuestionInfo {");
                         file.WriteLine($"    Number = { row.Number },");
+                        var isQuotation = string.Compare(row.Type, "DirectBibleQuote", true) == 0 ? "true" : "false";
+                        file.WriteLine($"    IsQuotation = {isQuotation },");
                         file.WriteLine($"    Question = \"{ EncryptString(key, row.Question) }\",");
                         file.WriteLine($"    AnswerHash = { GetStringHash(hasModifiedAnswer ? row.AnswersAsList() : row.OriginalAnswersAsList()) },");
                         if (hasModifiedAnswer)

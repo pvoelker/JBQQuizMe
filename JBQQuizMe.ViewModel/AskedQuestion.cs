@@ -22,14 +22,34 @@ namespace JBQQuizMe.ViewModel
             set => SetProperty(ref _number, value);
         }
 
+        private bool _quotationQuestion;
+        /// <summary>
+        /// True if this is a quotation question
+        /// </summary>
+        public bool IsQuotation
+        {
+            get => _quotationQuestion;
+            set => SetProperty(ref _quotationQuestion, value);
+        }
+
         private string _question;
         /// <summary>
-        /// Question text
+        /// Question text (may only be to interruption point based on settings)
         /// </summary>
         public string Question
         {
             get => _question;
             set => SetProperty(ref _question, value);
+        }
+
+        private string _fullQuestion;
+        /// <summary>
+        /// Full question text
+        /// </summary>
+        public string FullQuestion
+        {
+            get => _fullQuestion;
+            set => SetProperty(ref _fullQuestion, value);
         }
 
         private List<Answer> _possibleAnswers;

@@ -9,5 +9,7 @@ namespace JBQQuizMe.ViewModel
         public const string StartQuestionRange = "start_question_range";
 
         public const string EndQuestionRange = "end_question_range";
+
+        public const string ShowInterruptionPoint = "show_interruption_point";
     }
 }
