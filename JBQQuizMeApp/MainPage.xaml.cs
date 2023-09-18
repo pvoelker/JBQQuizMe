@@ -23,7 +23,7 @@ public partial class MainPage : ContentPage
 			}
 			else
 			{
-				await Navigation.PushAsync(new QuizPage(context.StartQuestionNumber, context.EndQuestionNumber, context.ReadQuestions));
+				await Navigation.PushAsync(new QuizPage(context.StartQuestionNumber, context.EndQuestionNumber, context.ReadQuestions, context.InterruptionPoint));
 			}
 		}
         else

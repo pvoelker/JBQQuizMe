@@ -32,6 +32,16 @@
             <Setter Property="FontFamily" Value="OpenSansRegular" />
             <Setter Property="FontSize" Value="{OnPlatform Default='18', MacCatalyst='23.4'}" />
             <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="subOptionsText" TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='14', MacCatalyst='20'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
         </Style>
 
@@ -137,8 +147,13 @@
                 Clicked="QuizMe_Clicked" />
 
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Style="{StaticResource optionsText}" Text="Read Questions/Answers:" Margin="20,0,0,0" />
+                <Label Style="{StaticResource optionsText}" Text="Read Questions/Answers:" Margin="10,0,0,0" />
                 <CheckBox IsChecked="{Binding Path=ReadQuestions}" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Style="{StaticResource subOptionsText}" Text="Only Show Interruption Point:" Margin="10,0,0,0" />
+                <CheckBox IsChecked="{Binding Path=InterruptionPoint}" VerticalOptions="Center" />
             </HorizontalStackLayout>
 
             <HorizontalStackLayout

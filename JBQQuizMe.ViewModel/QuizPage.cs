@@ -61,13 +61,25 @@ namespace JBQQuizMe.ViewModel
                     AnimationComplete.Execute(null);
                 }
             });
+
+            RevealFullQuestion = new RelayCommand(() =>
+            {
+                if (CurrentQuestion != null)
+                {
+                    if (CurrentQuestion.Question != CurrentQuestion.FullQuestion)
+                    {
+                        CurrentQuestion.Question = CurrentQuestion.FullQuestion;
+                        RevealedQuestions = RevealedQuestions + 1;
+                    }
+                }
+            });
         }
 
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task InitializeAsync()
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
-            _questionProvider = new QuestionProvider(new QuestionsRepository(), MAX_ANSWERS, StartQuestionNumber, EndQuestionNumber);
+            _questionProvider = new QuestionProvider(new QuestionsRepository(), MAX_ANSWERS, InterruptionPoint, StartQuestionNumber, EndQuestionNumber);
 
             CurrentQuestion = _questionProvider.GetNextQuestion(CorrectAnswerAsync, WrongAnswerAsync);
 
@@ -124,6 +136,8 @@ namespace JBQQuizMe.ViewModel
         public IRelayCommand CancelAnimation { get; private set; }
 
         public IRelayCommand AnimationComplete { get; private set; }
+
+        public IRelayCommand RevealFullQuestion { get; private set; }
 
         #endregion
 
@@ -183,6 +197,26 @@ namespace JBQQuizMe.ViewModel
             private set => SetProperty(ref _wrongAnswers, value);
         }
 
+        private int _revealedQuestions = 0;
+        public int RevealedQuestions
+        {
+            get => _revealedQuestions;
+            private set
+            {
+                SetProperty(ref _revealedQuestions, value);
+                OnPropertyChanged(nameof(HaveQuestionsBeenRevealed));
+                OnPropertyChanged(nameof(HaveQuestionsNotBeenRevealed));
+            }
+        }
+        public bool HaveQuestionsBeenRevealed
+        {
+            get => RevealedQuestions > 0;
+        }
+        public bool HaveQuestionsNotBeenRevealed
+        {
+            get => RevealedQuestions == 0;
+        }
+
         private int _candlesLit = 0;
         public int CandlesLit
         {
@@ -217,6 +251,22 @@ namespace JBQQuizMe.ViewModel
         {
             get => _readQuestions;
             set => SetProperty(ref _readQuestions, value);
+        }
+
+        private bool _interruptionPoint = false;
+        public bool InterruptionPoint
+        {
+            get => _interruptionPoint;
+            set
+            {
+                SetProperty(ref _interruptionPoint, value);
+                OnPropertyChanged(nameof(NoInterruptionPoint));
+            }
+        }
+
+        public bool NoInterruptionPoint
+        {
+            get => !_interruptionPoint;
         }
 
         private TimeSpan _elapsedTime = default;
@@ -368,7 +418,7 @@ namespace JBQQuizMe.ViewModel
                 Celebration?.Execute(null);
             }
 
-            // Pause before putting up the new quetion to help prevent mis-clicks
+            // Pause before putting up the new question to help prevent mis-clicks
             await Task.Delay(250);
 
             if (!candleLit && IsGoodRole(.3) && !_questionProvider.InIterateQuestionsMode())

@@ -139,3 +139,6 @@ Track changes made to the game application.
 - Internal optimizations to handle Lottie animations
 - Update to new version of SkiaSharp.Extended.UI.Maui
 - Fix issues with background color on buttons on iOS/Android
+
+## Version 1.2.0 (app ver 26)
+- Implement 'interruption point' mode. In this mode, the question will only be shown up to the interruption point. The question can be tapped/clicked to reveal all of it.
