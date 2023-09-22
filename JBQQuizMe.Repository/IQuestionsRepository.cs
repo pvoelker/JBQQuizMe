@@ -3,9 +3,15 @@ using System.Collections.Generic;
 
 namespace JBQQuizMe.Repository
 {
-    // Inteface definition for quiz question repository
+    // Interface definition for quiz question repository
     public interface IQuestionRepository
     {
+        /// <summary>
+        /// Get minimum question number
+        /// </summary>
+        /// <returns>Minimum question number</returns>
+        int GetMinNumber();
+
         /// <summary>
         /// Get maximum question number
         /// </summary>
