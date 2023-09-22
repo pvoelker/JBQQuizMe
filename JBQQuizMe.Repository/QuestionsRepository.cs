@@ -3620,6 +3620,12 @@ namespace JBQQuizMe.Repository
         }
 
         /// <inheritdoc />
+        public int GetMinNumber()
+        {
+            return _data.Min(x => x.Number);
+        }
+
+        /// <inheritdoc />
         public int GetMaxNumber()
         {
             return _data.Max(x => x.Number);

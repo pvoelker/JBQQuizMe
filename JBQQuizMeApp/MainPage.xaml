@@ -27,6 +27,15 @@
             </Setter>
         </Style>
 
+        <Style x:Key="jbqSubMotto" TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray300}}" />
+            <Setter Property="FontFamily" Value="MorningRainbow" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='16', MacCatalyst='22.9'}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
         <Style x:Key="optionsText" TargetType="Label">
             <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}" />
             <Setter Property="FontFamily" Value="OpenSansRegular" />
@@ -90,7 +99,11 @@
 
             <Label
                 Style="{StaticResource Key=jbqMotto}"
-                Text="Practice Junior Bible Quizzing.  Put the word of God into your heart!" />
+                Text="Put the word of God into your heart with Junior Bible Quizzing!" />
+
+            <Label
+                Style="{StaticResource Key=jbqSubMotto}"
+                Text="10 Point Question Practice" />
 
             <Image
                 Margin="10"
@@ -100,7 +113,8 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Style="{StaticResource optionsText}">Optional Bible Fact-Pak™ (NLT) Question Range:</Label>
+                Style="{StaticResource optionsText}"
+                Text="Optional Bible Fact-Pak™ (NLT) Question Range:" />
             
             <HorizontalStackLayout
                 HorizontalOptions="Center">
@@ -143,7 +157,7 @@
             <Button 
                 Style="{StaticResource startButton}"
                 Text="Quiz Me!"
-                Margin="20"
+                Margin="10"
                 Clicked="QuizMe_Clicked" />
 
             <HorizontalStackLayout HorizontalOptions="Center">
@@ -152,7 +166,7 @@
             </HorizontalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Style="{StaticResource subOptionsText}" Text="Only Show Interruption Point:" Margin="10,0,0,0" />
+                <Label Style="{StaticResource subOptionsText}" Text="Only Show Interruption Points:" Margin="10,0,0,0" />
                 <CheckBox IsChecked="{Binding Path=InterruptionPoint}" VerticalOptions="Center" />
             </HorizontalStackLayout>
 

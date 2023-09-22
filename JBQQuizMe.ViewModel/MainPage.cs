@@ -12,6 +12,7 @@ namespace JBQQuizMe.ViewModel
         {
             var repository = new QuestionsRepository();
 
+            MinQuestionNumber = repository.GetMinNumber();
             MaxQuestionNumber = repository.GetMaxNumber();
 
             ReadQuestions = Preferences.Default.Get(PreferenceKeys.ReadQuestions, true);
@@ -66,6 +67,13 @@ namespace JBQQuizMe.ViewModel
         {
             get => _copyright;
             private set => SetProperty(ref _copyright, value);
+        }
+
+        private int _minQuestionNumber;
+        public int MinQuestionNumber
+        {
+            get => _minQuestionNumber;
+            private set => SetProperty(ref _minQuestionNumber, value);
         }
 
         private int _maxQuestionNumber;
@@ -157,28 +165,30 @@ namespace JBQQuizMe.ViewModel
         {
             var instance = (MainPage)context.ObjectInstance;
 
-            if (instance.StartQuestionNumber.HasValue && (instance.StartQuestionNumber <= 0))
+            const string bfpMsg = "This game only uses 10 point questions from the Bible Fact-Pak™.";
+
+            if (instance.StartQuestionNumber.HasValue && (instance.StartQuestionNumber < instance.MinQuestionNumber))
             {
-                return new("Start question number must be greater than 0");
+                return new($"Start question number must be greater than or equal to {instance.MinQuestionNumber}. {bfpMsg}");
             }
-            else if (instance.EndQuestionNumber.HasValue && (instance.EndQuestionNumber <= 0))
+            else if (instance.EndQuestionNumber.HasValue && (instance.EndQuestionNumber < instance.MinQuestionNumber))
             {
-                return new("End question number must be greater than 0");
+                return new($"End question number must be greater than or equal to {instance.MinQuestionNumber}. {bfpMsg}");
             }
             else if (instance.StartQuestionNumber.HasValue && (instance.StartQuestionNumber > instance.MaxQuestionNumber))
             {
-                return new($"Start question number must be equal to or less than {instance.MaxQuestionNumber}. This game only uses 10 point questions from the Bible Fact-Pak™.");
+                return new($"Start question number must be equal to or less than {instance.MaxQuestionNumber}. {bfpMsg}");
             }
             else if (instance.EndQuestionNumber.HasValue && (instance.EndQuestionNumber > instance.MaxQuestionNumber))
             {
-                return new($"End question number must be equal to or less than {instance.MaxQuestionNumber}. This game only uses 10 point questions from the Bible Fact-Pak™.");
+                return new($"End question number must be equal to or less than {instance.MaxQuestionNumber}. {bfpMsg}");
             }
             else if ((instance.StartQuestionNumber.HasValue && instance.StartQuestionNumber.Value != 0)
                 ^ (instance.EndQuestionNumber.HasValue && instance.EndQuestionNumber.Value != 0))
             {
                 return new($"If specifying a question range, both 'start' and 'end' must be provided");
             }
-            else if(instance.StartQuestionNumber >= instance.EndQuestionNumber)
+            else if (instance.StartQuestionNumber >= instance.EndQuestionNumber)
             {
                 if (instance.StartQuestionNumber != instance.MaxQuestionNumber &&
                     instance.EndQuestionNumber != instance.MaxQuestionNumber)
@@ -186,7 +196,7 @@ namespace JBQQuizMe.ViewModel
                     return new("Start question number must be less than the end question number");
                 }
             }
-            else if((instance.EndQuestionNumber - instance.StartQuestionNumber + 1) < 10)
+            else if ((instance.EndQuestionNumber - instance.StartQuestionNumber + 1) < 10)
             {
                 if (instance.StartQuestionNumber != instance.MaxQuestionNumber &&
                     instance.EndQuestionNumber != instance.MaxQuestionNumber)
