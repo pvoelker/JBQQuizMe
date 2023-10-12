@@ -51,6 +51,14 @@ namespace JBQQuizMe.ViewModel
 
         private QuestionProvider _questionProvider = null;
 
+        static QuizPage()
+        {
+            var minDim = Math.Min(DeviceDisplay.Current.MainDisplayInfo.Height, DeviceDisplay.Current.MainDisplayInfo.Width);
+            var minDimDensityRatio = minDim / DeviceDisplay.Current.MainDisplayInfo.Density;
+
+            _isSmallScreen = minDimDensityRatio < 600;
+        }
+
         public QuizPage()
         {
             // PEV - 8/25/2023 - The command has to be setup in the constructor or it does not get picked up in the view
@@ -140,6 +148,12 @@ namespace JBQQuizMe.ViewModel
         public IRelayCommand RevealFullQuestion { get; private set; }
 
         #endregion
+
+        private static bool _isSmallScreen = false;
+        public bool IsSmallScreen
+        {
+            get => _isSmallScreen;
+        }
 
         private Answer _selectedAnswer = null;
         public Answer SelectedAnswer

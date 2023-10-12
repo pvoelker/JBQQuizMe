@@ -72,9 +72,15 @@
 
         <Style x:Key="correctBase" TargetType="Label">
             <Setter Property="FontFamily" Value="MorningRainbow" />
-            <Setter Property="FontSize" Value="{OnPlatform Default='32', MacCatalyst='41.6'}" />
+            <Setter Property="FontSize" Value="{OnPlatform Default='36', MacCatalyst='51.4'}" />
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Style.Triggers>
+                <DataTrigger TargetType="Label"
+                    Binding="{Binding Source={RelativeSource AncestorType={x:Type vm:QuizPage}}, Path=IsSmallScreen}" Value="True">
+                    <Setter Property="FontSize" Value= "{OnPlatform Default='28', MacCatalyst='40'}" />
+                </DataTrigger>
+            </Style.Triggers>
         </Style>        
         
         <Style x:Key="correctCount" TargetType="Label" BasedOn="{StaticResource correctBase}">
