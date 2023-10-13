@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:JBQQuizMe.ViewModel;assembly=JBQQuizMe.ViewModel"
              xmlns:b="clr-namespace:JBQQuizMeApp.Behaviors"
              xmlns:c="clr-namespace:JBQQuizMeApp.Converters"
+             xmlns:local="clr-namespace:JBQQuizMeApp"
              xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="JBQQuizMeApp.QuizPage"
@@ -217,32 +218,31 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Button
+                        <local:BetterButton
                             x:DataType="vm:Answer"
                             Text="{Binding Path=Text}"
                             FontSize="{Binding Path=Text, Converter={StaticResource TextLengthToFontSize}}"
-                            LineBreakMode="WordWrap"
                             IsEnabled="{Binding Path=NotAttempted}"
                             Command="{Binding Path=Clicked}"
                             MinimumHeightRequest="60">
-                            <Button.Behaviors>
+                            <!--<local:BetterButton.Behaviors>
                                 <b:ButtonClickJitter/>
-                            </Button.Behaviors>
-                            <Button.Style>
-                                <Style TargetType="Button">
+                            </local:BetterButton.Behaviors>-->
+                            <local:BetterButton.Style>
+                                <Style TargetType="local:BetterButton">
                                     <Style.Triggers>
                                         <!-- PEV - 9/13/2023 - Using Background instead of BackgroundColor since it has problems on iOS/Android -->
-                                        <DataTrigger TargetType="Button" Binding="{Binding Path=IsReading}" Value="True">
-                                            <Setter Property="Background" Value= "Orange" />
+                                        <DataTrigger TargetType="local:BetterButton" Binding="{Binding Path=IsReading}" Value="True">
+                                            <Setter Property="BackgroundColor" Value= "Orange" />
                                         </DataTrigger>
-                                        <DataTrigger TargetType="Button" Binding="{Binding Path=Attempted}" Value="True">
+                                        <DataTrigger TargetType="local:BetterButton" Binding="{Binding Path=Attempted}" Value="True">
                                             <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
-                                            <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}" />
+                                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}" />
                                         </DataTrigger>                                        
                                     </Style.Triggers>
                                 </Style>
-                            </Button.Style>
-                        </Button>
+                            </local:BetterButton.Style>
+                        </local:BetterButton>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
