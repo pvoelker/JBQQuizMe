@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace JBQQuizMeApp.Behaviors
 {
-    public class ButtonClickJitter : Behavior<Button>
+    public class ButtonClickJitter : Behavior<BetterButton>
     {
-        protected override void OnAttachedTo(Button control)
+        protected override void OnAttachedTo(BetterButton control)
         {
             control.Clicked += Control_Clicked;
             base.OnAttachedTo(control);
         }
 
-        protected override void OnDetachingFrom(Button control)
+        protected override void OnDetachingFrom(BetterButton control)
         {
             control.Clicked -= Control_Clicked;
             base.OnDetachingFrom(control);
@@ -22,7 +22,7 @@ namespace JBQQuizMeApp.Behaviors
 
         private async void Control_Clicked(object sender, EventArgs e)
         {
-            var control = sender as Button;
+            var control = sender as BetterButton;
 
             if (control != null)
             {

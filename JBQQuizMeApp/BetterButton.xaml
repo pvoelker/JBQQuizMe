@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:local="clr-namespace:JBQQuizMeApp"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JBQQuizMeApp.BetterButton">
+    <Border
+        x:DataType="local:BetterButton"
+        BackgroundColor="{Binding Path=BackgroundColor, Source={RelativeSource AncestorType={x:Type local:BetterButton}}, Mode=OneWay}">
+        <Label
+            FontFamily="{Binding Path=FontFamily, Source={RelativeSource AncestorType={x:Type local:BetterButton}}, Mode=OneWay}"
+            FontSize="{Binding Path=FontSize, Source={RelativeSource AncestorType={x:Type local:BetterButton}}, Mode=OneWay}"
+            Text="{Binding Path=Text, Source={RelativeSource AncestorType={x:Type local:BetterButton}}, Mode=OneWay}"
+            Margin="5"
+            TextColor="{Binding Path=TextColor, Source={RelativeSource AncestorType={x:Type local:BetterButton}}, Mode=OneWay}"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Center"/>
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="8" />
+        </Border.StrokeShape>
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+        </Border.GestureRecognizers>
+    </Border>
+</ContentView>

@@ -145,3 +145,7 @@ Track changes made to the game application.
 
 ## Version 1.3.0 (app ver 27)
 - Game application re-styling
+
+## Version 1.4.0 (app ver 28)
+- Better optimize fonts for different size screens
+- Fix issues with quiz answer buttons and multi-line text on Windows and iOS. This is getting around issue: https://github.com/dotnet/maui/issues/9277
