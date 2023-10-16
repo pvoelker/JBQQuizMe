@@ -3,11 +3,19 @@ using System.Windows.Input;
 
 namespace JBQQuizMeApp;
 
+/// <summary>
+/// This is an alternate implementation to the standard MAUI button.
+/// 
+/// -There is a known issue on iOS/MacOS (Catalyst) with sizing of buttons in a CollectionView with the MeasureAllItems sizing strategy.
+/// -There is a known issue on Windows where multi-line buttons just don't work. Issue: https://github.com/dotnet/maui/issues/9277
+/// </summary>
 public partial class BetterButton : ContentView
 {
 	public BetterButton()
 	{
-		InitializeComponent();
+        BindingContext = this;
+        
+        InitializeComponent();
 	}
 
     public static readonly BindableProperty FontFamilyProperty = BindableProperty.Create(nameof(FontFamily), typeof(string), typeof(BetterButton), "OpenSansRegular");
