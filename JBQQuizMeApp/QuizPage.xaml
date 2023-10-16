@@ -225,9 +225,9 @@
                             IsEnabled="{Binding Path=NotAttempted}"
                             Command="{Binding Path=Clicked}"
                             MinimumHeightRequest="60">
-                            <!--<local:BetterButton.Behaviors>
+                            <local:BetterButton.Behaviors>
                                 <b:ButtonClickJitter/>
-                            </local:BetterButton.Behaviors>-->
+                            </local:BetterButton.Behaviors>
                             <local:BetterButton.Style>
                                 <Style TargetType="local:BetterButton">
                                     <Style.Triggers>

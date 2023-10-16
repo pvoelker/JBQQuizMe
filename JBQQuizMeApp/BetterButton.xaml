@@ -18,7 +18,7 @@
             <RoundRectangle CornerRadius="8" />
         </Border.StrokeShape>
         <Border.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding Path=Command, Source={RelativeSource AncestorType={x:Type local:BetterButton}}, Mode=OneWay}" />
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
         </Border.GestureRecognizers>
     </Border>
 </ContentView>

@@ -1,3 +1,4 @@
+using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 
 namespace JBQQuizMeApp;
@@ -52,5 +53,27 @@ public partial class BetterButton : ContentView
     {
         get => (ICommand)GetValue(CommandProperty);
         set => SetValue(CommandProperty, value);
+    }
+
+    private ICommand ClickCommand
+    {
+        get => (ICommand)GetValue(CommandProperty);
+        set => SetValue(CommandProperty, value);
+    }
+
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        if (Clicked != null)
+        {
+            Clicked(this, EventArgs.Empty);
+        }
+
+        if (Command != null)
+        {
+            if (Command.CanExecute(this))
+            {
+                Command.Execute(null);
+            }
+        }
     }
 }
